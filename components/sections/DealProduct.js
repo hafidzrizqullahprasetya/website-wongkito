@@ -12,18 +12,18 @@ export default function DealProduct() {
                     <div className="flex flex-col lg:flex-row items-stretch">
 
                         {/* Left: Product Image */}
-                        <div className="lg:w-5/12 w-full flex items-end justify-center pt-10 pb-0 px-8 relative">
+                        <div className="lg:w-5/12 w-full flex items-center justify-center py-10 lg:py-0 px-8 lg:min-h-[520px] relative">
                             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <div className="w-72 h-72 rounded-full !bg-white/5 animate-pulse" />
+                                <div className="w-72 h-72 lg:w-80 lg:h-80 rounded-full !bg-white/5 animate-pulse" />
                             </div>
                             <div className="relative z-10">
                                 <img
                                     src="https://placehold.co/600x600/f3f4f6/8B1A1A?text=Special+Deal"
                                     alt="Paket Spesial Pempek"
-                                    className="w-64 sm:w-72 lg:w-80 object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] relative z-10"
+                                    className="w-64 sm:w-72 lg:w-[400px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] relative z-10"
                                 />
                                 {/* Price badge */}
-                                <div className="absolute bottom-4 -right-2 !bg-wk-gold px-4 py-3 rounded-2xl shadow-lg transform rotate-3 z-20">
+                                <div className="absolute -bottom-2 -right-4 !bg-wk-gold px-4 py-3 rounded-2xl shadow-lg transform rotate-3 z-20">
                                     <span className="block text-[9px] font-black !text-wk-dark-maroon uppercase tracking-wider mb-0.5">Mulai</span>
                                     <span className="block text-lg font-black !text-wk-dark-maroon leading-none">Rp 49rb</span>
                                 </div>
@@ -72,8 +72,8 @@ export default function DealProduct() {
                                 <Countdown endDateTime={endDateTime.getTime()} />
                             </div>
 
-                            {/* CTA Button */}
-                            <div>
+                            {/* CTA Button — centered on mobile, left on desktop */}
+                            <div className="flex justify-center lg:justify-start">
                                 <Link
                                     href="/shop/1"
                                     className="inline-flex items-center gap-2 px-6 py-3 !bg-wk-gold !text-wk-dark-maroon font-black text-xs uppercase tracking-widest rounded-full hover:opacity-80 transition-opacity"
