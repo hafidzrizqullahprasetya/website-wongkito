@@ -105,7 +105,7 @@ export default function Contact() {
                         {/* ── Right: Form ── */}
                         <div className="flex-1">
                             <div className="py-2">
-                                <span className="inline-block px-3 py-1 !bg-wk-maroon !text-wk-gold text-[10px] font-black uppercase tracking-[0.3em] mb-4 rounded">Pesan & Pertanyaan</span>
+                                <span className="inline-block px-3 py-1 !bg-wk-gold !text-wk-dark-maroon text-[10px] font-black uppercase tracking-[0.3em] mb-4 rounded">Pesan & Pertanyaan</span>
                                 <h2 className="text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight mb-4 leading-tight">
                                     Kirim Pesan <br className="hidden md:block"/> atau Pesanan Khusus
                                 </h2>
