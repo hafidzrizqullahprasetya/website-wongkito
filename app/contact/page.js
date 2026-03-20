@@ -105,7 +105,7 @@ export default function Contact() {
                         {/* ── Right: Form ── */}
                         <div className="flex-1">
                             <div className="py-2">
-                                <span className="block text-[11px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-4">Pesan & Pertanyaan</span>
+                                <span className="inline-block px-3 py-1 !bg-wk-maroon !text-wk-gold text-[10px] font-black uppercase tracking-[0.3em] mb-4 rounded">Pesan & Pertanyaan</span>
                                 <h2 className="text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight mb-4 leading-tight">
                                     Kirim Pesan <br className="hidden md:block"/> atau Pesanan Khusus
                                 </h2>
@@ -147,7 +147,7 @@ export default function Contact() {
                                     <div className="pt-4">
                                         <button
                                             type="submit"
-                                            className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-3.5 !bg-wk-maroon !text-white font-black text-[10px] uppercase tracking-widest rounded-xl active:scale-95 transition-all shadow-lg shadow-wk-maroon/10"
+                                            className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-3.5 !bg-wk-maroon !text-white font-black text-[10px] uppercase tracking-widest rounded-xl active:scale-95 transition-all"
                                         >
                                             Kirim Sekarang
                                             <i className="fal fa-paper-plane" />
