@@ -65,7 +65,7 @@ export default function Product() {
                 <div className="relative min-h-[400px]">
                     <div key={activeIndex + '-' + currentPage} className="animate-fadeIn">
                         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">
-                            <FilterShopBox2 itemStart={paginatedStart} itemEnd={paginatedEnd} />
+                            <FilterShopBox itemStart={paginatedStart} itemEnd={paginatedEnd} />
                         </div>
                     </div>
                 </div>
