@@ -1,7 +1,7 @@
 'use client'
 import { addCart } from "@/features/shopSlice"
 import { addWishlist } from "@/features/wishlistSlice"
-import { Fragment, useState } from "react"
+import { Fragment, useState, useRef, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import products from "../../data/products"
 import {
@@ -26,6 +26,10 @@ const FilterShopBox = () => {
     const { sort, perPage } = shopSort
     const dispatch = useDispatch()
 
+    // State for Custom Dropdown
+    const [isSortOpen, setIsSortOpen] = useState(false)
+    const sortRef = useRef(null)
+
     const addToCart = (id) => {
         const item = products?.find((item) => item.id === id)
         dispatch(addCart({ product: item }))
@@ -37,6 +41,15 @@ const FilterShopBox = () => {
 
     const [activeIndex, setActiveIndex] = useState(2)
     const handleOnClick = (index) => setActiveIndex(index)
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (sortRef.current && !sortRef.current.contains(event.target)) setIsSortOpen(false)
+        }
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => document.removeEventListener("mousedown", handleClickOutside)
+    }, [])
 
     // filters
     const priceFilter = (item) => item?.price?.min >= price?.min && item?.price?.max <= price?.max
@@ -62,10 +75,16 @@ const FilterShopBox = () => {
         dispatch(addPerPage({ start: 0, end: 0 }))
     }
 
+    const sortOptions = [
+        { value: "", label: "Urutkan (Default)" },
+        { value: "asc", label: "Terbaru" },
+        { value: "des", label: "Terlama" }
+    ]
+
     return (
         <>
             {/* ── FILTER TOP BAR ── */}
-            <div className="bg-gray-50/50 p-4 lg:p-6 rounded-2xl mb-10 border border-gray-100 shadow-sm">
+            <div className="bg-white p-4 lg:p-5 rounded-2xl mb-8 border border-gray-100 shadow-sm">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     
                     {/* Item Counter */}
@@ -84,27 +103,42 @@ const FilterShopBox = () => {
                         
                         {/* Clear All Button */}
                         {(price?.min !== 0 || price?.max !== 100 || category?.length !== 0 || sort !== "" || perPage.start !== 0) && (
-                            <button onClick={clearAll} className="px-4 py-3 !bg-red-50 !text-red-500 text-[10px] font-black uppercase tracking-widest rounded-xl border border-red-100 hover:bg-red-500 hover:text-white transition-all">
+                            <button onClick={clearAll} className="px-4 py-3 !bg-red-50 !text-red-500 text-[10px] font-black uppercase tracking-widest rounded-xl border border-red-100 hover:bg-red-500 hover:text-white transition-all shadow-sm">
                                 Clear All
                             </button>
                         )}
 
-                        {/* Sorting Select */}
-                        <div className="relative group min-w-[140px]">
-                            <select 
-                                value={sort} 
-                                onChange={(e) => dispatch(addSort(e.target.value))}
-                                className="w-full bg-white border border-gray-200 px-4 py-3 rounded-xl text-[11px] font-black !text-wk-dark-maroon uppercase tracking-wider appearance-none outline-none focus:border-wk-gold transition-all cursor-pointer"
+                        {/* CUSTOM DROPDOWN SORTING */}
+                        <div className="relative min-w-[200px]" ref={sortRef}>
+                            <button 
+                                onClick={() => setIsSortOpen(!isSortOpen)}
+                                className="w-full bg-white border border-gray-200 px-5 py-3 rounded-xl text-[11px] font-black !text-wk-dark-maroon uppercase tracking-wider flex items-center justify-between hover:border-wk-gold transition-all"
                             >
-                                <option value="">Urutkan (Terbaru)</option>
-                                <option value="asc">Terbaru</option>
-                                <option value="des">Terlama</option>
-                            </select>
-                            <i className="fal fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-[10px] pointer-events-none !text-wk-maroon"></i>
+                                <span>{sortOptions.find(opt => opt.value === sort)?.label || "Urutkan"}</span>
+                                <i className={`fal fa-chevron-down text-[10px] transition-transform duration-300 ${isSortOpen ? 'rotate-180' : ''}`}></i>
+                            </button>
+
+                            {/* Dropdown Menu */}
+                            {isSortOpen && (
+                                <div className="absolute top-full left-0 w-full mt-2 bg-white border border-gray-100 rounded-2xl shadow-2xl py-2 z-50 animate-fadeInUp">
+                                    {sortOptions.map(option => (
+                                        <button 
+                                            key={option.value}
+                                            onClick={() => {
+                                                dispatch(addSort(option.value))
+                                                setIsSortOpen(false)
+                                            }}
+                                            className={`w-full text-left px-5 py-3 text-[11px] font-black uppercase tracking-wider transition-all border-l-4 ${sort === option.value ? '!text-wk-maroon bg-wk-gold/10 border-wk-gold' : '!text-gray-400 border-transparent hover:!text-wk-dark-maroon hover:bg-gray-50'}`}
+                                        >
+                                            {option.label}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
                         </div>
 
                         {/* View Switchers */}
-                        <div className="flex bg-white p-1 rounded-xl border border-gray-200">
+                        <div className="flex bg-gray-50 p-1 rounded-xl border border-gray-200">
                             {[
                                 { id: 2, icon: 'far fa-th' },
                                 { id: 1, icon: 'far fa-list-ul' }
@@ -123,7 +157,7 @@ const FilterShopBox = () => {
             </div>
 
             {/* ── PRODUCT LISTING ── */}
-            <div className="mb-20">
+            <div className="mb-10"> {/* Margin dikurangi agar lebih dekat ke footer */}
                 <div className="tab-content">
                     {/* List View */}
                     <div className={activeIndex === 1 ? "animate-fadeIn" : "hidden"}>
