@@ -27,7 +27,7 @@ const swiperOptions = {
 
 export default function Shop() {
     return (
-        <section className="pb-24 md:pb-20 bg-white overflow-hidden">
+        <section className="pb-32 md:pb-20 bg-white overflow-hidden">
             <div className="container mx-auto px-4">
 
                 {/* Section Header */}
@@ -71,7 +71,7 @@ export default function Shop() {
             </div>
 
             {/* Bottom CTA link */}
-            <div className="text-center mt-6 md:mt-8">
+            <div className="text-center mt-12">
                 <a
                     href="https://instagram.com/pempek.wongkito"
                     target="_blank"
