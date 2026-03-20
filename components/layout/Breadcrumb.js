@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function Breadcrumb({ breadcrumbTitle }) {
     return (
-        <section className="relative overflow-hidden !bg-wk-maroon py-14 md:py-24">
+        <section className="relative overflow-hidden !bg-wk-maroon py-14 md:py-12 ">
             
             {/* Background Image with optimized opacity */}
             <div
@@ -35,9 +35,6 @@ export default function Breadcrumb({ breadcrumbTitle }) {
                     {/* Decorative Accent */}
                     <div className="relative">
                         <span className="block h-1.5 w-24 !bg-wk-gold rounded-full" />
-                        <span className="absolute left-0 -bottom-3 text-[10px] font-bold !text-white/20 uppercase tracking-[0.3em] hidden sm:block">
-                            Pempek Asli Palembang
-                        </span>
                     </div>
 
                 </div>
