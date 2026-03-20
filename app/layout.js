@@ -31,7 +31,7 @@ const dancingScript = Dancing_Script({
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${jakarta.variable} ${dancingScript.variable} font-jakarta`}>
+            <body className={`${jakarta.variable} ${dancingScript.variable} font-jakarta overflow-x-hidden`}>
                 <Provider store={store}>
                     {children}
                     <ToastContainer

@@ -37,8 +37,8 @@ export default function Footer() {
                         <Link href="/" className="inline-flex items-center mb-6">
                             <img src="/assets/img/logo/logo.png" alt="Pempek Asli Wong Kito" className="h-14 w-auto object-contain" />
                             <div className="ml-4 flex flex-col justify-center text-left">
-                                <span className="text-white font-extrabold text-lg sm:text-xl leading-[1.1] tracking-tight whitespace-nowrap uppercase">
-                                    Pempek <span className="font-dancing bg-wk-gold text-white normal-case italic text-xl sm:text-2xl px-2 py-0.5 mx-1 rounded-md inline-block transform -rotate-1 shadow-sm">"Asli"</span>
+                                <span className="text-white font-extrabold text-lg sm:text-xl leading-[1.1] tracking-tight whitespace-nowrap">
+                                    Pempek <span className="font-dancing text-wk-gold italic text-xl sm:text-2xl mx-1">"Asli"</span>
                                     <span className="block sm:inline">Wong Kito</span>
                                 </span>
                             </div>

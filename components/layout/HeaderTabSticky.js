@@ -14,8 +14,8 @@ export default function HeaderTabSticky({ scroll, handleMobileMenu, handleCartSi
                         <Link href="/" className="flex items-center">
                             <img src="/assets/img/logo/logo.png" alt="Pempek Wong Kito" className="max-h-12 w-auto" />
                             <div className="ml-3 flex flex-col justify-center">
-                                <span className="text-white font-extrabold text-sm lg:text-lg leading-[1.1] tracking-tight whitespace-nowrap uppercase">
-                                    Pempek <span className="font-dancing bg-wk-gold text-white normal-case italic text-lg lg:text-2xl px-2 py-0.5 mx-0.5 rounded-md inline-block transform -rotate-1 shadow-sm">"Asli"</span>
+                                <span className="text-white font-extrabold text-sm lg:text-lg leading-[1.1] tracking-tight whitespace-nowrap">
+                                    Pempek <span className="font-dancing text-wk-gold italic text-lg lg:text-2xl mx-1">"Asli"</span>
                                     <span className="block lg:inline">Wong Kito</span>
                                 </span>
                             </div>
