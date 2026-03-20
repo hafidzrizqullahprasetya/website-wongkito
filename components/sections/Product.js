@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react"
-import FilterShopBox2 from "../shop/FilterShopBox2"
+import FilterShopBox from "../shop/FilterShopBox"
 
 const tabs = [
     { id: 1, label: 'Semua',        start: 0,  end: 10 },
