@@ -103,8 +103,8 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Col 4: Follow Us */}
-                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+                    {/* Col 4: Follow Us — Extra top padding on mobile */}
+                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left pt-10 lg:pt-0 border-t lg:border-none border-white/5">
                         <h5 className="text-[10px] lg:text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-6 lg:mb-7">Ikuti Kami</h5>
                         <ul className="space-y-4">
                             {socialLinks.map((link, i) => (
