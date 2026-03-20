@@ -26,31 +26,31 @@ const socialLinks = [
 
 export default function Footer() {
     return (
-        <footer className="!bg-wk-dark-maroon text-white font-sans">
+        <footer className="!bg-wk-dark-maroon text-white font-sans overflow-hidden">
 
             {/* ── Main Footer Grid ── */}
-            <div className="container mx-auto px-6 pt-16 pb-12 border-b border-white/5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+            <div className="container mx-auto px-6 py-12 border-b border-white/5">
+                <div className="grid grid-cols-2 lg:grid-cols-5 gap-y-10 gap-x-6">
 
-                    {/* Col 1: Brand Info */}
-                    <div className="lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <Link href="/" className="inline-flex flex-col lg:flex-row items-center gap-4 mb-6">
-                            <img src="/assets/img/logo/logo.png" alt="Logo" className="h-16 w-auto object-contain" />
+                    {/* Col 1: Brand Info (Full Width on Mobile) */}
+                    <div className="col-span-2 lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+                        <Link href="/" className="inline-flex flex-col lg:flex-row items-center gap-3 mb-5">
+                            <img src="/assets/img/logo/logo.png" alt="Logo" className="h-14 w-auto object-contain" />
                             <div className="flex flex-col">
-                                <span className="font-extrabold text-xl leading-none tracking-tight">
-                                    PEMPEK <span className="font-dancing text-wk-gold !italic text-2xl mx-1 capitalize">Asli</span>
+                                <span className="font-extrabold text-lg leading-none tracking-tight">
+                                    PEMPEK <span className="font-dancing text-wk-gold !italic text-xl mx-0.5 capitalize">Asli</span>
                                 </span>
-                                <span className="font-extrabold text-xl leading-none tracking-tight">WONG KITO</span>
+                                <span className="font-extrabold text-lg leading-none tracking-tight">WONG KITO</span>
                             </div>
                         </Link>
                         <p className="text-sm !text-white/40 leading-relaxed max-w-xs">
-                            Cita rasa autentik Palembang, dibuat dengan bahan pilihan dan resep turun-temurun sejak 1980-an.
+                            Cita rasa autentik Palembang, dibuat dengan bahan pilihan dan resep turun-temurun sejak dulu.
                         </p>
                     </div>
 
-                    {/* Col 2: Menu Kami */}
-                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <h5 className="text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-7">Menu Kami</h5>
+                    {/* Col 2: Menu Kami (Side-by-side on mobile) */}
+                    <div className="col-span-1 flex flex-col items-start text-left">
+                        <h5 className="text-[10px] font-black !text-wk-gold uppercase tracking-[0.2em] mb-6">Menu</h5>
                         <ul className="space-y-4">
                             {menuLinks.map((link, i) => (
                                 <li key={i}>
@@ -62,9 +62,9 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Col 3: Informasi */}
-                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <h5 className="text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-7">Informasi</h5>
+                    {/* Col 3: Informasi (Side-by-side on mobile) */}
+                    <div className="col-span-1 flex flex-col items-start text-left">
+                        <h5 className="text-[10px] font-black !text-wk-gold uppercase tracking-[0.2em] mb-6">Info</h5>
                         <ul className="space-y-4">
                             {infoLinks.map((link, i) => (
                                 <li key={i}>
@@ -77,44 +77,40 @@ export default function Footer() {
                     </div>
 
                     {/* Col 4: Follow Us */}
-                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <h5 className="text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-7">Ikuti Kami</h5>
-                        <ul className="space-y-4">
+                    <div className="col-span-2 sm:col-span-1 flex flex-col items-center sm:items-start text-center sm:text-left">
+                        <h5 className="text-[10px] font-black !text-wk-gold uppercase tracking-[0.2em] mb-6">Ikuti Kami</h5>
+                        <div className="grid grid-cols-2 sm:grid-cols-1 gap-y-4 gap-x-4 w-full px-4 sm:px-0">
                             {socialLinks.map((link, i) => (
-                                <li key={i}>
-                                    <a
-                                        href={link.href}
-                                        target={link.external ? '_blank' : undefined}
-                                        rel={link.external ? 'noopener noreferrer' : undefined}
-                                        className="flex items-center gap-3 text-sm !text-white/50 hover:!text-wk-gold transition-colors duration-300"
-                                    >
-                                        <i className={`${link.icon} w-5 text-center text-wk-gold/80`} />
-                                        {link.label}
-                                    </a>
-                                </li>
+                                <a
+                                    key={i}
+                                    href={link.href}
+                                    target={link.external ? '_blank' : undefined}
+                                    rel={link.external ? 'noopener noreferrer' : undefined}
+                                    className="flex items-center gap-2.5 text-sm !text-white/50 hover:!text-wk-gold transition-colors"
+                                >
+                                    <i className={`${link.icon} w-4 text-center text-wk-gold/80`} />
+                                    {link.label}
+                                </a>
                             ))}
-                        </ul>
+                        </div>
                     </div>
 
                     {/* Col 5: WhatsApp Subscription */}
-                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <h5 className="text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-7">Pesan via WhatsApp</h5>
-                        <p className="text-sm !text-white/40 mb-6 max-w-[200px]">
-                            Dapatkan promo spesial langsung ke HP Anda.
-                        </p>
-                        <div className="w-full flex flex-col gap-3">
+                    <div className="col-span-2 lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left pt-6 lg:pt-0 border-t lg:border-none border-white/5">
+                        <h5 className="text-[10px] font-black !text-wk-gold uppercase tracking-[0.2em] mb-5">Pesan di WhatsApp</h5>
+                        <div className="w-full flex flex-col gap-3 max-w-sm">
                             <input
                                 type="text"
                                 placeholder="Nama Anda..."
-                                className="w-full px-5 py-3 rounded-xl !bg-white/5 border border-white/10 !text-white text-sm outline-none focus:border-wk-gold/50 transition-colors"
+                                className="w-full px-4 py-2.5 rounded-xl !bg-white/5 border border-white/10 !text-white text-xs outline-none focus:border-wk-gold/50 transition-colors"
                             />
                             <a
                                 href="https://wa.me/6281234567890"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-full py-4 rounded-xl !bg-wk-gold !text-wk-dark-maroon font-black text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+                                className="w-full py-3 rounded-xl !bg-wk-gold !text-wk-dark-maroon font-black text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 hover:opacity-90"
                             >
-                                CHAT SEKARANG <i className="fab fa-whatsapp text-lg" />
+                                CHAT SEKARANG <i className="fab fa-whatsapp text-base" />
                             </a>
                         </div>
                     </div>
@@ -123,43 +119,33 @@ export default function Footer() {
             </div>
 
             {/* ── CTA Contact Bar ── */}
-            <div className="container mx-auto px-6 py-10 border-b border-white/5">
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-6">
-                    
-                    {/* CS WhatsApp */}
-                    <div className="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
-                        <div className="w-14 h-14 rounded-full !bg-wk-gold/10 border border-wk-gold/20 flex items-center justify-center animate-pulse">
-                            <i className="fab fa-whatsapp text-2xl !text-wk-gold" />
+            <div className="container mx-auto px-6 py-8 border-b border-white/5">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-6">
+                    <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                        <div className="w-12 h-12 rounded-full !bg-wk-gold/10 border border-wk-gold/20 flex items-center justify-center">
+                            <i className="fab fa-whatsapp text-xl !text-wk-gold" />
                         </div>
                         <div>
-                            <span className="block text-xl font-black tracking-tight text-white">+62 812-3456-7890</span>
-                            <span className="block text-xs uppercase tracking-widest !text-white/30 font-bold mt-1">CS PEMPEK WONG KITO (08:00 - 21:00)</span>
+                            <span className="block text-lg font-black tracking-tight text-white">+62 812-3456-7890</span>
+                            <span className="block text-[9px] uppercase tracking-widest !text-white/30 font-bold mt-1 tracking-tighter sm:tracking-widest">Buka 08:00 - 21:00 WIB</span>
                         </div>
                     </div>
-
-                    {/* Delivery Partner */}
-                    <div className="flex flex-col sm:flex-row items-center gap-6">
-                        <div className="text-center sm:text-right">
-                            <h6 className="text-[10px] font-black uppercase tracking-widest !text-white/30 mb-2">Delivery Partner</h6>
-                            <div className="flex items-center justify-center gap-3">
-                                <img src="https://placehold.co/120x40/3d0e0e/white?text=ShopeeFood" alt="Partner" className="h-7 w-auto opacity-60 hover:opacity-100 transition-opacity" />
-                                <img src="https://placehold.co/120x40/3d0e0e/white?text=GrabFood" alt="Partner" className="h-7 w-auto opacity-60 hover:opacity-100 transition-opacity" />
-                            </div>
-                        </div>
+                    <div className="flex items-center gap-3 opacity-40 grayscale scale-90 sm:scale-100">
+                        <img src="https://placehold.co/100x32/3d0e0e/white?text=ShopeeFood" alt="Partner" className="h-6 w-auto" />
+                        <img src="https://placehold.co/100x32/3d0e0e/white?text=GrabFood" alt="Partner" className="h-6 w-auto" />
                     </div>
                 </div>
             </div>
 
             {/* ── Bottom Copyright ── */}
-            <div className="container mx-auto px-6 py-8">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <p className="text-[10px] md:text-xs font-medium !text-white/20 text-center md:text-left uppercase tracking-wider">
-                        Copyright &copy; {new Date().getFullYear()} <span className="!text-wk-gold/60">Pempek Asli Wong Kito</span>. All Reserved Palembang Taste.
+            <div className="container mx-auto px-6 py-6 pb-20 lg:pb-6">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p className="text-[10px] !text-white/20 text-center md:text-left uppercase tracking-widest font-bold">
+                        &copy; {new Date().getFullYear()} <span className="!text-wk-gold/40">Pempek Asli Wong Kito</span>
                     </p>
-                    <div className="flex items-center gap-4 opacity-30 grayscale hover:grayscale-0 transition-all cursor-crosshair">
-                        <img src="https://placehold.co/40x25/white/3d0e0e?text=VISA" alt="Payment" className="h-4 w-auto" />
-                        <img src="https://placehold.co/40x25/white/3d0e0e?text=BCA" alt="Payment" className="h-4 w-auto" />
-                        <img src="https://placehold.co/40x25/white/3d0e0e?text=GOPAY" alt="Payment" className="h-4 w-auto" />
+                    <div className="flex items-center gap-4 opacity-10">
+                        <i className="fab fa-cc-visa text-lg" />
+                        <i className="fab fa-cc-mastercard text-lg" />
                     </div>
                 </div>
             </div>
