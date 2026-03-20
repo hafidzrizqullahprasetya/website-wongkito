@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  html, body {
+    @apply overflow-x-hidden max-w-full relative;
+  }
   body {
     @apply antialiased text-wk-dark-maroon bg-white;
     font-family: var(--tp-ff-body), sans-serif;

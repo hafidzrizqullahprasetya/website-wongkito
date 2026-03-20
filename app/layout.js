@@ -30,8 +30,11 @@ const dancingScript = Dancing_Script({
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
-            <body className={`${jakarta.variable} ${dancingScript.variable} font-jakarta overflow-x-hidden`}>
+        <html lang="en" className="overflow-x-hidden">
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+            </head>
+            <body className={`${jakarta.variable} ${dancingScript.variable} font-jakarta overflow-x-hidden !max-w-full relative`}>
                 <Provider store={store}>
                     {children}
                     <ToastContainer
