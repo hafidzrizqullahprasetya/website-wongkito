@@ -147,7 +147,7 @@ export default function Contact() {
                                     <div className="pt-4">
                                         <button
                                             type="submit"
-                                            className="w-full sm:w-auto flex items-center justify-center gap-3 px-10 py-5 !bg-wk-maroon !text-white font-black text-[11px] uppercase tracking-widest rounded-2xl active:scale-95 transition-all shadow-xl shadow-wk-maroon/10"
+                                            className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-3.5 !bg-wk-maroon !text-white font-black text-[10px] uppercase tracking-widest rounded-xl active:scale-95 transition-all shadow-lg shadow-wk-maroon/10"
                                         >
                                             Kirim Sekarang
                                             <i className="fal fa-paper-plane" />
