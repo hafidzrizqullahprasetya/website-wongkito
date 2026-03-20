@@ -12,7 +12,7 @@ export default function PromoModal() {
             const timer = setTimeout(() => {
                 setIsOpen(true)
                 sessionStorage.setItem('hasSeenPromo', 'true')
-            }, 2000) // Muncul setelah 2 detik landing
+            }, 3000) // Sedikit lebih lambat agar user sempat melihat header
             return () => clearTimeout(timer)
         }
     }, [])
@@ -20,73 +20,92 @@ export default function PromoModal() {
     if (!isOpen) return null
 
     return (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-            {/* Overlay */}
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 md:p-10">
+            {/* Background Overlay (Blur & Dark) */}
             <div 
-                className="absolute inset-0 bg-wk-dark-maroon/80 backdrop-blur-sm"
+                className="absolute inset-0 !bg-wk-dark-maroon/70 backdrop-blur-md animate-fadeIn"
                 onClick={() => setIsOpen(false)}
             />
             
-            {/* Modal Content */}
-            <div className="relative w-full max-w-4xl !bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row animate-in fade-in zoom-in duration-300">
+            {/* Modal Container */}
+            <div className="relative w-full max-w-5xl !bg-white rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.3)] flex flex-col md:flex-row max-h-[90vh] md:max-h-none overflow-y-auto md:overflow-visible animate-fadeInUp">
                 
-                {/* Close Button */}
+                {/* Floating Close Button */}
                 <button 
                     onClick={() => setIsOpen(false)}
-                    className="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full !bg-wk-maroon !text-white hover:opacity-80 transition-opacity"
+                    className="absolute top-4 right-4 z-50 w-10 h-10 flex items-center justify-center rounded-full !bg-wk-maroon !text-white hover:!bg-wk-gold hover:!text-wk-dark-maroon transition-all shadow-lg active:scale-90"
                 >
-                    <i className="fal fa-times text-xl" />
+                    <i className="fal fa-times text-lg" />
                 </button>
 
-                {/* Left: Image Side */}
-                <div className="md:w-1/2 relative min-h-[300px] md:min-h-[500px]">
+                {/* LEFT: Image Section (Optimized for Mobile) */}
+                <div className="md:w-1/2 relative h-[250px] md:h-auto overflow-hidden">
                     <img 
-                        src="https://placehold.co/800x1000/3d0e0e/white?text=Promo+Hari+Raya" 
+                        src="https://placehold.co/800x1000/3d0e0e/white?text=PROMO+WONG+KITO" 
                         alt="Promo Banner"
                         className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-wk-maroon/60 to-transparent md:hidden" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-wk-maroon/40 to-transparent" />
+                    
+                    {/* Floating Offer Badge (Mobile Only) */}
+                    <div className="absolute bottom-4 left-4 !bg-wk-gold px-4 py-2 rounded-xl border border-white/20 md:hidden animate-bounce-slow">
+                        <p className="text-[10px] font-black uppercase !text-wk-dark-maroon tracking-tighter">Diskon</p>
+                        <p className="text-xl font-black !text-wk-maroon leading-none">25%</p>
+                    </div>
                 </div>
 
-                {/* Right: Text Side */}
-                <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center text-center md:text-left">
-                    <span className="block text-[11px] font-black !text-wk-gold uppercase tracking-[0.4em] mb-4">
+                {/* RIGHT: Content Section */}
+                <div className="md:w-1/2 p-8 md:p-14 lg:p-20 flex flex-col justify-center text-center md:text-left relative">
+                    {/* Badge */}
+                    <span className="inline-block md:inline-block px-4 py-1.5 !bg-wk-gold/10 !text-wk-gold text-[10px] font-black uppercase tracking-[0.4em] mb-6 rounded-lg self-center md:self-start">
                         Penawaran Terbatas
                     </span>
                     
-                    <h2 className="text-4xl md:text-5xl font-black !text-wk-dark-maroon leading-tight mb-6 uppercase tracking-tighter">
-                        PROMO<br/>
-                        <span className="!text-wk-maroon">HARI RAYA</span>
+                    <h2 className="text-4xl lg:text-5xl font-black !text-wk-dark-maroon leading-[0.9] mb-6 uppercase tracking-tighter">
+                        <span className="block mb-2">PAKET</span>
+                        <span className="!text-wk-maroon decoration-wk-gold underline underline-offset-8">KEBAIKAN</span>
                     </h2>
 
-                    <div className="mb-8">
-                        <p className="text-lg font-bold !text-wk-dark-maroon/80 mb-2">
-                            Diskon Hingga <span className="text-3xl !text-wk-gold font-black">25%</span>
-                        </p>
-                        <p className="text-sm !text-gray-400 leading-relaxed">
-                            Nikmati paket spesial hampers Pempek Wong Kito untuk keluarga tercinta. Stok terbatas untuk pengiriman minggu ini!
+                    <div className="mb-10">
+                        <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
+                            <span className="text-lg font-bold !text-wk-dark-maroon/60">HEMAT HINGGA</span>
+                            <span className="px-3 py-1 !bg-wk-maroon !text-white text-2xl font-black rounded-lg">25%</span>
+                        </div>
+                        <p className="text-sm !text-gray-400 leading-relaxed font-medium">
+                            Rayakan momen spesial bersama keluarga dengan paket hampers Pempek Wong Kito. Ikan tenggiri asli, cuko kental autentik, kemasan premium.
                         </p>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    {/* Action Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-3">
                         <Link 
                             href="/shop" 
                             onClick={() => setIsOpen(false)}
-                            className="flex-1 text-center py-4 !bg-wk-gold !text-wk-dark-maroon font-black text-xs uppercase tracking-widest rounded-full hover:opacity-80 transition-opacity"
+                            className="flex-[1.5] text-center py-4 !bg-wk-maroon !text-white font-black text-[11px] uppercase tracking-widest rounded-2xl shadow-xl shadow-wk-maroon/20 hover:scale-105 active:scale-95 transition-all outline-none"
                         >
-                            Belanja Sekarang
+                            Dapatkan Promo <i className="fal fa-long-arrow-right ml-2" />
                         </Link>
                         <button 
                             onClick={() => setIsOpen(false)}
-                            className="flex-1 text-center py-4 bg-gray-100 !text-gray-500 font-black text-xs uppercase tracking-widest rounded-full hover:bg-gray-200 transition-colors"
+                            className="flex-1 text-center py-4 bg-gray-50 border border-gray-100 !text-gray-400 font-black text-[10px] uppercase tracking-widest rounded-2xl hover:bg-gray-100 transition-colors outline-none"
                         >
-                            Mungkin Nanti
+                            Nanti Saja
                         </button>
                     </div>
 
-                    <p className="mt-8 text-[10px] !text-gray-400 font-medium uppercase tracking-widest">
-                        *Syarat dan ketentuan berlaku
-                    </p>
+                    {/* Footer Info */}
+                    <div className="mt-10 pt-6 border-t border-gray-50 flex items-center justify-center md:justify-start gap-4">
+                        <div className="flex -space-x-2">
+                            {[1,2,3].map(i => (
+                                <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gray-100 overflow-hidden shadow-sm">
+                                    <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="Customer" className="w-full h-full object-cover" />
+                                </div>
+                            ))}
+                        </div>
+                        <p className="text-[10px] font-bold !text-gray-400 leading-tight">
+                            <span className="!text-wk-dark-maroon">120+ Orang</span> baru saja<br/> memesan paket ini.
+                        </p>
+                    </div>
                 </div>
 
             </div>
