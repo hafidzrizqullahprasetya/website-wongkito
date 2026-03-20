@@ -30,60 +30,55 @@ export default function DealProduct() {
                             </div>
                         </div>
 
-                        {/* Right: Deal Info */}
-                        <div className="lg:w-7/12 w-full py-10 px-8 sm:px-10 lg:px-12">
-
-                            <span className="text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-3 block">
+                        {/* Column 2: Content (Centered on Mobile & Laptop) */}
+                        <div className="lg:w-7/12 w-full py-10 lg:py-16 px-8 lg:px-20 flex flex-col items-center text-center justify-center">
+                            
+                            <span className="block text-[11px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-4">
                                 Penawaran Hari Ini
                             </span>
-
-                            <div className="flex items-baseline gap-3 mb-4">
-                                <span className="text-3xl sm:text-4xl font-black !text-white">Rp 49.000</span>
-                                <del className="text-sm !text-white/40 font-semibold">Rp 65.000</del>
+                            
+                            <div className="flex items-baseline justify-center gap-3 mb-2">
+                                <h3 className="text-3xl lg:text-5xl font-black !text-white leading-none tracking-tight">Rp 49.000</h3>
+                                <span className="text-sm lg:text-base !text-white/40 line-through font-bold">Rp 65.000</span>
                             </div>
 
-                            <h2 className="text-xl sm:text-2xl font-black !text-white uppercase leading-tight mb-4">
-                                <Link href="/shop/1" className="hover:opacity-80 transition-opacity">
-                                    Paket Ampera Special<br />
-                                    <span className="!text-wk-gold">20 Biji Mix</span>
-                                </Link>
+                            <h2 className="text-xl lg:text-4xl font-black !text-white uppercase tracking-tight leading-tight mb-6">
+                                Paket Ampera Special <br/>
+                                <span className="!text-wk-gold italic">20 Biji Mix</span>
                             </h2>
 
-                            <p className="text-sm !text-white/60 leading-relaxed mb-6 max-w-sm">
-                                Isi 20 biji pempek mix pilihan (Kapal Selam, Lenjer, Adaan, Kulit) + 2 porsi cuko asli khas Palembang.
+                            <p className="text-xs lg:text-sm !text-white/60 leading-relaxed max-w-md mb-8">
+                                Isi 20 biji pempek mix pilihan (Kapal Selam, Lenjer, Adaan, Kulit) + 2 porsi cuko asli khas Palembang. Dibuat fresh setiap hari.
                             </p>
 
-                            {/* Stock progress */}
-                            <div className="mb-6 max-w-xs">
-                                <div className="flex justify-between text-[10px] font-bold !text-white/60 mb-2">
-                                    <span>Stok Tersisa</span>
-                                    <span className="!text-wk-gold">75%</span>
+                            {/* Progress Bar (Centered) */}
+                            <div className="w-full max-w-sm mb-8 px-2 mx-auto text-center">
+                                <div className="flex justify-between items-end mb-2">
+                                    <span className="text-[10px] font-black !text-wk-gold uppercase tracking-widest">Stok Tersisa</span>
+                                    <span className="text-[10px] font-black !text-wk-gold uppercase tracking-widest">75%</span>
                                 </div>
-                                <div className="w-full h-2 !bg-white/10 rounded-full overflow-hidden">
-                                    <div className="h-full w-3/4 !bg-wk-gold rounded-full" />
+                                <div className="w-full h-2.5 rounded-full !bg-white/10 overflow-hidden">
+                                    <div className="h-full !bg-wk-gold rounded-full w-[75%] shadow-[0_0_10px_rgba(255,191,0,0.5)]"></div>
                                 </div>
                             </div>
 
-                            {/* Countdown */}
-                            <div className="mb-7 py-4 px-4 sm:px-5 !bg-white/5 border border-white/10 rounded-2xl block w-full max-w-xs">
-                                <p className="text-[9px] font-black !text-wk-gold uppercase tracking-widest mb-3">
-                                    Sisa Waktu Promo
-                                </p>
-                                <Countdown endDateTime={endDateTime.getTime()} />
+                            {/* Countdown Wrapper (Centered) */}
+                            <div className="mb-10 w-full max-w-sm mx-auto">
+                                <div className="py-5 px-6 !bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm shadow-inner shadow-white/5">
+                                    <p className="text-[9px] font-black !text-wk-gold uppercase tracking-[0.2em] mb-5">Sisa Waktu Promo</p>
+                                    <Countdown endDateTime={endDateTime.getTime()} />
+                                </div>
                             </div>
 
-                            {/* CTA Button — centered on mobile, left on desktop */}
-                            <div className="flex justify-center lg:justify-start">
-                                <Link
-                                    href="/shop/1"
-                                    className="inline-flex items-center gap-2 px-6 py-3 !bg-wk-gold !text-wk-dark-maroon font-black text-xs uppercase tracking-widest rounded-full hover:opacity-80 transition-opacity"
-                                >
+                            {/* CTA Button (Centered) */}
+                            <div className="flex justify-center w-full">
+                                <Link href="/shop" className="group flex items-center justify-center gap-3 px-12 py-4 !bg-wk-gold !text-wk-dark-maroon font-black text-xs uppercase tracking-[0.2em] rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-black/30">
                                     Pesan Sekarang
-                                    <i className="fal fa-arrow-right" />
+                                    <i className="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                                 </Link>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>

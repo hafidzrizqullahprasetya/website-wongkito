@@ -27,7 +27,7 @@ const swiperOptions = {
 
 export default function Shop() {
     return (
-        <section className="pb-32 md:pb-20 bg-white overflow-hidden">
+        <section className="pb-25 md:pb-20 bg-white overflow-hidden">
             <div className="container mx-auto px-4">
 
                 {/* Section Header */}
