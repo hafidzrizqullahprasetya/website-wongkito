@@ -65,7 +65,7 @@ export default function DealProduct() {
                             </div>
 
                             {/* Countdown */}
-                            <div className="mb-7 py-4 px-5 !bg-white/10 rounded-2xl backdrop-blur-sm inline-block">
+                            <div className="mb-7 py-4 px-4 sm:px-5 !bg-white/10 rounded-2xl block w-full max-w-xs">
                                 <p className="text-[9px] font-black !text-wk-gold uppercase tracking-widest mb-3">
                                     Sisa Waktu Promo
                                 </p>

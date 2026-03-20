@@ -41,19 +41,19 @@ const Countdown = ({ endDateTime }) => {
     ];
 
     return (
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
             {units.map((unit, i) => (
-                <div key={i} className="flex items-center gap-2 sm:gap-3">
-                    <div className="flex flex-col items-center min-w-[32px] sm:min-w-[40px]">
-                        <span className="text-xl sm:text-3xl font-black !text-white leading-none tabular-nums">
+                <div key={i} className="flex items-center gap-1.5 sm:gap-3">
+                    <div className="flex flex-col items-center min-w-[28px] sm:min-w-[40px]">
+                        <span className="text-lg sm:text-2xl md:text-3xl font-black !text-white leading-none tabular-nums">
                             {mounted ? pad(unit.value) : '00'}
                         </span>
-                        <span className="text-[8px] sm:text-[10px] font-bold !text-wk-gold uppercase tracking-widest mt-1">
+                        <span className="text-[7px] sm:text-[9px] font-bold !text-wk-gold uppercase tracking-widest mt-1">
                             {unit.label}
                         </span>
                     </div>
                     {i < units.length - 1 && (
-                        <span className="text-lg sm:text-2xl font-black !text-wk-gold mb-3">:</span>
+                        <span className="text-base sm:text-xl md:text-2xl font-black !text-wk-gold mb-2">:</span>
                     )}
                 </div>
             ))}
