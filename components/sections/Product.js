@@ -29,13 +29,13 @@ export default function Product() {
                         <div className="w-16 h-1 !bg-wk-gold rounded-full mt-4 mx-auto lg:mx-0" />
                     </div>
 
-                    {/* Tab Filter — Swipeable on mobile */}
-                    <div className="flex items-center gap-2 overflow-x-auto pb-4 lg:pb-0 scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0">
+                    {/* Tab Filter — 2 Column Grid on Mobile, Flex on Desktop */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex items-center gap-2 lg:gap-3 w-full lg:w-auto">
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveIndex(tab.id)}
-                                className={`px-5 py-2 rounded-full text-[10px] md:text-xs font-black uppercase tracking-wider transition-all border whitespace-nowrap flex-shrink-0
+                                className={`px-4 py-2.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all border text-center
                                     ${activeIndex === tab.id
                                         ? '!bg-wk-maroon !text-white border-wk-maroon shadow-md'
                                         : '!bg-transparent !text-wk-dark-maroon border-gray-200 hover:border-wk-gold/50'
