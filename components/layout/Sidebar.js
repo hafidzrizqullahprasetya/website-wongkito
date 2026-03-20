@@ -15,8 +15,8 @@ export default function Sidebar({ isMobileMenu, handleMobileMenu }) {
                         <Link href="/" className="flex items-center">
                             <img src="/assets/img/logo/logo.png" alt="Logo" className="max-h-8 brightness-0 invert" />
                             <div className="ml-3 flex flex-col justify-center">
-                                <span className="text-wk-gold font-extrabold text-[11px] sm:text-xs leading-[1.1] tracking-tight whitespace-nowrap">
-                                    Pempek <span className="font-dancing text-white italic text-xs sm:text-base mx-0.5">"Asli"</span>
+                                <span className="text-white font-extrabold text-[11px] sm:text-xs leading-[1.1] tracking-tight whitespace-nowrap uppercase">
+                                    Pempek <span className="font-dancing bg-wk-gold text-white normal-case italic text-xs sm:text-base px-2 py-0.5 mx-0.5 rounded-sm inline-block transform -rotate-1 shadow-sm">"Asli"</span>
                                     <span className="block sm:inline">Wong Kito</span>
                                 </span>
                             </div>

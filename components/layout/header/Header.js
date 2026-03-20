@@ -41,10 +41,10 @@ export default function Header({ scroll, isMobileMenu, handleMobileMenu, isCartS
                             {/* Mobile Logo - Center */}
                             <div className="flex-grow flex justify-center">
                                 <Link href="/" className="flex items-center">
-                                    <img src="/assets/img/logo/logo.png" alt="Logo" className="max-h-10 sm:max-h-12 w-auto drop-shadow-sm" />
-                                    <div className="ml-2 flex flex-col justify-center text-center">
-                                        <span className="text-wk-maroon font-extrabold text-[10px] sm:text-sm leading-[1.1] tracking-tighter whitespace-nowrap">
-                                            Pempek <span className="font-dancing text-wk-gold italic text-xs sm:text-lg mx-0.5">"Asli"</span>
+                                    <img src="/assets/img/logo/logo.png" alt="Logo" className="max-h-12 w-auto drop-shadow-sm" />
+                                    <div className="ml-2 hidden sm:flex flex-col justify-center text-center">
+                                        <span className="text-wk-maroon font-extrabold text-sm sm:text-base leading-[1.1] tracking-tighter whitespace-nowrap">
+                                            Pempek <span className="font-dancing bg-wk-gold text-white italic text-base sm:text-xl px-2 py-0.5 mx-0.5 rounded-sm">"Asli"</span>
                                             <span className="block">Wong Kito</span>
                                         </span>
                                     </div>
@@ -89,8 +89,8 @@ export default function Header({ scroll, isMobileMenu, handleMobileMenu, isCartS
                                 <Link href="/" className="flex items-center group">
                                     <img src="/assets/img/logo/logo.png" alt="Pempek Asli Wong Kito" className="max-h-14 2xl:max-h-16 w-auto drop-shadow-md transition-transform group-hover:scale-105" />
                                     <div className="ml-3 flex flex-col justify-center">
-                                        <span className="text-wk-maroon font-extrabold text-lg 2xl:text-2xl leading-none tracking-tighter whitespace-nowrap">
-                                            Pempek <span className="font-dancing text-wk-gold italic text-xl 2xl:text-3xl mx-1">"Asli"</span>
+                                        <span className="text-wk-maroon font-extrabold text-lg 2xl:text-2xl leading-none tracking-tighter whitespace-nowrap uppercase">
+                                            Pempek <span className="font-dancing bg-wk-gold text-white normal-case italic text-2xl 2xl:text-4xl px-3 py-1 mx-1.5 rounded-md inline-block transform -rotate-2 -translate-y-1 shadow-sm">"Asli"</span>
                                             <span className="block 2xl:inline">Wong Kito</span>
                                         </span>
                                     </div>
