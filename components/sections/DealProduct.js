@@ -11,7 +11,7 @@ export default function DealProduct() {
                 <div className="rounded-3xl !bg-wk-maroon overflow-hidden border-2 border-white/5">
                     <div className="flex flex-col lg:flex-row items-stretch">
 
-                        {/* Left: Product Image */}
+                        {/* Left Column: Product Image (Always Centered) */}
                         <div className="lg:w-1/2 w-full flex items-center justify-center py-12 lg:py-0 px-8 lg:min-h-[580px] relative">
                             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                                 <div className="w-72 h-72 lg:w-96 lg:h-96 rounded-full !bg-white/5 animate-pulse" />
@@ -22,7 +22,7 @@ export default function DealProduct() {
                                     alt="Paket Spesial Pempek"
                                     className="w-64 sm:w-72 lg:w-[420px] object-contain relative z-10"
                                 />
-                                {/* Price badge - Floating style */}
+                                {/* Price badge */}
                                 <div className="absolute -bottom-4 -right-4 lg:-bottom-6 lg:-right-6 !bg-wk-gold px-5 py-3 lg:px-6 lg:py-4 rounded-2xl border-4 border-wk-maroon transform rotate-3 z-20">
                                     <span className="block text-[10px] font-black !text-wk-dark-maroon uppercase tracking-wider mb-1">Mulai</span>
                                     <span className="block text-xl lg:text-2xl font-black !text-wk-dark-maroon leading-none tracking-tight">Rp 49rb</span>
@@ -30,14 +30,14 @@ export default function DealProduct() {
                             </div>
                         </div>
 
-                        {/* Right Column: Content (Balanced Spacing) */}
-                        <div className="lg:w-1/2 w-full py-12 lg:py-20 px-8 lg:px-20 flex flex-col items-center text-center justify-center">
+                        {/* Right Column: Content (Left-Aligned for Cleanliness) */}
+                        <div className="lg:w-1/2 w-full py-12 lg:py-20 px-8 lg:px-16 flex flex-col items-start text-left justify-center">
                             
                             <span className="block text-[10px] lg:text-[11px] font-bold !text-wk-gold uppercase tracking-[0.4em] mb-6">
                                 Penawaran Spesial Hari Ini
                             </span>
                             
-                            <div className="flex items-center justify-center gap-4 mb-4">
+                            <div className="flex items-center gap-4 mb-4">
                                 <h3 className="text-4xl lg:text-7xl font-black !text-white leading-none tracking-tighter uppercase">Rp 49.000</h3>
                                 <div className="flex flex-col items-start">
                                     <span className="text-[10px] font-bold !text-white/30 uppercase tracking-widest leading-none mb-1">Normal</span>
@@ -55,32 +55,32 @@ export default function DealProduct() {
                             </p>
 
                             {/* Promotional Elements Container */}
-                            <div className="w-full max-w-sm mx-auto space-y-10">
+                            <div className="w-full max-w-sm space-y-10">
                                 
                                 {/* Progress Bar */}
-                                <div className="px-2">
+                                <div>
                                     <div className="flex justify-between items-end mb-3">
                                         <span className="text-[10px] font-black !text-wk-gold uppercase tracking-widest px-2 py-0.5 rounded border border-wk-gold/20">Stok Tersisa</span>
                                         <span className="text-xs font-black !text-white tracking-widest">75 / 100</span>
                                     </div>
                                     <div className="w-full h-2 rounded-full !bg-white/10 overflow-hidden">
-                                        <div className="h-full !bg-wk-gold rounded-full w-[75%] transition-all duration-1000"></div>
+                                        <div className="h-full !bg-wk-gold rounded-full w-[75%]"></div>
                                     </div>
                                 </div>
 
-                                {/* Countdown */}
+                                {/* Countdown Wrapper (Rapi & Minimalis) */}
                                 <div className="py-6 px-6 !bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md">
                                     <p className="text-[9px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-6">Sisa Waktu Promo</p>
                                     <Countdown endDateTime={endDateTime.getTime()} />
                                 </div>
 
-                                {/* Order Button */}
+                                {/* Order Button (Left Aligned) */}
                                 <div className="pt-4">
-                                    <Link href="/shop" className="group flex items-center justify-center gap-3 w-full py-4 lg:py-5 !bg-wk-gold !text-wk-dark-maroon font-black text-sm lg:text-base uppercase tracking-widest rounded-2xl transition-all hover:scale-[1.02] active:scale-95">
+                                    <Link href="/shop" className="group flex items-center justify-center gap-3 w-full sm:w-auto sm:px-12 py-4 lg:py-5 !bg-wk-gold !text-wk-dark-maroon font-black text-sm lg:text-base uppercase tracking-widest rounded-2xl transition-all hover:scale-[1.02] active:scale-95">
                                         Pesan Sekarang
                                         <i className="fas fa-shopping-basket text-lg transition-transform group-hover:rotate-12"></i>
                                     </Link>
-                                    <p className="mt-4 text-[9px] font-bold !text-white/20 uppercase tracking-[0.2em] animate-pulse">
+                                    <p className="mt-4 text-[9px] font-bold !text-white/20 uppercase tracking-[0.2em]">
                                         *Promo berlaku selama persediaan masih ada
                                     </p>
                                 </div>
