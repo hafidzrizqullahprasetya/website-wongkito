@@ -228,7 +228,7 @@ export default function ShopDetails() {
                     <div className="container mx-auto px-6">
                         <div className="flex items-end justify-between mb-10">
                             <div>
-                                <span className="inline-block px-3 py-1 !bg-wk-gold !text-wk-dark-maroon text-[10px] font-black uppercase tracking-widest mb-3 rounded">Rekomendasi</span>
+                                <span className="inline-block px-3 py-1 !bg-wk-gold !text-wk-maroon text-[10px] font-black uppercase tracking-widest mb-3 rounded">Rekomendasi</span>
                                 <h2 className="text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight">Mungkin Anda Suka</h2>
                             </div>
                             <div className="flex gap-3">
