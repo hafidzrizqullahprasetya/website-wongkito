@@ -41,22 +41,25 @@ const Countdown = ({ endDateTime }) => {
     ];
 
     return (
-        <div className="flex items-center gap-2">
+        <div className="grid grid-cols-7 items-center w-full">
             {units.map((unit, i) => (
-                <div key={i} className="flex items-center gap-2">
-                    {/* Individual time box */}
-                    <div className="flex flex-col items-center bg-white/10 rounded-xl px-3 py-2 min-w-[48px] text-center">
-                        <span className="text-2xl font-black !text-white leading-none tabular-nums">
+                <>
+                    {/* Time box */}
+                    <div key={`unit-${i}`} className="col-span-1 flex flex-col items-center bg-white/10 rounded-xl py-2 text-center">
+                        <span className="text-xl font-black !text-white leading-none tabular-nums">
                             {mounted ? pad(unit.value) : '00'}
                         </span>
-                        <span className="text-[8px] font-bold !text-wk-gold uppercase tracking-widest mt-1">
+                        <span className="text-[7px] font-bold !text-wk-gold uppercase tracking-wider mt-1">
                             {unit.label}
                         </span>
                     </div>
+                    {/* Separator */}
                     {i < units.length - 1 && (
-                        <span className="text-xl font-black !text-wk-gold -mt-3">:</span>
+                        <div key={`sep-${i}`} className="col-span-1 flex justify-center">
+                            <span className="text-lg font-black !text-wk-gold -mt-3">:</span>
+                        </div>
                     )}
-                </div>
+                </>
             ))}
         </div>
     );
