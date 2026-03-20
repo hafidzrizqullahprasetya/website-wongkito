@@ -12,7 +12,15 @@ export default function Sidebar({ isMobileMenu, handleMobileMenu }) {
                 <div className="flex flex-col h-full !bg-white">
                     {/* Header Sidebar */}
                     <div className="flex items-center justify-between p-6 !bg-wk-maroon">
-                        <img src="/assets/img/logo/logo.png" alt="Logo" className="max-h-8 brightness-0 invert" />
+                        <Link href="/" className="flex items-center">
+                            <img src="/assets/img/logo/logo.png" alt="Logo" className="max-h-8 brightness-0 invert" />
+                            <div className="ml-3 flex flex-col justify-center">
+                                <span className="text-wk-gold font-extrabold text-[11px] sm:text-xs leading-[1.1] tracking-tight whitespace-nowrap">
+                                    Pempek <span className="font-dancing text-white italic text-xs sm:text-base mx-0.5">"Asli"</span>
+                                    <span className="block sm:inline">Wong Kito</span>
+                                </span>
+                            </div>
+                        </Link>
                         <button className="!text-wk-gold hover:opacity-70 transition-opacity text-2xl" onClick={handleMobileMenu}>
                             <i className="fal fa-times-circle" />
                         </button>

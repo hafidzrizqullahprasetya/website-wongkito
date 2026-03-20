@@ -71,24 +71,25 @@ export default function Slider() {
                                                 alt={slide.title}
                                                 className="absolute inset-0 w-full h-full object-cover opacity-40"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-r from-wk-maroon/95 via-wk-maroon/50 to-transparent" />
+                                            <div className="absolute inset-0 bg-gradient-to-r from-wk-maroon/95 via-wk-maroon/70 md:via-wk-maroon/50 to-transparent" />
+                                            <div className="absolute inset-0 bg-wk-maroon/30 md:hidden" />
 
-                                            <div className="relative h-full flex flex-col justify-center px-12 md:px-20 max-w-xl">
-                                                <span className="block text-[11px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-4">
+                                            <div className="relative h-full flex flex-col justify-center px-8 sm:px-12 md:px-20 max-w-xl">
+                                                <span className="inline-block w-fit px-3 py-1 rounded-md !bg-wk-gold !text-wk-maroon text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 md:mb-5">
                                                     {slide.label}
                                                 </span>
-                                                <h2 className="text-5xl font-black !text-white uppercase leading-none tracking-tight mb-2">
+                                                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black !text-white uppercase leading-[1.1] tracking-tight mb-2">
                                                     {slide.title}
                                                 </h2>
-                                                <h3 className="text-2xl font-semibold !text-wk-gold mb-6">
+                                                <h3 className="text-lg md:text-2xl font-semibold !text-wk-gold mb-5 md:mb-6">
                                                     {slide.subtitle}
                                                 </h3>
-                                                <p className="text-sm !text-white/60 leading-relaxed mb-10 max-w-sm">
+                                                <p className="text-xs md:text-sm !text-wk-beige font-medium leading-relaxed mb-8 md:mb-10 max-w-xs md:max-w-sm">
                                                     {slide.desc}
                                                 </p>
                                                 <Link
                                                     href="/shop"
-                                                    className="w-fit flex items-center gap-3 px-8 py-4 !bg-wk-gold !text-wk-dark-maroon font-black text-xs uppercase tracking-widest rounded-full hover:opacity-80 transition-opacity"
+                                                    className="w-fit flex items-center gap-3 px-6 md:px-8 py-3.5 md:py-4 !bg-wk-gold !text-wk-dark-maroon font-black text-[10px] md:text-xs uppercase tracking-widest rounded-full hover:opacity-80 transition-opacity"
                                                 >
                                                     Pesan Sekarang
                                                     <i className="fal fa-long-arrow-right" />

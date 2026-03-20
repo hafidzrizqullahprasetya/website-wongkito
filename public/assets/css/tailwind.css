@@ -9,6 +9,10 @@
   }
 }
 
+.font-dancing {
+  font-family: var(--font-dancing), cursive;
+}
+
 @layer components {
   /* ─── Navigasi Link Wong Kito ─── */
   .wk-nav-link {
@@ -90,7 +94,6 @@
     box-shadow: none !important;
   }
 
-  /* 2. Bunuh Pseudo-Elements Template (Si Biang Kerok Animasi) */
   a::after, a::before,
   button::after, button::before,
   .tp-btn::after, .tp-btn::before,

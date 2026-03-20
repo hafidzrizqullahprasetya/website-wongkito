@@ -11,8 +11,14 @@ export default function HeaderTabSticky({ scroll, handleMobileMenu, handleCartSi
                         <button className="!text-wk-gold text-2xl hover:opacity-80 transition-opacity" onClick={handleMobileMenu}>
                             <i className="far fa-bars" />
                         </button>
-                        <Link href="/">
-                            <img src="/assets/img/logo/logo.png" alt="Pempek Wong Kito" className="max-h-10" />
+                        <Link href="/" className="flex items-center">
+                            <img src="/assets/img/logo/logo.png" alt="Pempek Wong Kito" className="max-h-12 w-auto" />
+                            <div className="ml-3 flex flex-col justify-center">
+                                <span className="text-wk-gold font-extrabold text-[11px] sm:text-sm lg:text-lg leading-[1.1] tracking-tight whitespace-nowrap">
+                                    Pempek <span className="font-dancing text-white italic text-xs sm:text-lg lg:text-2xl mx-1">"Asli"</span>
+                                    <span className="block lg:inline">Wong Kito</span>
+                                </span>
+                            </div>
                         </Link>
                     </div>
 

@@ -26,25 +26,25 @@ export default function Category() {
                 </div>
 
                 {/* Category Grid */}
-                <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
                     {categories.map((cat, i) => (
                         <Link
                             key={i}
                             href={cat.href}
-                            className="group flex flex-col items-center text-center py-8 px-4 rounded-2xl border border-gray-100 hover:border-wk-gold/40 hover:opacity-80 transition-all duration-300"
+                            className="group flex flex-col items-center text-center py-6 md:py-8 px-3 md:px-4 rounded-2xl border border-gray-100 hover:border-wk-gold/40 hover:opacity-80 transition-all duration-300"
                         >
                             {/* Icon wrapper */}
-                            <div className="relative w-16 h-16 mb-5 flex items-center justify-center">
+                            <div className="relative w-14 h-14 md:w-16 md:h-16 mb-4 md:mb-5 flex items-center justify-center">
                                 <div className="absolute inset-0 !bg-wk-maroon/5 rounded-full group-hover:bg-wk-gold/10 transition-colors duration-300" />
-                                <i className={`${cat.icon} relative text-2xl !text-wk-maroon`} />
+                                <i className={`${cat.icon} relative text-xl md:text-2xl !text-wk-maroon`} />
                                 {/* Item count badge */}
-                                <span className="absolute -top-1 -right-1 w-5 h-5 !bg-wk-gold !text-wk-dark-maroon text-[10px] font-black rounded-full flex items-center justify-center leading-none">
+                                <span className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 !bg-wk-gold !text-wk-dark-maroon text-[9px] md:text-[10px] font-black rounded-full flex items-center justify-center leading-none">
                                     {cat.count}
                                 </span>
                             </div>
 
                             {/* Label */}
-                            <h5 className="text-sm font-bold !text-wk-dark-maroon leading-snug group-hover:!text-wk-maroon transition-colors duration-300">
+                            <h5 className="text-[13px] md:text-sm font-bold !text-wk-dark-maroon leading-snug group-hover:!text-wk-maroon transition-colors duration-300">
                                 {cat.label}
                             </h5>
                         </Link>

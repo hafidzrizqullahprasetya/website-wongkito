@@ -16,28 +16,79 @@ export default function Header({ scroll, isMobileMenu, handleMobileMenu, isCartS
             <header className="relative z-[900]">
                 <div className="bg-wk-maroon py-2 px-4 border-b border-wk-gold/20">
                     <div className="container mx-auto">
-                        <div className="flex items-center justify-start">
-                            <div className="text-sm md:text-base">
-                                <div className="flex items-center space-x-4">
-                                    <span className="!text-white flex items-center text-sm font-medium">
-                                        <i className="fal fa-shipping-fast mr-2 !text-wk-gold text-lg" /> 
-                                        Gratis ongkir untuk area Sleman & Yogyakarta (min. order Rp 75.000)!
+                        <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 text-center">
+                            <span className="!text-white flex items-center text-[10px] sm:text-xs md:text-sm font-medium">
+                                <i className="fal fa-shipping-fast mr-2 !text-wk-gold text-base md:text-lg" /> 
+                                Gratis ongkir area Sleman & Yogyakarta <span className="hidden sm:inline ml-1">(min. order Rp 75.000)</span>!
+                            </span>
+                            <Link href="/shop" className="!bg-wk-gold !text-wk-maroon font-black hover:opacity-80 transition-opacity flex items-center text-[9px] sm:text-[10px] md:text-xs uppercase tracking-tighter px-3 py-1 rounded-full whitespace-nowrap">
+                                Pesan Sekarang <i className="fal fa-long-arrow-right ml-2" /> 
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+                {/* Static Mobile/Tablet Header (Visible initially on smaller screens) */}
+                <div className="bg-white xl:hidden border-b border-gray-100">
+                    <div className="container mx-auto px-4">
+                        <div className="flex items-center justify-between h-20">
+                            {/* Mobile Toggle */}
+                            <div className="flex items-center">
+                                <button className="!text-wk-maroon text-2xl pr-4" onClick={handleMobileMenu}>
+                                    <i className="far fa-bars" />
+                                </button>
+                                <Link href="/" className="flex items-center">
+                                    <img src="/assets/img/logo/logo.png" alt="Logo" className="max-h-12 w-auto drop-shadow-sm" />
+                                    <div className="ml-2 flex flex-col justify-center">
+                                        <span className="text-wk-maroon font-extrabold text-xs sm:text-base leading-[1.1] tracking-tight whitespace-nowrap">
+                                            Pempek <span className="font-dancing text-wk-gold italic text-sm sm:text-xl mx-0.5">"Asli"</span>
+                                            <span className="block sm:inline">Wong Kito</span>
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
+
+                            {/* Mobile Actions */}
+                            <div className="flex items-center space-x-5">
+                                <button className="relative !text-wk-maroon" onClick={handleCartSidebar}>
+                                    <i className="fal fa-shopping-cart text-xl" />
+                                    <span className="absolute -top-1.5 -right-2 !bg-wk-gold !text-wk-dark-maroon text-[9px] font-black w-4 h-4 flex items-center justify-center rounded-full border border-white">
+                                        <CartShow />
                                     </span>
-                                    <Link href="/shop" className="!text-wk-gold font-bold hover:!text-wk-gold hover:opacity-75 transition-opacity flex items-center text-sm">
-                                        Pesan Sekarang <i className="fal fa-long-arrow-right ml-2" /> 
-                                    </Link>
-                                </div>
+                                </button>
+                                <Link href="/sign-in" className="!text-wk-maroon">
+                                    <i className="fal fa-user text-xl" />
+                                </Link>
+                            </div>
+                        </div>
+                        {/* Mobile Search Bar */}
+                        <div className="pb-4">
+                            <div className="relative">
+                                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-wk-maroon/50 text-xs">
+                                    <i className="fal fa-search" />
+                                </span>
+                                <input 
+                                    type="text" 
+                                    placeholder="Cari pempek..." 
+                                    className="w-full bg-gray-50 border-0 text-xs rounded-full pl-10 pr-4 py-2.5 outline-none focus:ring-1 focus:ring-wk-gold/30"
+                                />
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {/* Main Desktop Header */}
                 <div className="bg-white hidden xl:block border-b border-gray-100">
                     <div className="container mx-auto px-4">
                         <div className="flex items-center justify-between py-6">
                             {/* Logo Area */}
                             <div className="w-1/6">
-                                <Link href="/">
-                                    <img src="https://placehold.co/180x50/3d0e0e/FFB800?text=Logo+Wong+Kito" alt="Pempek Asli Wong Kito" className="max-h-12" />
+                                <Link href="/" className="flex items-center">
+                                    <img src="/assets/img/logo/logo.png" alt="Pempek Asli Wong Kito" className="max-h-16 w-auto drop-shadow-md" />
+                                    <div className="ml-3 flex flex-col justify-center">
+                                        <span className="text-wk-maroon font-extrabold text-2xl leading-none tracking-tight whitespace-nowrap">
+                                            Pempek <span className="font-dancing text-wk-gold italic text-3xl mx-1">"Asli"</span> Wong Kito
+                                        </span>
+                                    </div>
                                 </Link>
                             </div>
                             {/* Search Area */}
@@ -125,7 +176,6 @@ export default function Header({ scroll, isMobileMenu, handleMobileMenu, isCartS
                                             </ul>
                                         </div>
                                     </div>
-
                                     <Link href="/about" className="!text-wk-beige font-bold hover:!text-wk-gold hover:opacity-70 transition-opacity uppercase tracking-wider text-sm flex items-center">Tentang Kami</Link>
                                     <Link href="/shop-location" className="!text-wk-beige font-bold hover:!text-wk-gold hover:opacity-70 transition-opacity uppercase tracking-wider text-sm flex items-center">Lokasi</Link>
                                     <Link href="/contact" className="!text-wk-beige font-bold hover:!text-wk-gold hover:opacity-70 transition-opacity uppercase tracking-wider text-sm flex items-center">Kontak</Link>

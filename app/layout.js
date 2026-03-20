@@ -1,6 +1,6 @@
 'use client'
 import { store } from "@/features/store"
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import { Plus_Jakarta_Sans, Dancing_Script } from 'next/font/google'
 import { Provider } from "react-redux"
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify"
@@ -20,10 +20,18 @@ const jakarta = Plus_Jakarta_Sans({
     variable: "--tp-ff-body",
     display: 'swap',
 })
+
+const dancingScript = Dancing_Script({
+    weight: ['400', '500', '600', '700'],
+    subsets: ['latin'],
+    variable: "--font-dancing",
+    display: 'swap',
+})
+
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${jakarta.variable} font-jakarta`}>
+            <body className={`${jakarta.variable} ${dancingScript.variable} font-jakarta`}>
                 <Provider store={store}>
                     {children}
                     <ToastContainer

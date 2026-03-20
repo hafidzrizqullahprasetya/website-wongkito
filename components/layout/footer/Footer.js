@@ -34,8 +34,14 @@ export default function Footer() {
 
                     {/* Col 1: Brand */}
                     <div className="lg:col-span-1">
-                        <Link href="/" className="inline-block mb-6">
-                            <img src="https://placehold.co/180x50/3d0e0e/FFB800?text=Logo+Wong+Kito" alt="Pempek Asli Wong Kito" className="h-12 object-contain" />
+                        <Link href="/" className="inline-flex items-center mb-6">
+                            <img src="/assets/img/logo/logo.png" alt="Pempek Asli Wong Kito" className="h-14 w-auto object-contain" />
+                            <div className="ml-4 flex flex-col justify-center text-left">
+                                <span className="text-wk-gold font-extrabold text-lg sm:text-xl leading-[1.1] tracking-tight whitespace-nowrap">
+                                    Pempek <span className="font-dancing text-white italic text-xl sm:text-2xl mx-1">"Asli"</span>
+                                    <span className="block sm:inline">Wong Kito</span>
+                                </span>
+                            </div>
                         </Link>
                         <p className="text-sm !text-white/50 leading-relaxed">
                             Pempek "Asli" Wong Kito — cita rasa autentik Palembang, dibuat dengan bahan pilihan dan resep turun-temurun.
@@ -139,17 +145,17 @@ export default function Footer() {
                     </a>
 
                     {/* Ojek Online */}
-                    <div className="flex items-center gap-6">
+                    <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
                         <div>
                             <h5 className="text-sm font-black !text-white mb-1">Tersedia di Ojek Online</h5>
                             <p className="text-xs !text-white/40">Pesan lewat ShopeeFood & GrabFood</p>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center justify-center gap-3">
                             <a href="#" className="hover:opacity-80 transition-opacity">
-                                <img src="https://placehold.co/120x40/3d0e0e/white?text=ShopeeFood" alt="ShopeeFood" className="h-9 rounded-lg object-contain" />
+                                <img src="https://placehold.co/110x35/3d0e0e/white?text=ShopeeFood" alt="ShopeeFood" className="h-8 md:h-9 rounded-lg object-contain" />
                             </a>
                             <a href="#" className="hover:opacity-80 transition-opacity">
-                                <img src="https://placehold.co/120x40/3d0e0e/white?text=GrabFood" alt="GrabFood" className="h-9 rounded-lg object-contain" />
+                                <img src="https://placehold.co/110x35/3d0e0e/white?text=GrabFood" alt="GrabFood" className="h-8 md:h-9 rounded-lg object-contain" />
                             </a>
                         </div>
                     </div>

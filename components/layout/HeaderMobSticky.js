@@ -13,10 +13,15 @@ export default function HeaderMobSticky({ scroll, handleMobileMenu, handleCartSi
                         </button>
                     </div>
 
-                    {/* Logo Center */}
                     <div className="flex-grow flex justify-center">
-                        <Link href="/">
-                            <img src="/assets/img/logo/logo.png" alt="Pempek Wong Kito" className="max-h-9" />
+                        <Link href="/" className="flex items-center">
+                            <img src="/assets/img/logo/logo.png" alt="Pempek Wong Kito" className="max-h-10 w-auto" />
+                            <div className="ml-2 flex flex-col justify-center text-center sm:text-left">
+                                <span className="text-wk-gold font-extrabold text-[11px] sm:text-xs leading-[1.1] tracking-tight whitespace-nowrap">
+                                    Pempek <span className="font-dancing text-white italic text-xs sm:text-sm mx-0.5">"Asli"</span>
+                                    <span className="block sm:inline">Wong Kito</span>
+                                </span>
+                            </div>
                         </Link>
                     </div>
 

@@ -45,7 +45,6 @@ export default function Layout({ headerStyle, footerStyle, headTitle, breadcrumb
             <PromoModal />
             <main>
                 {breadcrumbTitle && <Breadcrumb breadcrumbTitle={breadcrumbTitle} />}
-
                 {children}
             </main>
 
