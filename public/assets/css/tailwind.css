@@ -122,4 +122,13 @@
   .animate-fadeInDown {
     animation: fadeInDown 0.4s ease-out;
   }
+
+  /* Hide Scrollbar */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }

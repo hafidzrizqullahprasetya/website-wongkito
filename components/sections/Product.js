@@ -13,32 +13,32 @@ export default function Product() {
     const [activeIndex, setActiveIndex] = useState(1)
 
     return (
-        <section className="py-16 bg-white">
+        <section className="py-10 md:py-16 bg-white overflow-hidden">
             <div className="container mx-auto px-4">
 
                 {/* Header row */}
-                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
+                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8 md:mb-10">
                     {/* Section Title */}
-                    <div>
+                    <div className="text-center lg:text-left">
                         <span className="inline-block px-3 py-1 rounded-md !bg-wk-maroon text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-3">
                             Pilihan Terbaik
                         </span>
-                        <h2 className="text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight">
+                        <h2 className="text-2xl md:text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight">
                             Menu Populer
                         </h2>
-                        <div className="w-16 h-1.5 !bg-wk-gold rounded-full mt-4" />
+                        <div className="w-16 h-1 !bg-wk-gold rounded-full mt-4 mx-auto lg:mx-0" />
                     </div>
 
-                    {/* Tab Filter */}
-                    <div className="flex items-center gap-2 flex-wrap">
+                    {/* Tab Filter — Swipeable on mobile */}
+                    <div className="flex items-center gap-2 overflow-x-auto pb-4 lg:pb-0 scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0">
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveIndex(tab.id)}
-                                className={`px-5 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-opacity border
+                                className={`px-5 py-2 rounded-full text-[10px] md:text-xs font-black uppercase tracking-wider transition-all border whitespace-nowrap flex-shrink-0
                                     ${activeIndex === tab.id
-                                        ? '!bg-wk-maroon !text-white border-wk-maroon'
-                                        : '!bg-transparent !text-wk-dark-maroon border-gray-200 hover:opacity-70'
+                                        ? '!bg-wk-maroon !text-white border-wk-maroon shadow-md'
+                                        : '!bg-transparent !text-wk-dark-maroon border-gray-200 hover:border-wk-gold/50'
                                     }`}
                             >
                                 {tab.label}
@@ -48,13 +48,13 @@ export default function Product() {
                 </div>
 
                 {/* Tab Content */}
-                <div>
+                <div className="relative">
                     {tabs.map((tab) => (
                         <div
                             key={tab.id}
-                            className={activeIndex === tab.id ? 'block' : 'hidden'}
+                            className={activeIndex === tab.id ? 'block animate-fadeIn' : 'hidden'}
                         >
-                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">
                                 <FilterShopBox2 itemStart={tab.start} itemEnd={tab.end} />
                             </div>
                         </div>
