@@ -6,84 +6,80 @@ export default function DealProduct() {
     endDateTime.setDate(endDateTime.getDate() + 2)
 
     return (
-        <section className="py-14 bg-white overflow-hidden">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="rounded-[40px] !bg-wk-maroon overflow-hidden shadow-xl border border-wk-maroon">
-                    <div className="flex flex-col lg:flex-row items-center">
+        <section className="py-14 bg-white">
+            <div className="container mx-auto px-4">
+                <div className="rounded-3xl !bg-wk-maroon overflow-visible">
+                    <div className="flex flex-col lg:flex-row items-stretch">
 
                         {/* Left: Product Image */}
-                        <div className="lg:w-1/2 w-full flex items-center justify-center py-12 lg:py-16 px-6 lg:px-12 relative">
-                            {/* Decorative pulsating circle */}
-                            <div className="absolute w-72 h-72 lg:w-[450px] lg:h-[450px] rounded-full !bg-white/5 animate-pulse" />
-                            
-                            <div className="relative z-10 w-full flex justify-center">
+                        <div className="lg:w-5/12 w-full flex items-end justify-center pt-10 pb-0 px-8 relative">
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <div className="w-72 h-72 rounded-full !bg-white/5 animate-pulse" />
+                            </div>
+                            <div className="relative z-10">
                                 <img
-                                    src="https://placehold.co/800x800/f3f4f6/8B1A1A?text=Special+Deal"
+                                    src="https://placehold.co/600x600/f3f4f6/8B1A1A?text=Special+Deal"
                                     alt="Paket Spesial Pempek"
-                                    className="w-72 lg:w-[400px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+                                    className="w-64 sm:w-72 lg:w-80 object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] relative z-10"
                                 />
                                 {/* Price badge */}
-                                <div className="absolute -bottom-2 -right-2 sm:right-0 !bg-wk-gold px-5 py-4 lg:px-6 lg:py-4 rounded-2xl shadow-xl transform rotate-3">
-                                    <span className="block text-[11px] font-black !text-wk-dark-maroon uppercase tracking-widest mb-1">Mulai</span>
-                                    <span className="block text-2xl font-black !text-wk-dark-maroon leading-none">Rp 49rb</span>
+                                <div className="absolute bottom-4 -right-2 !bg-wk-gold px-4 py-3 rounded-2xl shadow-lg transform rotate-3 z-20">
+                                    <span className="block text-[9px] font-black !text-wk-dark-maroon uppercase tracking-wider mb-0.5">Mulai</span>
+                                    <span className="block text-lg font-black !text-wk-dark-maroon leading-none">Rp 49rb</span>
                                 </div>
                             </div>
                         </div>
 
                         {/* Right: Deal Info */}
-                        <div className="lg:w-1/2 w-full py-12 px-8 sm:px-12 lg:px-16 text-center lg:text-left">
-                            
-                            <span className="inline-block text-[11px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-4">
+                        <div className="lg:w-7/12 w-full py-10 px-8 sm:px-10 lg:px-12">
+
+                            <span className="text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-3 block">
                                 Penawaran Hari Ini
                             </span>
 
-                            <div className="flex items-baseline justify-center lg:justify-start gap-3 mb-6">
-                                <span className="text-4xl sm:text-5xl font-black !text-white leading-none">
-                                    Rp 49.000
-                                </span>
-                                <del className="text-base !text-white/40 font-semibold italic">
-                                    Rp 65.000
-                                </del>
+                            <div className="flex items-baseline gap-3 mb-4">
+                                <span className="text-3xl sm:text-4xl font-black !text-white">Rp 49.000</span>
+                                <del className="text-sm !text-white/40 font-semibold">Rp 65.000</del>
                             </div>
 
-                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black !text-white uppercase leading-tight mb-5">
-                                <Link href="/shop/1" className="hover:!text-wk-gold transition-colors duration-300">
+                            <h2 className="text-xl sm:text-2xl font-black !text-white uppercase leading-tight mb-4">
+                                <Link href="/shop/1" className="hover:opacity-80 transition-opacity">
                                     Paket Ampera Special<br />
-                                    <span className="!text-wk-gold">20 Biji Mix Palembang</span>
+                                    <span className="!text-wk-gold">20 Biji Mix</span>
                                 </Link>
                             </h2>
 
-                            <p className="text-sm sm:text-base !text-white/60 leading-relaxed mb-8 max-w-sm mx-auto lg:mx-0">
-                                Isi 20 biji pempek mix pilihan (Kapal Selam, Lenjer, Adaan, Kulit) + 2 porsi cuko asli khas Palembang huenak tenan pokoknya.
+                            <p className="text-sm !text-white/60 leading-relaxed mb-6 max-w-sm">
+                                Isi 20 biji pempek mix pilihan (Kapal Selam, Lenjer, Adaan, Kulit) + 2 porsi cuko asli khas Palembang.
                             </p>
 
                             {/* Stock progress */}
-                            <div className="mb-8 w-full max-w-xs mx-auto lg:mx-0">
-                                <div className="flex justify-between text-xs font-bold !text-white/60 mb-2.5">
+                            <div className="mb-6 max-w-xs">
+                                <div className="flex justify-between text-[10px] font-bold !text-white/60 mb-2">
                                     <span>Stok Tersisa</span>
                                     <span className="!text-wk-gold">75%</span>
                                 </div>
                                 <div className="w-full h-2 !bg-white/10 rounded-full overflow-hidden">
-                                    <div className="h-full w-3/4 !bg-wk-gold rounded-full transition-all duration-1000" />
+                                    <div className="h-full w-3/4 !bg-wk-gold rounded-full" />
                                 </div>
                             </div>
 
-                            {/* Countdown container */}
-                            <div className="mb-10 py-5 px-6 sm:px-8 !bg-white/10 rounded-[2rem] backdrop-blur-sm inline-block">
-                                <p className="text-[10px] font-black !text-wk-gold uppercase tracking-widest mb-4">
+                            {/* Countdown */}
+                            <div className="mb-7 py-4 px-5 !bg-white/10 rounded-2xl backdrop-blur-sm inline-block">
+                                <p className="text-[9px] font-black !text-wk-gold uppercase tracking-widest mb-3">
                                     Sisa Waktu Promo
                                 </p>
                                 <Countdown endDateTime={endDateTime.getTime()} />
                             </div>
 
                             {/* CTA Button */}
-                            <div className="flex justify-center lg:justify-start">
+                            <div>
                                 <Link
                                     href="/shop/1"
-                                    className="inline-flex items-center gap-3 px-10 py-5 !bg-wk-gold !text-wk-dark-maroon font-black text-xs sm:text-sm uppercase tracking-widest rounded-full hover:!bg-white transition-all duration-300 shadow-lg"
+                                    className="inline-flex items-center gap-2 px-6 py-3 !bg-wk-gold !text-wk-dark-maroon font-black text-xs uppercase tracking-widest rounded-full hover:opacity-80 transition-opacity"
                                 >
                                     Pesan Sekarang
-                                    <i className="fal fa-long-arrow-right text-base" />
+                                    <i className="fal fa-arrow-right" />
                                 </Link>
                             </div>
                         </div>
