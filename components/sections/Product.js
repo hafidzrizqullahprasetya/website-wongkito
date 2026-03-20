@@ -70,9 +70,9 @@ export default function Product() {
                     </div>
                 </div>
 
-                {/* Pagination Controls */}
+                {/* Pagination Controls — Balanced responsive spacing */}
                 {totalPages > 1 && (
-                    <div className="flex items-center justify-center gap-3 mt-12 md:mt-16">
+                    <div className="flex items-center justify-center gap-3 mt-20 md:mt-16">
                         <button
                             disabled={currentPage === 1}
                             onClick={() => setCurrentPage(prev => prev - 1)}
