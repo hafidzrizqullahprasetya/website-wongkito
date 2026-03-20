@@ -9,11 +9,11 @@ export default function HeaderSticky({ scroll, isCartSidebar, handleCartSidebar 
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between h-20">
                         {/* Logo Area */}
-                        <div className="w-1/4">
+                        <div className="w-auto flex-shrink-0">
                             <Link href="/" className="flex items-center">
                                 <img src="/assets/img/logo/logo.png" alt="Pempek Wong Kito" className="max-h-12 w-auto" />
                                 <div className="ml-3 flex flex-col justify-center">
-                                    <span className="text-wk-gold font-extrabold text-lg leading-none tracking-tight whitespace-nowrap">
+                                    <span className="text-wk-gold font-extrabold text-base lg:text-lg leading-none tracking-tight whitespace-nowrap">
                                         Pempek <span className="font-dancing text-white italic text-xl mx-0.5">"Asli"</span> Wong Kito
                                     </span>
                                 </div>

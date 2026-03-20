@@ -30,25 +30,29 @@ export default function Header({ scroll, isMobileMenu, handleMobileMenu, isCartS
                 {/* Static Mobile/Tablet Header (Visible initially on smaller screens) */}
                 <div className="bg-white xl:hidden border-b border-gray-100">
                     <div className="container mx-auto px-4">
-                        <div className="flex items-center justify-between h-20">
-                            {/* Mobile Toggle */}
-                            <div className="flex items-center">
-                                <button className="!text-wk-maroon text-2xl pr-4" onClick={handleMobileMenu}>
+                        <div className="flex items-center justify-between h-20 relative">
+                            {/* Mobile Toggle - Left */}
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+                                <button className="!text-wk-maroon text-2xl" onClick={handleMobileMenu}>
                                     <i className="far fa-bars" />
                                 </button>
+                            </div>
+
+                            {/* Mobile Logo - Center */}
+                            <div className="flex-grow flex justify-center">
                                 <Link href="/" className="flex items-center">
-                                    <img src="/assets/img/logo/logo.png" alt="Logo" className="max-h-12 w-auto drop-shadow-sm" />
-                                    <div className="ml-2 flex flex-col justify-center">
-                                        <span className="text-wk-maroon font-extrabold text-xs sm:text-base leading-[1.1] tracking-tight whitespace-nowrap">
-                                            Pempek <span className="font-dancing text-wk-gold italic text-sm sm:text-xl mx-0.5">"Asli"</span>
-                                            <span className="block sm:inline">Wong Kito</span>
+                                    <img src="/assets/img/logo/logo.png" alt="Logo" className="max-h-10 sm:max-h-12 w-auto drop-shadow-sm" />
+                                    <div className="ml-2 flex flex-col justify-center text-center">
+                                        <span className="text-wk-maroon font-extrabold text-[10px] sm:text-sm leading-[1.1] tracking-tighter whitespace-nowrap">
+                                            Pempek <span className="font-dancing text-wk-gold italic text-xs sm:text-lg mx-0.5">"Asli"</span>
+                                            <span className="block">Wong Kito</span>
                                         </span>
                                     </div>
                                 </Link>
                             </div>
 
-                            {/* Mobile Actions */}
-                            <div className="flex items-center space-x-5">
+                            {/* Mobile Actions - Right */}
+                            <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center space-x-4">
                                 <button className="relative !text-wk-maroon" onClick={handleCartSidebar}>
                                     <i className="fal fa-shopping-cart text-xl" />
                                     <span className="absolute -top-1.5 -right-2 !bg-wk-gold !text-wk-dark-maroon text-[9px] font-black w-4 h-4 flex items-center justify-center rounded-full border border-white">
@@ -81,12 +85,13 @@ export default function Header({ scroll, isMobileMenu, handleMobileMenu, isCartS
                     <div className="container mx-auto px-4">
                         <div className="flex items-center justify-between py-6">
                             {/* Logo Area */}
-                            <div className="w-1/6">
-                                <Link href="/" className="flex items-center">
-                                    <img src="/assets/img/logo/logo.png" alt="Pempek Asli Wong Kito" className="max-h-16 w-auto drop-shadow-md" />
+                            <div className="w-auto min-w-fit max-w-[25%] flex-shrink-0">
+                                <Link href="/" className="flex items-center group">
+                                    <img src="/assets/img/logo/logo.png" alt="Pempek Asli Wong Kito" className="max-h-14 2xl:max-h-16 w-auto drop-shadow-md transition-transform group-hover:scale-105" />
                                     <div className="ml-3 flex flex-col justify-center">
-                                        <span className="text-wk-maroon font-extrabold text-2xl leading-none tracking-tight whitespace-nowrap">
-                                            Pempek <span className="font-dancing text-wk-gold italic text-3xl mx-1">"Asli"</span> Wong Kito
+                                        <span className="text-wk-maroon font-extrabold text-lg 2xl:text-2xl leading-none tracking-tighter whitespace-nowrap">
+                                            Pempek <span className="font-dancing text-wk-gold italic text-xl 2xl:text-3xl mx-1">"Asli"</span>
+                                            <span className="block 2xl:inline">Wong Kito</span>
                                         </span>
                                     </div>
                                 </Link>
