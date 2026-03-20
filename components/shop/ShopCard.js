@@ -29,14 +29,14 @@ const ShopCard = ({ item, addToCart, addToWishlist }) => {
                     <button
                         onClick={() => addToCart(item.id)}
                         title="Tambah ke Keranjang"
-                        className="w-8 h-8 sm:w-9 sm:h-9 !bg-wk-maroon !text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-all text-xs sm:text-sm"
+                        className="w-8 h-8 sm:w-9 sm:h-9 !bg-wk-maroon !text-white rounded-full flex items-center justify-center hover:scale-110 transition-all text-xs sm:text-sm"
                     >
                         <i className="fal fa-shopping-basket" />
                     </button>
                     <button
                         onClick={() => addToWishlist(item.id)}
                         title="Wishlist"
-                        className="w-8 h-8 sm:w-9 sm:h-9 !bg-white !text-wk-maroon border border-wk-gold/20 rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-all text-xs sm:text-sm"
+                        className="w-8 h-8 sm:w-9 sm:h-9 !bg-white !text-wk-maroon border border-wk-gold/20 rounded-full flex items-center justify-center hover:scale-110 transition-all text-xs sm:text-sm"
                     >
                         <i className="fal fa-heart" />
                     </button>

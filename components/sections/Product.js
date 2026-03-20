@@ -37,7 +37,7 @@ export default function Product() {
                                 onClick={() => setActiveIndex(tab.id)}
                                 className={`px-4 py-2.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all border text-center
                                     ${activeIndex === tab.id
-                                        ? '!bg-wk-maroon !text-white border-wk-maroon shadow-md'
+                                        ? '!bg-wk-maroon !text-white border-wk-maroon'
                                         : '!bg-transparent !text-wk-dark-maroon border-gray-200 hover:border-wk-gold/50'
                                     }`}
                             >

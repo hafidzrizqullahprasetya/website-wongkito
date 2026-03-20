@@ -11,18 +11,18 @@ const categories = [
 
 export default function Category() {
     return (
-        <section className="py-16 bg-white border-b border-gray-100">
+        <section className="py-10 md:py-16 bg-white border-b border-gray-100">
             <div className="container mx-auto px-4">
 
-                {/* Section Header */}
-                <div className="mb-10">
+                {/* Section Header — Centered to match Menu Populer */}
+                <div className="text-center mb-8 md:mb-10">
                     <span className="inline-block px-3 py-1 rounded-md !bg-wk-maroon text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-3">
                         Menu Kami
                     </span>
-                    <h2 className="text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight">
+                    <h2 className="text-2xl md:text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight">
                         Jelajahi Kategori
                     </h2>
-                    <div className="w-16 h-1.5 !bg-wk-gold rounded-full mt-4" />
+                    <div className="w-16 h-1 !bg-wk-gold rounded-full mt-4 mx-auto" />
                 </div>
 
                 {/* Category Grid */}
