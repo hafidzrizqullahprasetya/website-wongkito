@@ -62,7 +62,7 @@ export default function DealProduct() {
                             
                             <div className="flex items-baseline gap-3 mb-6">
                                 <h3 className="text-4xl lg:text-7xl font-black !text-white leading-none tracking-tighter">Rp49.000</h3>
-                                <span className="text-sm lg:text-xl !text-white/20 line-through font-bold">Rp65.000</span>
+                                <span className="text-sm lg:text-xl !text-white/40 line-through font-bold">Rp65.000</span>
                             </div>
 
                             <h2 className="text-xl lg:text-3xl font-black !text-white uppercase tracking-tight leading-tight mb-8">
@@ -70,7 +70,7 @@ export default function DealProduct() {
                                 <span className="!text-wk-gold italic">Isi 20 Biji Mix</span>
                             </h2>
 
-                            <p className="text-xs lg:text-sm !text-white/40 leading-relaxed max-w-sm mb-12">
+                            <p className="text-xs lg:text-sm !text-white/60 leading-relaxed max-w-sm mb-12">
                                 Isi 20 biji pempek mix pilihan (Kapal Selam, Lenjer, Adaan, Kulit) + 2 porsi cuko asli khas Palembang. Dibuat fresh setiap hari tanpa pengawet.
                             </p>
 
@@ -97,7 +97,7 @@ export default function DealProduct() {
                                     Pesan Sekarang
                                     <i className="fas fa-shopping-basket text-lg"></i>
                                 </Link>
-                                <p className="mt-5 text-[9px] font-bold !text-white/20 uppercase tracking-[0.2em] lg:text-left text-center">
+                                <p className="mt-5 text-[9px] font-bold !text-white/40 uppercase tracking-[0.2em] lg:text-left text-center">
                                     *Promo berlaku selama persediaan masih ada
                                 </p>
                             </div>
