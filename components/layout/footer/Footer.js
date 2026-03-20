@@ -29,29 +29,28 @@ export default function Footer() {
         <footer className="!bg-wk-dark-maroon">
 
             {/* ── Main Footer ── */}
-            <div className="container mx-auto px-4 pt-16 pb-10 border-b border-white/10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+            <div className="container mx-auto px-4 pt-12 md:pt-16 pb-10 border-b border-white/10">
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 md:gap-10">
 
-                    {/* Col 1: Brand */}
-                    <div className="lg:col-span-1">
-                        <Link href="/" className="inline-flex items-center mb-6">
-                            <img src="/assets/img/logo/logo.png" alt="Pempek Asli Wong Kito" className="h-14 w-auto object-contain" />
-                            <div className="ml-4 flex flex-col justify-center text-left">
-                                <span className="text-white font-extrabold text-lg sm:text-xl leading-[1.1] tracking-tight whitespace-nowrap">
-                                    Pempek <span className="font-dancing text-wk-gold italic text-xl sm:text-2xl mx-1">"Asli"</span>
-                                    <span className="block sm:inline">Wong Kito</span>
+                    {/* Col 1: Brand — full width on mobile, 1 col on lg */}
+                    <div className="col-span-2 md:col-span-4 lg:col-span-1">
+                        <Link href="/" className="inline-flex items-center mb-5">
+                            <img src="/assets/img/logo/logo.png" alt="Pempek Asli Wong Kito" className="h-12 w-auto object-contain" />
+                            <div className="ml-3 flex flex-col justify-center text-left">
+                                <span className="text-white font-extrabold text-base sm:text-lg leading-[1.1] tracking-tight">
+                                    Pempek <span className="font-dancing text-wk-gold italic text-xl mx-1">"Asli"</span>Wong Kito
                                 </span>
                             </div>
                         </Link>
-                        <p className="text-sm !text-white/50 leading-relaxed">
+                        <p className="text-sm !text-white/50 leading-relaxed max-w-xs">
                             Pempek "Asli" Wong Kito — cita rasa autentik Palembang, dibuat dengan bahan pilihan dan resep turun-temurun.
-                            Dine-in & take away di Maguwoharjo.
+                            Dine-in &amp; take away di Maguwoharjo.
                         </p>
                     </div>
 
                     {/* Col 2: Menu Kami */}
-                    <div>
-                        <h5 className="text-sm font-black !text-wk-gold uppercase tracking-widest mb-6">Menu Kami</h5>
+                    <div className="col-span-1">
+                        <h5 className="text-sm font-black !text-wk-gold uppercase tracking-widest mb-5">Menu Kami</h5>
                         <ul className="space-y-3">
                             {menuLinks.map((link, i) => (
                                 <li key={i}>
@@ -64,8 +63,8 @@ export default function Footer() {
                     </div>
 
                     {/* Col 3: Informasi */}
-                    <div>
-                        <h5 className="text-sm font-black !text-wk-gold uppercase tracking-widest mb-6">Informasi</h5>
+                    <div className="col-span-1">
+                        <h5 className="text-sm font-black !text-wk-gold uppercase tracking-widest mb-5">Informasi</h5>
                         <ul className="space-y-3">
                             {infoLinks.map((link, i) => (
                                 <li key={i}>
@@ -78,8 +77,8 @@ export default function Footer() {
                     </div>
 
                     {/* Col 4: Ikuti Kami */}
-                    <div>
-                        <h5 className="text-sm font-black !text-wk-gold uppercase tracking-widest mb-6">Ikuti Kami</h5>
+                    <div className="col-span-1">
+                        <h5 className="text-sm font-black !text-wk-gold uppercase tracking-widest mb-5">Ikuti Kami</h5>
                         <ul className="space-y-3">
                             {socialLinks.map((link, i) => (
                                 <li key={i}>
@@ -97,13 +96,13 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Col 5: Pesan via WA */}
-                    <div>
-                        <h5 className="text-sm font-black !text-wk-gold uppercase tracking-widest mb-6">Pesan via WhatsApp</h5>
+                    {/* Col 5: Pesan via WA — spans 2 on mobile for better form layout */}
+                    <div className="col-span-2 md:col-span-1">
+                        <h5 className="text-sm font-black !text-wk-gold uppercase tracking-widest mb-5">Pesan via WhatsApp</h5>
                         <p className="text-sm !text-white/50 mb-5 leading-relaxed">
                             Dapatkan penawaran spesial langsung ke WhatsApp Anda!
                         </p>
-                        <div className="flex flex-col gap-3">
+                        <div className="flex flex-col gap-3 max-w-xs">
                             <input
                                 type="text"
                                 placeholder="Ketik nama Anda..."
@@ -126,7 +125,7 @@ export default function Footer() {
 
             {/* ── Footer CTA Bar ── */}
             <div className="container mx-auto px-4 py-8 border-b border-white/10">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
 
                     {/* WhatsApp Contact */}
                     <a
@@ -135,20 +134,20 @@ export default function Footer() {
                         rel="noopener noreferrer"
                         className="flex items-center gap-4 hover:opacity-80 transition-opacity"
                     >
-                        <div className="w-12 h-12 rounded-full !bg-wk-gold/10 border border-wk-gold/30 flex items-center justify-center flex-shrink-0">
-                            <i className="fab fa-whatsapp text-xl !text-wk-gold" />
+                        <div className="w-11 h-11 rounded-full !bg-wk-gold/10 border border-wk-gold/30 flex items-center justify-center flex-shrink-0">
+                            <i className="fab fa-whatsapp text-lg !text-wk-gold" />
                         </div>
-                        <div>
+                        <div className="text-left">
                             <span className="block text-base font-black !text-white">+62 812-3456-7890</span>
                             <span className="block text-xs !text-white/40 font-medium">Buka 08.00 – 21.00 WIB</span>
                         </div>
                     </a>
 
                     {/* Ojek Online */}
-                    <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-                        <div>
+                    <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                        <div className="text-center sm:text-left">
                             <h5 className="text-sm font-black !text-white mb-1">Tersedia di Ojek Online</h5>
-                            <p className="text-xs !text-white/40">Pesan lewat ShopeeFood & GrabFood</p>
+                            <p className="text-xs !text-white/40">Pesan lewat ShopeeFood &amp; GrabFood</p>
                         </div>
                         <div className="flex items-center justify-center gap-3">
                             <a href="#" className="hover:opacity-80 transition-opacity">
