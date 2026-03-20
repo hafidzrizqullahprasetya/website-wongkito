@@ -11,6 +11,20 @@ const tabs = [
 
 export default function Product() {
     const [activeIndex, setActiveIndex] = useState(1)
+    const [currentPage, setCurrentPage] = useState(1)
+    const pageSize = 8 // items per page
+
+    const handleTabChange = (id) => {
+        setActiveIndex(id)
+        setCurrentPage(1) // Reset to first page when changing categories
+    }
+
+    const currentTab = tabs.find(t => t.id === activeIndex)
+    const totalItems = currentTab.end - currentTab.start
+    const totalPages = Math.ceil(totalItems / pageSize)
+
+    const paginatedStart = currentTab.start + (currentPage - 1) * pageSize
+    const paginatedEnd = Math.min(currentTab.start + currentPage * pageSize, currentTab.end)
 
     return (
         <section className="py-10 md:py-16 bg-white overflow-hidden">
@@ -34,7 +48,7 @@ export default function Product() {
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}
-                                onClick={() => setActiveIndex(tab.id)}
+                                onClick={() => handleTabChange(tab.id)}
                                 className={`px-4 py-2.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all border text-center
                                     ${activeIndex === tab.id
                                         ? '!bg-wk-maroon !text-white border-wk-maroon'
@@ -47,19 +61,49 @@ export default function Product() {
                     </div>
                 </div>
 
-                {/* Tab Content */}
-                <div className="relative">
-                    {tabs.map((tab) => (
-                        <div
-                            key={tab.id}
-                            className={activeIndex === tab.id ? 'block animate-fadeIn' : 'hidden'}
-                        >
-                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">
-                                <FilterShopBox2 itemStart={tab.start} itemEnd={tab.end} />
-                            </div>
+                {/* Tab Content — Paginated Grid */}
+                <div className="relative min-h-[400px]">
+                    <div key={activeIndex + '-' + currentPage} className="animate-fadeIn">
+                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">
+                            <FilterShopBox2 itemStart={paginatedStart} itemEnd={paginatedEnd} />
                         </div>
-                    ))}
+                    </div>
                 </div>
+
+                {/* Pagination Controls */}
+                {totalPages > 1 && (
+                    <div className="flex items-center justify-center gap-2 mt-12 md:mt-16">
+                        <button
+                            disabled={currentPage === 1}
+                            onClick={() => setCurrentPage(prev => prev - 1)}
+                            className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-wk-dark-maroon hover:bg-wk-maroon hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-wk-dark-maroon transition-all shadow-sm"
+                        >
+                            <i className="fal fa-arrow-left" />
+                        </button>
+
+                        {[...Array(totalPages)].map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setCurrentPage(i + 1)}
+                                className={`w-10 h-10 rounded-full border text-xs font-bold transition-all shadow-sm
+                                    ${currentPage === i + 1
+                                        ? '!bg-wk-maroon !text-white border-wk-maroon scale-110'
+                                        : 'bg-white border-gray-100 text-wk-dark-maroon hover:border-wk-maroon/30 hover:text-wk-maroon'
+                                    }`}
+                            >
+                                {i + 1}
+                            </button>
+                        ))}
+
+                        <button
+                            disabled={currentPage === totalPages}
+                            onClick={() => setCurrentPage(prev => prev + 1)}
+                            className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-wk-dark-maroon hover:bg-wk-maroon hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-wk-dark-maroon transition-all shadow-sm"
+                        >
+                            <i className="fal fa-arrow-right" />
+                        </button>
+                    </div>
+                )}
 
             </div>
         </section>
