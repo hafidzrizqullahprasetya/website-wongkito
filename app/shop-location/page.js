@@ -35,7 +35,7 @@ export default function ShopLocation() {
                                                 <i className="fal fa-map-marker-alt !text-wk-maroon text-sm" />
                                             </div>
                                             <div>
-                                                <p className="text-[9px] font-black uppercase tracking-widest !text-wk-gold mb-1">Alamat Lengkap</p>
+                                                <p className="inline-block px-2 py-0.5 !bg-wk-maroon !text-wk-gold text-[8px] font-black uppercase tracking-widest mb-1 rounded">Alamat Lengkap</p>
                                                 <p className="text-xs md:text-sm !text-wk-dark-maroon font-black leading-relaxed">
                                                     Jl. Maguwoharjo No. 123, Depok, <br className="hidden md:block" />
                                                     Sleman, Yogyakarta 55282
@@ -49,7 +49,7 @@ export default function ShopLocation() {
                                                 <i className="fab fa-whatsapp !text-wk-maroon text-sm" />
                                             </div>
                                             <div>
-                                                <p className="text-[9px] font-black uppercase tracking-widest !text-wk-gold mb-1">WhatsApp Admin</p>
+                                                <p className="inline-block px-2 py-0.5 !bg-wk-maroon !text-wk-gold text-[8px] font-black uppercase tracking-widest mb-1 rounded">WhatsApp Admin</p>
                                                 <p className="text-xs md:text-sm !text-wk-dark-maroon font-black">+62 812-3456-7890</p>
                                             </div>
                                         </div>
@@ -60,7 +60,7 @@ export default function ShopLocation() {
                                                 <i className="fal fa-clock !text-wk-maroon text-sm" />
                                             </div>
                                             <div>
-                                                <p className="text-[9px] font-black uppercase tracking-widest !text-wk-gold mb-1">Jam Operasional</p>
+                                                <p className="inline-block px-2 py-0.5 !bg-wk-maroon !text-wk-gold text-[8px] font-black uppercase tracking-widest mb-1 rounded">Jam Operasional</p>
                                                 <p className="text-xs md:text-sm !text-wk-dark-maroon font-black">08.00 – 21.00 WIB (Setiap Hari)</p>
                                             </div>
                                         </div>
