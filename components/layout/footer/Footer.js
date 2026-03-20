@@ -49,7 +49,7 @@ export default function Footer() {
                     </div>
 
                     {/* Group for Menu & Info (Centered 2-Column on Mobile) */}
-                    <div className="flex items-start justify-center lg:justify-start gap-12 lg:hidden">
+                    <div className="flex items-start justify-center lg:justify-start gap-12 lg:hidden pt-10 lg:pt-0">
                         <div className="flex flex-col items-center flex-1">
                             <h5 className="text-[10px] font-black !text-wk-gold uppercase tracking-[0.2em] mb-6">Menu</h5>
                             <ul className="space-y-4 text-center">
