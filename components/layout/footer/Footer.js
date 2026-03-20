@@ -29,8 +29,8 @@ export default function Footer() {
         <footer className="!bg-wk-dark-maroon text-white font-sans overflow-hidden">
 
             {/* ── Main Footer Grid ── */}
-            <div className="container mx-auto px-6 py-12 border-b border-white/5">
-                <div className="flex flex-col lg:grid lg:grid-cols-5 gap-y-12 lg:gap-x-8">
+            <div className="container mx-auto px-6 py-12 lg:py-16 border-b border-white/5">
+                <div className="flex flex-col lg:grid lg:grid-cols-4 gap-y-12 lg:gap-x-12">
 
                     {/* Col 1: Brand Info (Centered on Mobile) */}
                     <div className="lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -48,11 +48,11 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Group for Menu & Info (Side-by-side / 2 Columns) */}
-                    <div className="flex gap-10 lg:hidden">
-                        <div className="flex-1">
+                    {/* Group for Menu & Info (Centered 2-Column on Mobile) */}
+                    <div className="flex items-start justify-center lg:justify-start gap-12 lg:hidden">
+                        <div className="flex flex-col items-center flex-1">
                             <h5 className="text-[10px] font-black !text-wk-gold uppercase tracking-[0.2em] mb-6">Menu</h5>
-                            <ul className="space-y-4">
+                            <ul className="space-y-4 text-center">
                                 {menuLinks.map((link, i) => (
                                     <li key={i}>
                                         <Link href={link.href} className="text-sm !text-white/50 hover:!text-wk-gold transition-colors">
@@ -62,9 +62,9 @@ export default function Footer() {
                                 ))}
                             </ul>
                         </div>
-                        <div className="flex-1">
+                        <div className="flex flex-col items-center flex-1">
                             <h5 className="text-[10px] font-black !text-wk-gold uppercase tracking-[0.2em] mb-6">Info</h5>
-                            <ul className="space-y-4">
+                            <ul className="space-y-4 text-center">
                                 {infoLinks.map((link, i) => (
                                     <li key={i}>
                                         <Link href={link.href} className="text-sm !text-white/50 hover:!text-wk-gold transition-colors">
@@ -76,8 +76,8 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Desktop View Columns (Brand columns on Tablet/PC) */}
-                    <div className="hidden lg:block lg:col-span-1">
+                    {/* Desktop View Columns (Hidden on Mobile) */}
+                    <div className="hidden lg:block">
                         <h5 className="text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-7">Menu Kami</h5>
                         <ul className="space-y-4">
                             {menuLinks.map((link, i) => (
@@ -90,7 +90,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div className="hidden lg:block lg:col-span-1">
+                    <div className="hidden lg:block">
                         <h5 className="text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-7">Informasi</h5>
                         <ul className="space-y-4">
                             {infoLinks.map((link, i) => (
@@ -104,7 +104,7 @@ export default function Footer() {
                     </div>
 
                     {/* Col 4: Follow Us */}
-                    <div className="lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                         <h5 className="text-[10px] lg:text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-6 lg:mb-7">Ikuti Kami</h5>
                         <ul className="space-y-4">
                             {socialLinks.map((link, i) => (
@@ -123,51 +123,31 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Col 5: WhatsApp Subscription */}
-                    <div className="lg:col-span-1 pt-10 lg:pt-0 border-t lg:border-none border-white/5 flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <h5 className="text-[10px] lg:text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-5">Pesan di WA</h5>
-                        <div className="w-full flex flex-col gap-3">
-                            <input
-                                type="text"
-                                placeholder="Nama Anda..."
-                                className="w-full px-4 py-2.5 rounded-xl !bg-white/5 border border-white/10 !text-white text-xs outline-none focus:border-wk-gold/50 transition-colors"
-                            />
-                            <a
-                                href="https://wa.me/6281234567890"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-full py-3 rounded-xl !bg-wk-gold !text-wk-dark-maroon font-black text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 hover:opacity-90"
-                            >
-                                CHAT SEKARANG <i className="fab fa-whatsapp text-lg" />
-                            </a>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
             {/* ── CTA Contact Bar ── */}
-            <div className="container mx-auto px-6 py-8 border-b border-white/5">
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-6">
-                    <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-                        <div className="w-12 h-12 rounded-full !bg-wk-gold/10 border border-wk-gold/20 flex items-center justify-center">
-                            <i className="fab fa-whatsapp text-xl !text-wk-gold" />
+            <div className="container mx-auto px-6 py-10 lg:py-12 border-b border-white/5">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-6 text-center lg:text-left">
+                    <div className="flex flex-col sm:flex-row items-center gap-5">
+                        <div className="w-14 h-14 rounded-full !bg-wk-gold/10 border border-wk-gold/20 flex items-center justify-center">
+                            <i className="fab fa-whatsapp text-2xl !text-wk-gold" />
                         </div>
                         <div>
-                            <span className="block text-xl font-black tracking-tight text-white">+62 812-3456-7890</span>
-                            <span className="block text-[9px] uppercase tracking-widest !text-white/30 font-bold mt-1 tracking-tighter sm:tracking-widest">CS PEMPEK WONG KITO (08.00 - 21.00)</span>
+                            <span className="block text-2xl font-black tracking-tight text-white">+62 812-3456-7890</span>
+                            <span className="block text-[10px] uppercase tracking-widest !text-white/30 font-bold mt-1">Layanan CS (Setiap Hari 08:00 - 21:00)</span>
                         </div>
                     </div>
-                    <div className="flex items-center gap-4 opacity-40 grayscale">
-                        <img src="https://placehold.co/100x30/3d0e0e/white?text=ShopeeFood" alt="Partner" className="h-6 w-auto" />
-                        <img src="https://placehold.co/100x30/3d0e0e/white?text=GrabFood" alt="Partner" className="h-6 w-auto" />
+                    <div className="flex items-center gap-4 opacity-40 grayscale hover:grayscale-0 transition-all">
+                        <img src="https://placehold.co/120x35/3d0e0e/white?text=ShopeeFood" alt="Partner" className="h-7 w-auto" />
+                        <img src="https://placehold.co/120x35/3d0e0e/white?text=GrabFood" alt="Partner" className="h-7 w-auto" />
                     </div>
                 </div>
             </div>
 
             {/* ── Bottom Copyright ── */}
-            <div className="container mx-auto px-6 py-6 pb-24 lg:pb-6 text-center lg:text-left">
-                <p className="text-[10px] !text-white/20 uppercase tracking-widest font-bold">
+            <div className="container mx-auto px-6 py-8 pb-28 lg:pb-8 text-center">
+                <p className="text-[11px] !text-white/20 uppercase tracking-[0.3em] font-bold">
                     &copy; {new Date().getFullYear()} <span className="!text-wk-gold/40">Pempek Asli Wong Kito</span>
                 </p>
             </div>
