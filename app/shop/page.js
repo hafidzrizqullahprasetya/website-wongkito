@@ -9,7 +9,7 @@ export default function Shop() {
     }
     return (
         <>
-            <Layout headerStyle={3} footerStyle={1} breadcrumbTitle="Shop">
+            <Layout breadcrumbTitle="Shop">
                 <div className="product-filter-area pt-65 pb-80">
                     <div className="container">
                         <FilterShopBox itemStart={10} itemEnd={18} />

@@ -4,7 +4,7 @@ export default function Track() {
 
     return (
         <>
-            <Layout headerStyle={3} footerStyle={1} breadcrumbTitle="Track">
+            <Layout breadcrumbTitle="Track">
                 <section className="track-area pt-80 pb-80">
                     <div className="container">
                         <div className="row justify-content-center">

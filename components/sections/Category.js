@@ -1,76 +1,57 @@
-
 import Link from "next/link"
+
+const categories = [
+    { icon: 'fal fa-box-open',       label: 'Paket Seragam',   count: 6, href: '/shop' },
+    { icon: 'fal fa-utensils',       label: 'Paket Campur',    count: 5, href: '/shop' },
+    { icon: 'fal fa-fish',           label: 'Kapal Selam',     count: 4, href: '/shop' },
+    { icon: 'fal fa-drumstick-bite', label: 'Lenjer & Adaan',  count: 8, href: '/shop' },
+    { icon: 'fal fa-drumstick-bite', label: 'Tekwan & Model',  count: 3, href: '/shop' },
+    { icon: 'fal fa-gift',           label: 'Hampers & Kado',  count: 4, href: '/shop' },
+]
 
 export default function Category() {
     return (
-        <>
-            <section className="category-area pt-70">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="tpsection mb-40">
-                                <h4 className="tpsection__title">Top <span> Categories <img src="/assets/img/icon/title-shape-01.jpg" alt="" /></span></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="custom-row category-border pb-45 justify-content-xl-between">
-                        <div className="tpcategory mb-40">
-                            <div className="tpcategory__icon p-relative">
-                                <img src="/assets/img/svg/cat01.svg" alt="" className="fn__svg" />
-                                <span>20</span>
-                            </div>
-                            <div className="tpcategory__content">
-                                <h5 className="tpcategory__title"><Link href="/shop">Driftwood <br /> Table Decor</Link></h5>
-                            </div>
-                        </div>
-                        <div className="tpcategory mb-40">
-                            <div className="tpcategory__icon">
-                                <img src="/assets/img/svg/cat02.svg" alt="" className="fn__svg" />
-                                <span>12</span>
-                            </div>
-                            <div className="tpcategory__content">
-                                <h5 className="tpcategory__title"><Link href="/shop">Floor Driftwood <br /> Sculpture</Link></h5>
-                            </div>
-                        </div>
-                        <div className="tpcategory mb-40">
-                            <div className="tpcategory__icon">
-                                <img src="/assets/img/svg/cat03.svg" alt="" className="fn__svg" />
-                                <span>03</span>
-                            </div>
-                            <div className="tpcategory__content">
-                                <h5 className="tpcategory__title"><Link href="/shop">Driftwood <br /> Christmas Tree </Link></h5>
-                            </div>
-                        </div>
-                        <div className="tpcategory mb-40">
-                            <div className="tpcategory__icon">
-                                <img src="/assets/img/svg/cat04.svg" alt="" className="fn__svg" />
-                                <span>09</span>
-                            </div>
-                            <div className="tpcategory__content">
-                                <h5 className="tpcategory__title"><Link href="/shop"> Wooden <br /> Bluetooth Speaker </Link></h5>
-                            </div>
-                        </div>
-                        <div className="tpcategory mb-40">
-                            <div className="tpcategory__icon">
-                                <img src="/assets/img/svg/cat05.svg" alt="" className="fn__svg" />
-                                <span>10</span>
-                            </div>
-                            <div className="tpcategory__content">
-                                <h5 className="tpcategory__title"><Link href="/shop">Receivers <br />  Amplifiers</Link></h5>
-                            </div>
-                        </div>
-                        <div className="tpcategory mb-40">
-                            <div className="tpcategory__icon">
-                                <img src="/assets/img/svg/cat06.svg" alt="" className="fn__svg" />
-                                <span>05</span>
-                            </div>
-                            <div className="tpcategory__content">
-                                <h5 className="tpcategory__title"><Link href="/shop">Appetizer <br /> Plate Set </Link></h5>
-                            </div>
-                        </div>
-                    </div>
+        <section className="py-16 bg-white border-b border-gray-100">
+            <div className="container mx-auto px-4">
+
+                {/* Section Header */}
+                <div className="mb-10">
+                    <span className="inline-block px-3 py-1 rounded-md !bg-wk-maroon text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-3">
+                        Menu Kami
+                    </span>
+                    <h2 className="text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight">
+                        Jelajahi Kategori
+                    </h2>
+                    <div className="w-16 h-1.5 !bg-wk-gold rounded-full mt-4" />
                 </div>
-            </section>
-        </>
+
+                {/* Category Grid */}
+                <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                    {categories.map((cat, i) => (
+                        <Link
+                            key={i}
+                            href={cat.href}
+                            className="group flex flex-col items-center text-center py-8 px-4 rounded-2xl border border-gray-100 hover:border-wk-gold/40 hover:opacity-80 transition-all duration-300"
+                        >
+                            {/* Icon wrapper */}
+                            <div className="relative w-16 h-16 mb-5 flex items-center justify-center">
+                                <div className="absolute inset-0 !bg-wk-maroon/5 rounded-full group-hover:bg-wk-gold/10 transition-colors duration-300" />
+                                <i className={`${cat.icon} relative text-2xl !text-wk-maroon`} />
+                                {/* Item count badge */}
+                                <span className="absolute -top-1 -right-1 w-5 h-5 !bg-wk-gold !text-wk-dark-maroon text-[10px] font-black rounded-full flex items-center justify-center leading-none">
+                                    {cat.count}
+                                </span>
+                            </div>
+
+                            {/* Label */}
+                            <h5 className="text-sm font-bold !text-wk-dark-maroon leading-snug group-hover:!text-wk-maroon transition-colors duration-300">
+                                {cat.label}
+                            </h5>
+                        </Link>
+                    ))}
+                </div>
+
+            </div>
+        </section>
     )
 }

@@ -48,7 +48,7 @@ export default function ShopDetails() {
     }
     return (
         <>
-            <Layout headerStyle={3} footerStyle={1} breadcrumbTitle="Shop Details">
+            <Layout breadcrumbTitle="Shop Details">
                 <div>
                     <section className="product-area pt-80 pb-25">
                         <div className="container">

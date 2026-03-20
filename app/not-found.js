@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
     return (
         <>
-            <Layout headerStyle={3} footerStyle={1} breadcrumbTitle="Error">
+            <Layout breadcrumbTitle="Error">
                 <section className="erroe-area pt-70 pb-70">
                     <div className="container">
                         <div className="row">

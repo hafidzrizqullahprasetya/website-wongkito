@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-wk-dark-maroon bg-white;
+    font-family: var(--tp-ff-body), sans-serif;
+  }
+}
+
+@layer components {
+  /* ─── Navigasi Link Wong Kito ─── */
+  .wk-nav-link {
+    @apply text-wk-beige font-semibold hover:text-wk-gold transition-all duration-300;
+  }
+  
+  .wk-nav-link-active {
+    @apply text-wk-gold font-bold;
+  }
+
+  /* ─── Dropdown / Submenu ─── */
+  .wk-submenu {
+    @apply absolute top-full left-0 w-64 bg-white border-t-4 border-wk-gold shadow-2xl py-2 invisible opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 z-50;
+  }
+
+  .wk-submenu-item {
+    @apply px-6 py-3 text-wk-dark-maroon font-bold border-b border-gray-50 hover:bg-wk-gold/10 hover:text-wk-maroon transition-all duration-200 block;
+  }
+
+  /* ─── UI Elements ─── */
+  .wk-btn {
+    @apply bg-wk-maroon text-white font-bold py-3 px-8 rounded-lg hover:bg-wk-dark-maroon hover:text-wk-gold transition-all transform active:scale-95 inline-flex items-center;
+  }
+
+  .wk-price {
+    @apply text-wk-maroon font-extrabold text-lg;
+  }
+
+  .wk-badge {
+    @apply bg-wk-maroon text-wk-gold text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-wider;
+  }
+
+  .wk-search-input {
+    @apply w-full pl-12 pr-4 py-3 rounded-full border-2 border-wk-beige focus:border-wk-gold outline-none transition-all bg-white text-wk-dark-maroon font-semibold;
+  }
+
+  /* ─── Footer Styles ─── */
+  .wk-footer {
+    @apply bg-[#1a0505] text-white pt-20 pb-10;
+  }
+  
+  .wk-footer-title {
+    @apply text-wk-gold font-bold text-xl mb-8;
+  }
+
+  .wk-footer-link {
+    @apply text-gray-400 hover:text-wk-gold transition-all text-sm mb-4 block;
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  
+  .wk-whatsapp-float {
+    @apply fixed bottom-8 right-8 bg-[#25D366] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl z-[9999] hover:scale-110 active:scale-90 transition-all;
+  }
+
+  /* ==========================================================
+     💊 OBAT SAPU JAGAT (UNIVERSAL HOVER RESET)
+     Fungsi: Mematikan paksa semua hover 'hitam' & 'geser' 
+     dari template main.css biar nurut sama Tailwind.
+     ========================================================== */
+  
+  /* 1. Matikan Background Hitam Global & Animasi Geser */
+  a:hover, 
+  button:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .tp-btn:hover,
+  .tpsecondary-btn:hover,
+  .tpcart-btn:hover,
+  .tpcheck-btn:hover {
+    background-color: transparent !important; /* Hapus Hitam Bawaan template */
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 2. Bunuh Pseudo-Elements Template (Si Biang Kerok Animasi) */
+  a::after, a::before,
+  button::after, button::before,
+  .tp-btn::after, .tp-btn::before,
+  .tpsecondary-btn::after, .tpsecondary-btn::before {
+    display: none !important;           /* Matikan Lapisan Hitam yang Muncul di Hover */
+    content: none !important;
+    visibility: hidden !important;
+  }
+
+  /* 3. Standar Interaksi Wong Kito (Hanya Opacity) */
+  .hover-opacity-standard:hover,
+  a:hover, 
+  button:hover {
+    opacity: 0.8 !important;            /* Ganti Semua Interaksi Jadi Opacity */
+    transition: opacity 0.3s ease !important;
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fadeInDown {
+    animation: fadeInDown 0.4s ease-out;
+  }
+}

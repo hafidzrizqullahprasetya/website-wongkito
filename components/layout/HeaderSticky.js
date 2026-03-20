@@ -5,113 +5,55 @@ import WishListShow from "../elements/WishListShow"
 export default function HeaderSticky({ scroll, isCartSidebar, handleCartSidebar }) {
     return (
         <>
-            <div id="header-sticky" className={`logo-area tp-sticky-one mainmenu-5 ${scroll ? "header-sticky" : ""}`}>
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-xl-2 col-lg-3">
-                            <div className="logo">
-                                <Link href="/"><img src="/assets/img/logo/logo.png" alt="logo" /></Link>
-                            </div>
+            <div id="header-sticky" className={`fixed top-0 left-0 w-full transition-all duration-300 z-[999] ${scroll ? "!bg-wk-maroon translate-y-0 border-b border-wk-gold/20" : "-translate-y-full opacity-0 pointer-events-none"}`}>
+                <div className="container mx-auto px-4">
+                    <div className="flex items-center justify-between h-20">
+                        {/* Logo Area */}
+                        <div className="w-1/6">
+                            <Link href="/">
+                                <img src="/assets/img/logo/logo.png" alt="Pempek Wong Kito" className="max-h-11" />
+                            </Link>
                         </div>
-                        <div className="col-xl-6 col-lg-6">
-                            <div className="main-menu">
-                                <nav>
-                                    <ul>
-                                        <li className="has-dropdown">
-                                            <Link href="/">Home</Link>
-                                            <ul className="submenu">
-                                                <li><Link href="/">Wooden Home</Link></li>
-                                                <li><Link href="/index-2">Fashion Home</Link></li>
-                                                <li><Link href="/index-3">Furniture Home</Link></li>
-                                                <li><Link href="/index-4">Cosmetics Home</Link></li>
-                                                <li><Link href="/index-5">Food Grocery</Link></li>
-                                            </ul>
-                                        </li>
-                                        <li className="has-dropdown">
-                                            <Link href="/shop">Shop</Link>
-                                            <ul className="submenu">
-                                                <li><Link href="/shop">Shop</Link></li>
-                                                <li><Link href="/shop-2">Shop 2</Link></li>
-                                                <li><Link href="/shop-details">Shop Details </Link></li>
-                                                <li><Link href="/shop-details-2">Shop Details 2</Link></li>
-                                                <li><Link href="/shop-location">Shop Location</Link></li>
-                                                <li><Link href="/cart">Cart</Link></li>
-                                                <li><Link href="/sign-in">Sign In</Link></li>
-                                                <li><Link href="/checkout">Checkout</Link></li>
-                                                <li><Link href="/wishlist">Wishlist</Link></li>
-                                                <li><Link href="/track">Product Track</Link></li>
-                                            </ul>
-                                        </li>
-                                        <li className="has-dropdown has-megamenu">
-                                            <Link href="/about">Pages</Link>
-                                            <ul className="submenu mega-menu">
-                                                <li>
-                                                    <a className="mega-menu-title">Page layout</a>
-                                                    <ul>
-                                                        <li><Link href="/shop">Shop filters v1</Link></li>
-                                                        <li><Link href="/shop-2">Shop filters v2</Link></li>
-                                                        <li><Link href="/shop-details">Shop sidebar</Link></li>
-                                                        <li><Link href="/shop-details-2">Shop Right sidebar</Link></li>
-                                                        <li><Link href="/shop-location">Shop List view</Link></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a className="mega-menu-title">Page layout</a>
-                                                    <ul>
-                                                        <li><Link href="/about">About</Link></li>
-                                                        <li><Link href="/cart">Cart</Link></li>
-                                                        <li><Link href="/checkout">Checkout</Link></li>
-                                                        <li><Link href="/sign-in">Sign In</Link></li>
-                                                        <li><Link href="/sign-in">Log In</Link></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a className="mega-menu-title">Page type</a>
-                                                    <ul>
-                                                        <li><Link href="/track">Product Track</Link></li>
-                                                        <li><Link href="/wishlist">Wishlist</Link></li>
-                                                        <li><Link href="/not-found">404 / Error</Link></li>
-                                                        <li><Link href="/coming-soon">Coming Soon</Link></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li className="has-dropdown">
-                                            <Link href="/blog">Blog</Link>
-                                            <ul className="submenu">
-                                                <li><Link href="/blog">Blog</Link></li>
-                                                <li><Link href="/blog-details">Blog Details</Link></li>
-                                            </ul>
-                                        </li>
-                                        <li><Link href="/contact">Contact</Link></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <div className="col-xl-4 col-lg-9">
-                            <div className="header-meta-info d-flex align-items-center justify-content-end">
-                                <div className="header-meta__social  d-flex align-items-center">
-                                    <button className="header-cart p-relative tp-cart-toggle" onClick={handleCartSidebar}>
-                                        <i className="fal fa-shopping-cart" />
-                                        <CartShow />
-                                    </button>
-                                    <Link href="/sign-in"><i className="fal fa-user" /></Link>
-                                    <Link href="/wishlist" className="header-cart p-relative tp-cart-toggle">
-                                        <i className="fal fa-heart" />
-                                        <WishListShow />
+                        {/* Main Menu Area */}
+                        <div className="flex-grow">
+                            <nav className="flex items-center justify-center space-x-12">
+                                <Link href="/" className="!text-wk-gold font-black opacity-100 uppercase tracking-wider text-sm">Beranda</Link>
+                                <div className="relative group">
+                                    <Link href="/shop" className="!text-wk-beige font-bold hover:!text-wk-gold hover:opacity-70 transition-opacity uppercase tracking-wider text-sm flex items-center h-20">
+                                        Menu <i className="fal fa-chevron-down ml-2 text-[10px]" />
                                     </Link>
+                                    <ul className="absolute top-full left-1/2 -translate-x-1/2 !bg-wk-maroon border border-wk-gold/20 p-5 pt-8 w-56 space-y-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                                        {['Semua Produk', 'Paket Seragam', 'Paket Campur', 'Beli Satuan', 'Hampers Pempek'].map((item, i) => (
+                                            <li key={i}>
+                                                <Link href="/shop" className="!text-wk-beige hover:!text-wk-gold hover:opacity-75 transition-opacity text-xs font-bold block uppercase tracking-tight">
+                                                    {item}
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
-                                <div className="header-meta__search-5 ml-25">
-                                    <div className="header-search-bar-5">
-                                        <form action="#">
-                                            <div className="search-info-5 p-relative">
-                                                <button className="header-search-icon-5"><i className="fal fa-search" /></button>
-                                                <input type="text" placeholder="Search products..." />
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                                <Link href="/about" className="!text-wk-beige font-bold hover:!text-wk-gold hover:opacity-70 transition-opacity uppercase tracking-wider text-sm">Tentang Kami</Link>
+                                <Link href="/shop-location" className="!text-wk-beige font-bold hover:!text-wk-gold hover:opacity-70 transition-opacity uppercase tracking-wider text-sm">Lokasi</Link>
+                                <Link href="/contact" className="!text-wk-beige font-bold hover:!text-wk-gold hover:opacity-70 transition-opacity uppercase tracking-wider text-sm">Kontak</Link>
+                            </nav>
+                        </div>
+                        {/* Meta Info Area */}
+                        <div className="flex items-center space-x-8">
+                            <button className="relative !text-wk-gold hover:opacity-70 hover:!text-wk-gold transition-opacity font-bold group" onClick={handleCartSidebar}>
+                                <i className="fal fa-shopping-cart text-2xl" />
+                                <span className="absolute -top-2 -right-3 !bg-white !text-wk-maroon text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full border-2 border-wk-maroon">
+                                    <CartShow />
+                                </span>
+                            </button>
+                            <Link href="/sign-in" className="!text-wk-beige hover:!text-wk-gold hover:opacity-70 transition-all">
+                                <i className="fal fa-user text-2xl" />
+                            </Link>
+                            <Link href="/wishlist" className="relative !text-wk-beige hover:!text-wk-gold hover:opacity-70 transition-all">
+                                <i className="fal fa-heart text-2xl" />
+                                <span className="absolute -top-2 -right-3 !bg-wk-gold !text-wk-dark-maroon text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full border-2 border-wk-maroon">
+                                    <WishListShow />
+                                </span>
+                            </Link>
                         </div>
                     </div>
                 </div>

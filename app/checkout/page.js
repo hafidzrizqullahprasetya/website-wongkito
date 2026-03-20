@@ -2,400 +2,260 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { useState } from "react"
-export default function Checkout() {
-    const [isLoginToggle, setLoginToggle] = useState(false)
-    const handleLoginToggle = () => setLoginToggle(!isLoginToggle)
+import { useSelector } from "react-redux"
 
-    const [isCuponToggle, setCuponToggle] = useState(false)
-    const handleCuponToggle = () => setCuponToggle(!isCuponToggle)
+const formatRupiah = (num) =>
+    new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(num)
 
-    const [isCboxToggle, setCboxToggle] = useState(false)
-    const handleCboxToggle = () => setCboxToggle(!isCboxToggle)
+const inputClass = "w-full px-4 py-3.5 rounded-xl border border-gray-200 text-sm !text-wk-dark-maroon placeholder:text-gray-300 focus:border-wk-gold outline-none transition-colors"
+const labelClass = "block text-[11px] font-black !text-wk-dark-maroon uppercase tracking-wider mb-1.5"
 
-    const [isShipToggle, setShipToggle] = useState(false)
-    const handleShipToggle = () => setShipToggle(!isShipToggle)
-
-    const [isActive, setIsActive] = useState({
-        status: false,
+const paymentMethods = [
+    {
         key: 1,
-    })
+        icon: 'fab fa-whatsapp',
+        title: 'Transfer + Konfirmasi WhatsApp',
+        desc: 'Transfer ke rekening kami, lalu kirim bukti transfer via WhatsApp ke +62 812-3456-7890. Pesanan akan diproses setelah pembayaran dikonfirmasi.',
+    },
+    {
+        key: 2,
+        icon: 'fal fa-university',
+        title: 'Transfer Bank (BCA / BRI / Mandiri)',
+        desc: 'Transfer ke salah satu rekening berikut:\n• BCA: 1234567890 a.n. Pempek Wong Kito\n• BRI: 0987654321 a.n. Pempek Wong Kito\n• Mandiri: 1122334455 a.n. Pempek Wong Kito',
+    },
+    {
+        key: 3,
+        icon: 'fal fa-money-bill-wave',
+        title: 'Bayar di Tempat (COD)',
+        desc: 'Bayar tunai saat pesanan tiba. Tersedia untuk area Maguwoharjo dan sekitarnya (radius maks. 5 km). Minimum order Rp 50.000.',
+    },
+]
 
-    const handleClick = (key) => {
-        if (isActive.key === key) {
-            setIsActive({
-                status: false,
-            })
-        } else {
-            setIsActive({
-                status: true,
-                key,
-            })
-        }
-    }
+const deliveryOptions = [
+    { value: 'pickup', label: 'Ambil Sendiri ke Toko (Gratis)' },
+    { value: 'delivery', label: 'Antar ke Alamat (Gratis area Maguwoharjo)' },
+    { value: 'ojol', label: 'Pesan via Ojek Online (ShopeeFood / GrabFood)' },
+]
+
+export default function Checkout() {
+    const { cart } = useSelector((state) => state.shop) || {}
+    const [activePayment, setActivePayment] = useState(1)
+    const [showCoupon, setShowCoupon] = useState(false)
+    const [shipDifferent, setShipDifferent] = useState(false)
+
+    const total = cart?.reduce((sum, item) => sum + item.qty * item.price?.max, 0) ?? 0
+
     return (
-        <>
-            <Layout headerStyle={3} footerStyle={1} breadcrumbTitle="Chaeckout">
-                <div>
-                    <section className="coupon-area pt-80 pb-30 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".2s">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <div className="coupon-accordion">
-                                        {/* ACCORDION START */}
-                                        <h3>Returning customer? <span id="showlogin" onClick={handleLoginToggle}>Click here to login</span></h3>
-                                        <div id="checkout-login" className="coupon-content" style={{ display: `${isLoginToggle ? "block" : "none"}` }}>
-                                            <div className="coupon-info">
-                                                <p className="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est
-                                                    sit amet ipsum luctus.</p>
-                                                <form action="#">
-                                                    <p className="form-row-first">
-                                                        <label>Username or email <span className="required">*</span></label>
-                                                        <input type="text" />
-                                                    </p>
-                                                    <p className="form-row-last">
-                                                        <label>Password <span className="required">*</span></label>
-                                                        <input type="text" />
-                                                    </p>
-                                                    <p className="form-row">
-                                                        <button className="tp-btn tp-color-btn" type="submit">Login</button>
-                                                        <label>
-                                                            <input type="checkbox" />
-                                                            Remember me
-                                                        </label>
-                                                    </p>
-                                                    <p className="lost-password">
-                                                        <Link href="#">Lost your password?</Link>
-                                                    </p>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        {/* ACCORDION END */}
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="coupon-accordion">
-                                        {/* ACCORDION START */}
-                                        <h3>Have a coupon? <span id="showcoupon" onClick={handleCuponToggle}>Click here to enter your code</span></h3>
-                                        <div id="checkout_coupon" className="coupon-checkout-content" style={{ display: `${isCuponToggle ? "block" : "none"}` }}>
-                                            <div className="coupon-info">
-                                                <form action="#">
-                                                    <p className="checkout-coupon">
-                                                        <input type="text" placeholder="Coupon Code" />
-                                                        <button className="tp-btn tp-color-btn" type="submit">Apply Coupon</button>
-                                                    </p>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        {/* ACCORDION END */}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    {/* coupon-area end */}
-                    {/* checkout-area start */}
-                    <section className="checkout-area pb-50 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".2s">
-                        <div className="container">
-                            <form action="#">
-                                <div className="row">
-                                    <div className="col-lg-6 col-md-12">
-                                        <div className="checkbox-form">
-                                            <h3>Billing Details</h3>
-                                            <div className="row">
-                                                <div className="col-md-12">
-                                                    <div className="country-select">
-                                                        <label>Country <span className="required">*</span></label>
-                                                        <select>
-                                                            <option value="volvo">United States</option>
-                                                            <option value="saab">Algeria</option>
-                                                            <option value="mercedes">Canada</option>
-                                                            <option value="audi">Givenchyy</option>
-                                                            <option value="audi2">England</option>
-                                                            <option value="audi3">Qatar</option>
-                                                            <option value="audi5">Dominican Republic</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <div className="checkout-form-list">
-                                                        <label>First Name <span className="required">*</span></label>
-                                                        <input type="text" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <div className="checkout-form-list">
-                                                        <label>Last Name <span className="required">*</span></label>
-                                                        <input type="text" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <div className="checkout-form-list">
-                                                        <label>Company Name</label>
-                                                        <input type="text" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <div className="checkout-form-list">
-                                                        <label>Address <span className="required">*</span></label>
-                                                        <input type="text" placeholder="Street address" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <div className="checkout-form-list">
-                                                        <input type="text" placeholder="Apartment, suite, unit etc. (optional)" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <div className="checkout-form-list">
-                                                        <label>Town / City <span className="required">*</span></label>
-                                                        <input type="text" placeholder="Town / City" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <div className="checkout-form-list">
-                                                        <label>State / County <span className="required">*</span></label>
-                                                        <input type="text" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <div className="checkout-form-list">
-                                                        <label>Postcode / Zip <span className="required">*</span></label>
-                                                        <input type="text" placeholder="Postcode / Zip" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <div className="checkout-form-list">
-                                                        <label>Email Address <span className="required">*</span></label>
-                                                        <input type="email" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <div className="checkout-form-list">
-                                                        <label>Phone <span className="required">*</span></label>
-                                                        <input type="text" placeholder="Postcode / Zip" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <div className="checkout-form-list create-acc">
-                                                        <input id="cbox" type="checkbox" onClick={handleCboxToggle} />
-                                                        <label>Create an account?</label>
-                                                    </div>
-                                                    <div id="cbox_info" className="checkout-form-list create-account" style={{ display: `${isCboxToggle ? "block" : "none"}` }}>
-                                                        <p>Create an account by entering the information below. If you are a returning
-                                                            customer please login at the top of the page.</p>
-                                                        <label>Account password <span className="required">*</span></label>
-                                                        <input type="password" placeholder="password" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="different-address">
-                                                <div className="ship-different-title">
-                                                    <h3>
-                                                        <label>Ship to a different address?</label>
-                                                        <input id="ship-box" type="checkbox" onClick={handleShipToggle} />
-                                                    </h3>
-                                                </div>
-                                                <div id="ship-box-info" style={{ display: `${isShipToggle ? "block" : "none"}` }}>
-                                                    <div className="row">
-                                                        <div className="col-md-12">
-                                                            <div className="country-select">
-                                                                <label>Country <span className="required">*</span></label>
-                                                                <select>
-                                                                    <option value="volvo">bangladesh</option>
-                                                                    <option value="saab">Algeria</option>
-                                                                    <option value="mercedes">Afghanistan</option>
-                                                                    <option value="audi">Ghana</option>
-                                                                    <option value="audi2">Albania</option>
-                                                                    <option value="audi3">Bahrain</option>
-                                                                    <option value="audi4">Colombia</option>
-                                                                    <option value="audi5">Dominican Republic</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="checkout-form-list">
-                                                                <label>First Name <span className="required">*</span></label>
-                                                                <input type="text" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="checkout-form-list">
-                                                                <label>Last Name <span className="required">*</span></label>
-                                                                <input type="text" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12">
-                                                            <div className="checkout-form-list">
-                                                                <label>Company Name</label>
-                                                                <input type="text" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12">
-                                                            <div className="checkout-form-list">
-                                                                <label>Address <span className="required">*</span></label>
-                                                                <input type="text" placeholder="Street address" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12">
-                                                            <div className="checkout-form-list">
-                                                                <input type="text" placeholder="Apartment, suite, unit etc. (optional)" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12">
-                                                            <div className="checkout-form-list">
-                                                                <label>Town / City <span className="required">*</span></label>
-                                                                <input type="text" placeholder="Town / City" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="checkout-form-list">
-                                                                <label>State / County <span className="required">*</span></label>
-                                                                <input type="text" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="checkout-form-list">
-                                                                <label>Postcode / Zip <span className="required">*</span></label>
-                                                                <input type="text" placeholder="Postcode / Zip" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="checkout-form-list">
-                                                                <label>Email Address <span className="required">*</span></label>
-                                                                <input type="email" />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="checkout-form-list">
-                                                                <label>Phone <span className="required">*</span></label>
-                                                                <input type="text" placeholder="Postcode / Zip" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="order-notes">
-                                                    <div className="checkout-form-list">
-                                                        <label>Order Notes</label>
-                                                        <textarea id="checkout-mess" cols={30} rows={10} placeholder="Notes about your order, e.g. special notes for delivery." />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-6 col-md-12">
-                                        <div className="your-order mb-30 ">
-                                            <h3>Your order</h3>
-                                            <div className="your-order-table table-responsive">
-                                                <table>
-                                                    <thead>
-                                                        <tr>
-                                                            <th className="product-name">Product</th>
-                                                            <th className="product-total">Total</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr className="cart_item">
-                                                            <td className="product-name">
-                                                                Vestibulum suscipit <strong className="product-quantity"> × 1</strong>
-                                                            </td>
-                                                            <td className="product-total">
-                                                                <span className="amount">$165.00</span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr className="cart_item">
-                                                            <td className="product-name">
-                                                                Vestibulum dictum magna <strong className="product-quantity"> × 1</strong>
-                                                            </td>
-                                                            <td className="product-total">
-                                                                <span className="amount">$50.00</span>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                    <tfoot>
-                                                        <tr className="cart-subtotal">
-                                                            <th>Cart Subtotal</th>
-                                                            <td><span className="amount">$215.00</span></td>
-                                                        </tr>
-                                                        <tr className="shipping">
-                                                            <th>Shipping</th>
-                                                            <td>
-                                                                <ul>
-                                                                    <li>
-                                                                        <input type="radio" name="shipping" />
-                                                                        <label>
-                                                                            Flat Rate: <span className="amount">$7.00</span>
-                                                                        </label>
-                                                                    </li>
-                                                                    <li>
-                                                                        <input type="radio" name="shipping" />
-                                                                        <label>Free Shipping:</label>
-                                                                    </li>
-                                                                </ul>
-                                                            </td>
-                                                        </tr>
-                                                        <tr className="order-total">
-                                                            <th>Order Total</th>
-                                                            <td><strong><span className="amount">$215.00</span></strong>
-                                                            </td>
-                                                        </tr>
-                                                    </tfoot>
-                                                </table>
-                                            </div>
-                                            <div className="payment-method">
-                                                <div className="accordion" id="checkoutAccordion">
-                                                    <div className="accordion-item">
-                                                        <h2 className="accordion-header" id="checkoutOne" onClick={() => handleClick(1)}>
-                                                            <button className={isActive.key == 1 ? "accordion-button" : "accordion-button collapsed"}>
-                                                                Direct Bank Transfer
-                                                            </button>
-                                                        </h2>
-                                                        <div id="bankOne" className={isActive.key == 1 ? "accordion-collapse collapse show" : "accordion-collapse collapse"}>
-                                                            <div className="accordion-body">
-                                                                Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="accordion-item">
-                                                        <h2 className="accordion-header" id="paymentTwo" onClick={() => handleClick(2)}>
-                                                            <button className={isActive.key == 2 ? "accordion-button" : "accordion-button collapsed"} type="button">
-                                                                Cheque Payment
-                                                            </button>
-                                                        </h2>
-                                                        <div id="payment" className={isActive.key == 2 ? "accordion-collapse collapse show" : "accordion-collapse collapse"}>
-                                                            <div className="accordion-body">
-                                                                Please send your cheque to Store Name, Store Street, Store Town, Store
-                                                                State / County, Store
-                                                                Postcode.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="accordion-item">
-                                                        <h2 className="accordion-header" id="paypalThree" onClick={() => handleClick(3)}>
-                                                            <button className={isActive.key == 3 ? "accordion-button" : "accordion-button collapsed"} type="button">
-                                                                PayPal
-                                                            </button>
-                                                        </h2>
-                                                        <div id="paypal" className={isActive.key == 3 ? "accordion-collapse collapse show" : "accordion-collapse collapse"} aria-labelledby="paypalThree" data-bs-parent="#checkoutAccordion">
-                                                            <div className="accordion-body">
-                                                                Pay via PayPal; you can pay with your credit card if you don’t have a
-                                                                PayPal account.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="order-button-payment mt-20">
-                                                    <button type="submit" className="tp-btn tp-color-btn w-100 banner-animation">Place order</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </section>
-                </div>
+        <Layout breadcrumbTitle="Checkout">
+            <section className="py-14 bg-gray-50">
+                <div className="container mx-auto px-4">
 
-            </Layout>
-        </>
+                    {/* ── Coupon toggle bar ── */}
+                    <div className="bg-white rounded-2xl border border-gray-100 px-6 py-4 mb-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <div className="flex items-center gap-2 flex-1">
+                            <i className="fal fa-tag !text-wk-gold" />
+                            <span className="text-sm !text-gray-500">
+                                Punya kode kupon?{' '}
+                                <button onClick={() => setShowCoupon(!showCoupon)} className="font-black !text-wk-maroon hover:opacity-70 transition-opacity">
+                                    Klik untuk memasukkan kode
+                                </button>
+                            </span>
+                        </div>
+                        {showCoupon && (
+                            <div className="flex gap-2 w-full sm:w-auto">
+                                <input type="text" placeholder="Kode kupon" className={`${inputClass} py-2.5`} />
+                                <button className="px-5 py-2.5 !bg-wk-maroon !text-white font-black text-xs uppercase tracking-widest rounded-xl hover:opacity-80 transition-opacity whitespace-nowrap">
+                                    Pakai
+                                </button>
+                            </div>
+                        )}
+                    </div>
+
+                    <form action="#">
+                        <div className="flex flex-col lg:flex-row gap-8">
+
+                            {/* ── Left: Billing Details ── */}
+                            <div className="flex-1 space-y-6">
+
+                                {/* Billing card */}
+                                <div className="bg-white rounded-2xl border border-gray-100 p-7">
+                                    <h2 className="text-base font-black !text-wk-dark-maroon uppercase tracking-wider mb-6">
+                                        Detail Pemesan
+                                    </h2>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className={labelClass}>Nama Lengkap <span className="!text-red-400">*</span></label>
+                                            <input type="text" placeholder="Nama lengkap" required className={inputClass} />
+                                        </div>
+                                        <div>
+                                            <label className={labelClass}>Nomor WhatsApp / HP <span className="!text-red-400">*</span></label>
+                                            <input type="text" placeholder="+62 8xx-xxxx-xxxx" required className={inputClass} />
+                                        </div>
+                                        <div className="sm:col-span-2">
+                                            <label className={labelClass}>Email</label>
+                                            <input type="email" placeholder="email@contoh.com" className={inputClass} />
+                                        </div>
+                                        <div className="sm:col-span-2">
+                                            <label className={labelClass}>Alamat Lengkap <span className="!text-red-400">*</span></label>
+                                            <input type="text" placeholder="Jalan, nomor rumah, RT/RW" required className={inputClass} />
+                                        </div>
+                                        <div>
+                                            <label className={labelClass}>Kecamatan <span className="!text-red-400">*</span></label>
+                                            <input type="text" placeholder="Kecamatan" required className={inputClass} />
+                                        </div>
+                                        <div>
+                                            <label className={labelClass}>Kota / Kabupaten <span className="!text-red-400">*</span></label>
+                                            <input type="text" placeholder="Sleman" required className={inputClass} />
+                                        </div>
+                                        <div>
+                                            <label className={labelClass}>Provinsi <span className="!text-red-400">*</span></label>
+                                            <input type="text" defaultValue="DI Yogyakarta" required className={inputClass} />
+                                        </div>
+                                        <div>
+                                            <label className={labelClass}>Kode Pos</label>
+                                            <input type="text" placeholder="55281" className={inputClass} />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Delivery method */}
+                                <div className="bg-white rounded-2xl border border-gray-100 p-7">
+                                    <h2 className="text-base font-black !text-wk-dark-maroon uppercase tracking-wider mb-5">
+                                        Metode Pengiriman
+                                    </h2>
+                                    <div className="space-y-3">
+                                        {deliveryOptions.map((opt, i) => (
+                                            <label key={i} className="flex items-center gap-3 p-3.5 rounded-xl border border-gray-200 cursor-pointer hover:border-wk-gold/50 transition-colors has-[:checked]:border-wk-gold has-[:checked]:bg-wk-gold/5">
+                                                <input type="radio" name="delivery" value={opt.value} defaultChecked={i === 0} className="accent-wk-maroon w-4 h-4" />
+                                                <span className="text-sm font-bold !text-wk-dark-maroon">{opt.label}</span>
+                                            </label>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Order notes */}
+                                <div className="bg-white rounded-2xl border border-gray-100 p-7">
+                                    <h2 className="text-base font-black !text-wk-dark-maroon uppercase tracking-wider mb-5">
+                                        Catatan Pesanan
+                                    </h2>
+                                    <textarea
+                                        placeholder="Misal: tanpa pedas, minta cuko ekstra, waktu pengiriman, dll."
+                                        rows={4}
+                                        className={`${inputClass} resize-none`}
+                                    />
+                                </div>
+
+                            </div>
+
+                            {/* ── Right: Order Summary + Payment ── */}
+                            <div className="lg:w-96 flex-shrink-0 space-y-6">
+
+                                {/* Order summary */}
+                                <div className="bg-white rounded-2xl border border-gray-100 p-7">
+                                    <h2 className="text-base font-black !text-wk-dark-maroon uppercase tracking-wider mb-5">
+                                        Ringkasan Pesanan
+                                    </h2>
+
+                                    {/* Cart items */}
+                                    <div className="space-y-3 mb-5 pb-5 border-b border-gray-100">
+                                        {cart && cart.length > 0 ? cart.map((item, i) => (
+                                            <div key={i} className="flex items-center justify-between gap-4">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-10 h-10 rounded-lg overflow-hidden border border-gray-100 flex-shrink-0">
+                                                        <img src={`https://placehold.co/100x100/f3f4f6/8B1A1A?text=Product`} alt={item.title} className="w-full h-full object-cover" />
+                                                    </div>
+                                                    <span className="text-xs font-bold !text-wk-dark-maroon line-clamp-2 leading-snug">
+                                                        {item.title}
+                                                        <span className="!text-gray-400 font-medium"> × {item.qty}</span>
+                                                    </span>
+                                                </div>
+                                                <span className="text-xs font-black !text-wk-maroon whitespace-nowrap">
+                                                    {formatRupiah(item.qty * item.price.max)}
+                                                </span>
+                                            </div>
+                                        )) : (
+                                            <p className="text-sm !text-gray-400 text-center py-2">
+                                                Keranjang kosong.{' '}
+                                                <Link href="/shop" className="!text-wk-maroon font-bold hover:opacity-70">Belanja dulu</Link>
+                                            </p>
+                                        )}
+                                    </div>
+
+                                    {/* Totals */}
+                                    <div className="space-y-3 mb-5 pb-5 border-b border-gray-100">
+                                        <div className="flex justify-between text-sm">
+                                            <span className="!text-gray-400">Subtotal</span>
+                                            <span className="font-bold !text-wk-dark-maroon">{formatRupiah(total)}</span>
+                                        </div>
+                                        <div className="flex justify-between text-sm">
+                                            <span className="!text-gray-400">Ongkos kirim</span>
+                                            <span className="font-bold !text-green-600">Gratis</span>
+                                        </div>
+                                        <div className="flex justify-between text-sm">
+                                            <span className="!text-gray-400">Diskon kupon</span>
+                                            <span className="font-bold !text-gray-400">—</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex justify-between items-baseline mb-1">
+                                        <span className="font-black !text-wk-dark-maroon">Total</span>
+                                        <span className="text-2xl font-black !text-wk-maroon">{formatRupiah(total)}</span>
+                                    </div>
+                                </div>
+
+                                {/* Payment method */}
+                                <div className="bg-white rounded-2xl border border-gray-100 p-7">
+                                    <h2 className="text-base font-black !text-wk-dark-maroon uppercase tracking-wider mb-5">
+                                        Metode Pembayaran
+                                    </h2>
+                                    <div className="space-y-3">
+                                        {paymentMethods.map((method) => (
+                                            <div key={method.key}>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setActivePayment(activePayment === method.key ? 0 : method.key)}
+                                                    className={`w-full flex items-center gap-3 p-4 rounded-xl border text-left transition-all
+                                                        ${activePayment === method.key
+                                                            ? '!bg-wk-maroon/5 border-wk-maroon/30'
+                                                            : 'border-gray-200 hover:border-wk-gold/40'}`}
+                                                >
+                                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors
+                                                        ${activePayment === method.key ? '!bg-wk-maroon' : '!bg-gray-100'}`}>
+                                                        <i className={`${method.icon} text-sm ${activePayment === method.key ? '!text-white' : '!text-gray-400'}`} />
+                                                    </div>
+                                                    <span className={`text-xs font-black uppercase tracking-wide transition-colors
+                                                        ${activePayment === method.key ? '!text-wk-dark-maroon' : '!text-gray-400'}`}>
+                                                        {method.title}
+                                                    </span>
+                                                    <i className={`fal fa-chevron-${activePayment === method.key ? 'up' : 'down'} ml-auto !text-gray-300 text-xs`} />
+                                                </button>
+                                                {activePayment === method.key && (
+                                                    <div className="px-4 py-3 text-xs !text-gray-500 leading-relaxed whitespace-pre-line">
+                                                        {method.desc}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Place order */}
+                                <button
+                                    type="submit"
+                                    className="w-full flex items-center justify-center gap-2 py-4 !bg-wk-maroon !text-white font-black text-sm uppercase tracking-widest rounded-2xl hover:opacity-80 transition-opacity"
+                                >
+                                    Buat Pesanan
+                                    <i className="fal fa-long-arrow-right" />
+                                </button>
+
+                                <p className="text-[11px] !text-gray-400 text-center leading-relaxed">
+                                    Dengan memesan, Anda menyetujui syarat & ketentuan kami. Pesanan akan dikonfirmasi via WhatsApp.
+                                </p>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </Layout>
     )
 }

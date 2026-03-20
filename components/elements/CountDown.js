@@ -7,97 +7,57 @@ const msInAHour = 60 * msInMinute;
 const msInADay = 24 * msInAHour;
 
 const getPartsofTimeDuration = (duration) => {
-    if (duration <= 0) {
-        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    }
-    const days = Math.floor(duration / msInADay);
-    const hours = Math.floor((duration % msInADay) / msInAHour);
-    const minutes = Math.floor((duration % msInAHour) / msInMinute);
-    const seconds = Math.floor((duration % msInMinute) / msInSecond);
-
-    return { days, hours, minutes, seconds };
+    if (duration <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    return {
+        days:    Math.floor(duration / msInADay),
+        hours:   Math.floor((duration % msInADay) / msInAHour),
+        minutes: Math.floor((duration % msInAHour) / msInMinute),
+        seconds: Math.floor((duration % msInMinute) / msInSecond),
+    };
 };
+
+const pad = (n) => String(n).padStart(2, '0')
 
 const Countdown = ({ endDateTime }) => {
     const [timeParts, setTimeParts] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        // Set mounted to true after component mounts on client
         setMounted(true);
-
-        // Calculate initial time difference
-        const calculateTimeDiff = () => {
-            const now = Date.now();
-            const future = new Date(endDateTime).getTime();
-            const timeDif = future - now;
-            return getPartsofTimeDuration(timeDif);
+        const calc = () => {
+            const diff = new Date(endDateTime).getTime() - Date.now();
+            setTimeParts(getPartsofTimeDuration(diff));
         };
-
-        // Set initial value
-        setTimeParts(calculateTimeDiff());
-
-        // Update countdown every second
-        const interval = setInterval(() => {
-            setTimeParts(calculateTimeDiff());
-        }, 1000);
-
-        return () => {
-            clearInterval(interval);
-        };
+        calc();
+        const interval = setInterval(calc, 1000);
+        return () => clearInterval(interval);
     }, [endDateTime]);
 
-    // Return default values during SSR to prevent hydration mismatch
-    if (!mounted) {
-        return (
-            <>
-                <span className="cdown days">
-                    {" "}
-                    <span className="time-count">0</span>
-                    <p>Days</p>
-                </span>
-                <span className="cdown hour">
-                    {" "}
-                    <span className="time-count">0</span>
-                    <p>Hour</p>
-                </span>
-                <span className="cdown minutes">
-                    {" "}
-                    <span className="time-count">0</span>
-                    <p>Minute</p>
-                </span>
-                <span className="cdown second">
-                    {" "}
-                    <span className="time-count">0</span>
-                    <p>Second</p>
-                </span>
-            </>
-        );
-    }
+    const units = [
+        { label: 'Hari',   value: timeParts.days    },
+        { label: 'Jam',    value: timeParts.hours   },
+        { label: 'Menit',  value: timeParts.minutes },
+        { label: 'Detik',  value: timeParts.seconds },
+    ];
 
     return (
-        <>
-            <span className="cdown days">
-                {" "}
-                <span className="time-count">{timeParts.days}</span>
-                <p>Days</p>
-            </span>
-            <span className="cdown hour">
-                {" "}
-                <span className="time-count">{timeParts.hours}</span>
-                <p>Hour</p>
-            </span>
-            <span className="cdown minutes">
-                {" "}
-                <span className="time-count">{timeParts.minutes}</span>
-                <p>Minute</p>
-            </span>
-            <span className="cdown second">
-                {" "}
-                <span className="time-count">{timeParts.seconds}</span>
-                <p>Second</p>
-            </span>
-        </>
+        <div className="flex items-center gap-3">
+            {units.map((unit, i) => (
+                <div key={i} className="flex items-center gap-3">
+                    <div className="flex flex-col items-center">
+                        <span className="text-3xl font-black !text-white leading-none tabular-nums">
+                            {mounted ? pad(unit.value) : '00'}
+                        </span>
+                        <span className="text-[10px] font-bold !text-wk-gold uppercase tracking-widest mt-1">
+                            {unit.label}
+                        </span>
+                    </div>
+                    {i < units.length - 1 && (
+                        <span className="text-2xl font-black !text-wk-gold mb-3">:</span>
+                    )}
+                </div>
+            ))}
+        </div>
     );
 };
 

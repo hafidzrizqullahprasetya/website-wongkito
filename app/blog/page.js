@@ -20,7 +20,7 @@ const swiperOptions = {
 export default function Blog() {
     return (
         <>
-            <Layout headerStyle={3} footerStyle={1} breadcrumbTitle="Blog">
+            <Layout breadcrumbTitle="Blog">
                 <div className="postbox-area pt-80 pb-30">
                     <div className="container">
                         <div className="row">

@@ -4,7 +4,7 @@ const initialState = {
     shopList: {
         price: {
             min: 0,
-            max: 100,
+            max: 5000000,
         },
         category: [],
         categorySelect: "",

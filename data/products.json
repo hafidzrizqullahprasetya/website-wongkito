@@ -1,752 +1,752 @@
 [
     {
         "id": 1,
-        "title": "Bradley Burgess 2",
+        "title": "Paket Sikok — 5 Biji Mix",
         "imgf": "product-1.jpg",
         "imgb": "product-2.jpg",
         "category": [
             {
-                "type": "Kids"
+                "type": "Paket Campur"
             }
         ],
         "color": [
             {
-                "type": "Black"
+                "type": "Kuning"
             }
         ],
         "brand": [
             {
-                "type": "Adidas"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 20
+            "max": 20000
         }
     },
     {
         "id": 2,
-        "title": "Allie Sharp",
+        "title": "Paket Duo — 10 Biji Mix",
         "imgf": "product-3.jpg",
         "imgb": "product-4.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Paket Campur"
             }
         ],
         "color": [
             {
-                "type": "Blue"
+                "type": "Kuning"
             }
         ],
         "brand": [
             {
-                "type": "Balenciaga"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 30
+            "max": 35000
         }
     },
     {
         "id": 3,
-        "title": "Nathaniel Baldwin",
+        "title": "Paket Tigo — 15 Biji Mix",
         "imgf": "product-5.jpg",
         "imgb": "product-6.jpg",
         "category": [
             {
-                "type": "Womens"
+                "type": "Paket Campur"
             }
         ],
         "color": [
             {
-                "type": "Gray"
+                "type": "Kuning"
             }
         ],
         "brand": [
             {
-                "type": "Balmain"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 40
+            "max": 45000
         }
     },
     {
         "id": 4,
-        "title": "Effie Rios",
+        "title": "Paket Ampera — 20 Biji Mix",
         "imgf": "product-7.jpg",
         "imgb": "product-8.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Paket Seragam"
             }
         ],
         "color": [
             {
-                "type": "Green"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Burberry"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 40
+            "max": 55000
         }
     },
     {
         "id": 5,
-        "title": "Carolyn Goodwin",
+        "title": "Paket Musi — 30 Biji Mix",
         "imgf": "product-9.jpg",
         "imgb": "product-10.jpg",
         "category": [
             {
-                "type": "Kids"
+                "type": "Paket Seragam"
             }
         ],
         "color": [
             {
-                "type": "Black"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Adidas"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 50
+            "max": 75000
         }
     },
     {
         "id": 6,
-        "title": "Evelyn Patton",
+        "title": "Paket Garuda — 50 Biji Mix",
         "imgf": "product-11.jpg",
         "imgb": "product-12.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Paket Seragam"
             }
         ],
         "color": [
             {
-                "type": "Red"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Chloe"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 60
+            "max": 120000
         }
     },
     {
         "id": 7,
-        "title": "Sally Ray",
+        "title": "Pempek Kapal Selam (1 biji)",
         "imgf": "product-13.jpg",
         "imgb": "product-14.jpg",
         "category": [
             {
-                "type": "Womens"
+                "type": "Beli Satuan"
             }
         ],
         "color": [
             {
-                "type": "Blue"
+                "type": "Coklat"
             }
         ],
         "brand": [
             {
-                "type": "Balenciaga"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 70
+            "max": 12000
         }
     },
     {
         "id": 8,
-        "title": "Ora Bowman",
+        "title": "Pempek Lenjer Besar (1 biji)",
         "imgf": "product-15.jpg",
         "imgb": "product-16.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Beli Satuan"
             }
         ],
         "color": [
             {
-                "type": "Gray"
+                "type": "Kuning"
             }
         ],
         "brand": [
             {
-                "type": "Balmain"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 80
+            "max": 8000
         }
     },
     {
         "id": 9,
-        "title": "Frederick Valdez",
+        "title": "Pempek Adaan (1 biji)",
         "imgf": "product-17.jpg",
         "imgb": "product-18.jpg",
         "category": [
             {
-                "type": "Kids"
+                "type": "Beli Satuan"
             }
         ],
         "color": [
             {
-                "type": "Green"
+                "type": "Coklat"
             }
         ],
         "brand": [
             {
-                "type": "Burberry"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 90
+            "max": 6500
         }
     },
     {
         "id": 10,
-        "title": "Terry Byrd",
+        "title": "Pempek Kulit (1 biji)",
         "imgf": "product-19.jpg",
         "imgb": "product-20.jpg",
         "category": [
             {
-                "type": "Womens"
+                "type": "Beli Satuan"
             }
         ],
         "color": [
             {
-                "type": "Red"
+                "type": "Coklat"
             }
         ],
         "brand": [
             {
-                "type": "Chloe"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 100
+            "max": 7000
         }
     },
     {
         "id": 11,
-        "title": "Angel Jimenez",
+        "title": "Paket Seragam Kapal Selam — 5 biji",
         "imgf": "product-21.jpg",
         "imgb": "product-22.jpg",
         "category": [
             {
-                "type": "Kids"
+                "type": "Paket Seragam"
             }
         ],
         "color": [
             {
-                "type": "Black"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Adidas"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 20
+            "max": 55000
         }
     },
     {
         "id": 12,
-        "title": "Phoebe Arnold",
+        "title": "Paket Seragam Lenjer — 10 biji",
         "imgf": "product-23.jpg",
         "imgb": "product-24.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Paket Seragam"
             }
         ],
         "color": [
             {
-                "type": "Blue"
+                "type": "Kuning"
             }
         ],
         "brand": [
             {
-                "type": "Balenciaga"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 30
+            "max": 65000
         }
     },
     {
         "id": 13,
-        "title": "Cordelia Ryan",
+        "title": "Paket Seragam Adaan — 10 biji",
         "imgf": "product-25.jpg",
         "imgb": "product-26.jpg",
         "category": [
             {
-                "type": "Womens"
+                "type": "Paket Seragam"
             }
         ],
         "color": [
             {
-                "type": "Gray"
+                "type": "Kuning"
             }
         ],
         "brand": [
             {
-                "type": "Balmain"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 40
+            "max": 55000
         }
     },
     {
         "id": 14,
-        "title": "Louisa Conner",
+        "title": "Tekwan Asli Wong Kito (1 porsi)",
         "imgf": "product-27.jpg",
         "imgb": "product-28.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Beli Satuan"
             }
         ],
         "color": [
             {
-                "type": "Green"
+                "type": "Kuning"
             }
         ],
         "brand": [
             {
-                "type": "Burberry"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 40
+            "max": 18000
         }
     },
     {
         "id": 15,
-        "title": "Elnora Swanson",
+        "title": "Model Asli Wong Kito (1 porsi)",
         "imgf": "product-29.jpg",
         "imgb": "product-30.jpg",
         "category": [
             {
-                "type": "Kids"
+                "type": "Beli Satuan"
             }
         ],
         "color": [
             {
-                "type": "Black"
+                "type": "Kuning"
             }
         ],
         "brand": [
             {
-                "type": "Adidas"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 50
+            "max": 18000
         }
     },
     {
         "id": 16,
-        "title": "Georgie Olson",
+        "title": "Hampers Pempek Premium (50 biji + cuko)",
         "imgf": "product-31.jpg",
         "imgb": "product-32.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Hampers"
             }
         ],
         "color": [
             {
-                "type": "Red"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Chloe"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 60
+            "max": 150000
         }
     },
     {
         "id": 17,
-        "title": "Frank Cummings",
+        "title": "Hampers Pempek Ekonomis (30 biji + cuko)",
         "imgf": "product-33.jpg",
         "imgb": "product-34.jpg",
         "category": [
             {
-                "type": "Womens"
+                "type": "Hampers"
             }
         ],
         "color": [
             {
-                "type": "Blue"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Balenciaga"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 70
+            "max": 95000
         }
     },
     {
         "id": 18,
-        "title": "Lula Pope",
+        "title": "Paket Campur Duo — Keluarga 2 Orang",
         "imgf": "product-35.jpg",
         "imgb": "product-36.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Paket Campur"
             }
         ],
         "color": [
             {
-                "type": "Gray"
+                "type": "Kuning"
             }
         ],
         "brand": [
             {
-                "type": "Balmain"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 80
+            "max": 40000
         }
     },
     {
         "id": 19,
-        "title": "Brian Silva",
+        "title": "Paket Campur Tigo — Keluarga 3-4 Orang",
         "imgf": "product-37.jpg",
         "imgb": "product-38.jpg",
         "category": [
             {
-                "type": "Kids"
+                "type": "Paket Campur"
             }
         ],
         "color": [
             {
-                "type": "Green"
+                "type": "Kuning"
             }
         ],
         "brand": [
             {
-                "type": "Burberry"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 90
+            "max": 70000
         }
     },
     {
         "id": 20,
-        "title": "Pearl Bowen",
+        "title": "Pempek Pistel (1 biji)",
         "imgf": "product-39.jpg",
         "imgb": "product-40.jpg",
         "category": [
             {
-                "type": "Womens"
+                "type": "Beli Satuan"
             }
         ],
         "color": [
             {
-                "type": "Red"
+                "type": "Coklat"
             }
         ],
         "brand": [
             {
-                "type": "Chloe"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 100
+            "max": 7500
         }
     },
     {
         "id": 21,
-        "title": "Georgia Price",
+        "title": "Pempek Keriting (1 biji)",
         "imgf": "product-41.jpg",
         "imgb": "product-42.jpg",
         "category": [
             {
-                "type": "Kids"
+                "type": "Beli Satuan"
             }
         ],
         "color": [
             {
-                "type": "Black"
+                "type": "Coklat"
             }
         ],
         "brand": [
             {
-                "type": "Adidas"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 20
+            "max": 6500
         }
     },
     {
         "id": 22,
-        "title": "Kenneth Mitchell",
+        "title": "Paket Campur Ampera — Kantor & Arisan",
         "imgf": "product-43.jpg",
         "imgb": "product-44.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Paket Campur"
             }
         ],
         "color": [
             {
-                "type": "Blue"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Balenciaga"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 30
+            "max": 100000
         }
     },
     {
         "id": 23,
-        "title": "Florence Sharp",
+        "title": "Cuko Asli Palembang (250ml)",
         "imgf": "product-45.jpg",
         "imgb": "product-46.jpg",
         "category": [
             {
-                "type": "Womens"
+                "type": "Beli Satuan"
             }
         ],
         "color": [
             {
-                "type": "Gray"
+                "type": "Coklat"
             }
         ],
         "brand": [
             {
-                "type": "Balmain"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 40
+            "max": 15000
         }
     },
     {
         "id": 24,
-        "title": "Myrtie Parks",
+        "title": "Cuko Asli Palembang (500ml)",
         "imgf": "product-47.jpg",
         "imgb": "product-48.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Beli Satuan"
             }
         ],
         "color": [
             {
-                "type": "Green"
+                "type": "Coklat"
             }
         ],
         "brand": [
             {
-                "type": "Burberry"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 40
+            "max": 25000
         }
     },
     {
         "id": 25,
-        "title": "Dollie Delgado",
+        "title": "Paket Sikok Kapal Selam — 5 biji",
         "imgf": "product-49.jpg",
         "imgb": "product-50.jpg",
         "category": [
             {
-                "type": "Kids"
+                "type": "Paket Seragam"
             }
         ],
         "color": [
             {
-                "type": "Black"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Adidas"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 50
+            "max": 55000
         }
     },
     {
         "id": 26,
-        "title": "Jim Warner",
+        "title": "Paket Musi Premium — 30 Biji + Tekwan",
         "imgf": "product-51.jpg",
         "imgb": "product-52.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Paket Seragam"
             }
         ],
         "color": [
             {
-                "type": "Red"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Chloe"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 60
+            "max": 95000
         }
     },
     {
         "id": 27,
-        "title": "Ryan Hale",
+        "title": "Paket Garuda Party — 100 Biji Mix",
         "imgf": "product-53.jpg",
         "imgb": "product-54.jpg",
         "category": [
             {
-                "type": "Womens"
+                "type": "Paket Seragam"
             }
         ],
         "color": [
             {
-                "type": "Blue"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Balenciaga"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 70
+            "max": 220000
         }
     },
     {
         "id": 28,
-        "title": "Louisa Ruiz",
+        "title": "Hampers Eksklusif (Box Premium + Cuko)",
         "imgf": "product-55.jpg",
         "imgb": "product-56.jpg",
         "category": [
             {
-                "type": "Mens"
+                "type": "Hampers"
             }
         ],
         "color": [
             {
-                "type": "Gray"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Balmain"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 80
+            "max": 200000
         }
     },
     {
         "id": 29,
-        "title": "Agnes Goodman",
+        "title": "Pempek Tahu (1 biji)",
         "imgf": "product-57.jpg",
         "imgb": "product-58.jpg",
         "category": [
             {
-                "type": "Kids"
+                "type": "Beli Satuan"
             }
         ],
         "color": [
             {
-                "type": "Green"
+                "type": "Kuning"
             }
         ],
         "brand": [
             {
-                "type": "Burberry"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 90
+            "max": 7000
         }
     },
     {
         "id": 30,
-        "title": "Augusta Tran",
+        "title": "Paket Campur Musi — 5-6 Orang",
         "imgf": "product-59.jpg",
         "imgb": "product-60.jpg",
         "category": [
             {
-                "type": "Womens"
+                "type": "Paket Campur"
             }
         ],
         "color": [
             {
-                "type": "Red"
+                "type": "Merah"
             }
         ],
         "brand": [
             {
-                "type": "Chloe"
+                "type": "Wong Kito"
             }
         ],
         "price": {
             "min": 0,
-            "max": 100
+            "max": 130000
         }
     }
 ]

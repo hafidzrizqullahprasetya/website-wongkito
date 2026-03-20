@@ -17,7 +17,7 @@ export default function BlogDetails() {
     return (
         <>
             {blogPost && (
-                <Layout headerStyle={3} footerStyle={1} breadcrumbTitle="Blog Details">
+                <Layout breadcrumbTitle="Blog Details">
                     <div className="postbox-area pt-80 pb-60">
                         <div className="container">
                             <div className="row">
