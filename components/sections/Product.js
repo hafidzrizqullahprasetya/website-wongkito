@@ -70,9 +70,9 @@ export default function Product() {
                     </div>
                 </div>
 
-                {/* Pagination Controls — Increased spacing as requested */}
+                {/* Pagination Controls */}
                 {totalPages > 1 && (
-                    <div className="flex items-center justify-center gap-3 mt-20 md:mt-28">
+                    <div className="flex items-center justify-center gap-3 mt-12 md:mt-16">
                         <button
                             disabled={currentPage === 1}
                             onClick={() => setCurrentPage(prev => prev - 1)}
@@ -88,7 +88,7 @@ export default function Product() {
                                 className={`w-10 h-10 rounded-full border text-xs font-bold transition-all shadow-sm
                                     ${currentPage === i + 1
                                         ? '!bg-wk-maroon !text-white border-wk-maroon'
-                                        : 'bg-white border-gray-100 text-wk-dark-maroon hover:border-wk-maroon/30 hover:text-wk-maroon hover:shadow-md'
+                                        : 'bg-white border-gray-100 text-wk-dark-maroon hover:border-wk-maroon/30 hover:text-wk-maroon'
                                     }`}
                             >
                                 {i + 1}

@@ -25,21 +25,19 @@ const ShopCard = ({ item, addToCart, addToWishlist }) => {
                 {/* Invisible click overlay */}
                 <Link href={`/shop/${item.id}`} className="absolute inset-0 z-10" aria-label={item.title} />
 
-                {/* Quick Action Buttons */}
-                <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex flex-col gap-2 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300 z-20 transform lg:translate-x-4 lg:group-hover:translate-x-0">
+                {/* Quick Action Buttons — Always visible and neatly styled */}
+                <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex flex-col gap-2 z-30">
                     <button
                         onClick={() => addToCart(item.id)}
-                        title="Tambah ke Keranjang"
-                        className="w-8 h-8 sm:w-9 sm:h-9 !bg-wk-maroon !text-white rounded-full flex items-center justify-center hover:bg-wk-dark-maroon transition-colors text-xs sm:text-sm shadow-md"
+                        className="w-8 h-8 sm:w-10 sm:h-10 !bg-wk-maroon !text-white rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-lg border border-wk-maroon"
                     >
-                        <i className="fal fa-shopping-basket" />
+                        <i className="fal fa-shopping-basket text-xs sm:text-sm" />
                     </button>
                     <button
                         onClick={() => addToWishlist(item.id)}
-                        title="Wishlist"
-                        className="w-8 h-8 sm:w-9 sm:h-9 !bg-white !text-wk-maroon border border-wk-gold/20 rounded-full flex items-center justify-center hover:bg-wk-gold/10 transition-colors text-xs sm:text-sm shadow-md"
+                        className="w-8 h-8 sm:w-10 sm:h-10 !bg-white !text-wk-maroon rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-lg border border-gray-100"
                     >
-                        <i className="fal fa-heart" />
+                        <i className="fal fa-heart text-xs sm:text-sm" />
                     </button>
                 </div>
             </div>
