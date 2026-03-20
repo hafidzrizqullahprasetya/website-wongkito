@@ -313,7 +313,7 @@ export default function ShopSingleDynamicV1() {
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between mb-8">
                         <div>
-                            <span className="block text-[11px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-1">Rekomendasi</span>
+                            <span className="inline-block px-3 py-1 !bg-wk-gold !text-wk-maroon text-[10px] font-black uppercase tracking-widest mb-3 rounded">Rekomendasi</span>
                             <h2 className="text-2xl font-black !text-wk-dark-maroon uppercase tracking-tight">Produk Terkait</h2>
                         </div>
                         <div className="flex gap-2">
