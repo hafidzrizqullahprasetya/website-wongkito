@@ -37,12 +37,9 @@ export default function DealProduct() {
                                 Penawaran Spesial Hari Ini
                             </span>
                             
-                            <div className="flex items-center gap-4 mb-4">
+                            <div className="flex items-baseline gap-3 mb-6">
                                 <h3 className="text-4xl lg:text-7xl font-black !text-white leading-none tracking-tighter uppercase">Rp 49.000</h3>
-                                <div className="flex flex-col items-start">
-                                    <span className="text-[10px] font-bold !text-white/30 uppercase tracking-widest leading-none mb-1">Normal</span>
-                                    <span className="text-sm lg:text-lg !text-white/20 line-through font-bold leading-none">Rp 65.000</span>
-                                </div>
+                                <span className="text-sm lg:text-xl !text-white/20 line-through font-bold">Rp 65.000</span>
                             </div>
 
                             <h2 className="text-xl lg:text-3xl font-black !text-white uppercase tracking-tight leading-tight mb-8">
