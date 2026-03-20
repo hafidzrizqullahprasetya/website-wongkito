@@ -27,7 +27,7 @@ export default function DealProduct() {
                                     />
                                     <div className="absolute -bottom-4 -right-4 lg:-bottom-6 lg:-right-6 !bg-wk-gold px-5 py-3 lg:px-6 lg:py-4 rounded-2xl border-4 border-wk-maroon transform rotate-3 z-20">
                                         <span className="block text-[10px] font-black !text-wk-dark-maroon uppercase tracking-wider mb-1">Mulai</span>
-                                        <span className="block text-xl lg:text-2xl font-black !text-wk-dark-maroon leading-none tracking-tight">Rp 49rb</span>
+                                        <span className="block text-xl lg:text-2xl font-black !text-wk-dark-maroon leading-none tracking-tight">Rp49rb</span>
                                     </div>
                                 </div>
                             </div>
@@ -61,8 +61,8 @@ export default function DealProduct() {
                             </span>
                             
                             <div className="flex items-baseline gap-3 mb-6">
-                                <h3 className="text-4xl lg:text-7xl font-black !text-white leading-none tracking-tighter uppercase">Rp 49.000</h3>
-                                <span className="text-sm lg:text-xl !text-white/20 line-through font-bold">Rp 65.000</span>
+                                <h3 className="text-4xl lg:text-7xl font-black !text-white leading-none tracking-tighter">Rp49.000</h3>
+                                <span className="text-sm lg:text-xl !text-white/20 line-through font-bold">Rp65.000</span>
                             </div>
 
                             <h2 className="text-xl lg:text-3xl font-black !text-white uppercase tracking-tight leading-tight mb-8">
