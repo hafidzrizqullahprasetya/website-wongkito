@@ -31,16 +31,16 @@ export default function Product() {
             <div className="container mx-auto px-4">
 
                 {/* Header row */}
-                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-12">
-                    {/* Section Title */}
-                    <div className="text-center md:text-left">
-                        <span className="inline-block px-3 py-1 rounded-md !bg-wk-maroon text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-3">
+                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10 md:mb-14">
+                    {/* Section Title — Proper alignment with flexbox */}
+                    <div className="flex flex-col items-center md:items-start">
+                        <span className="inline-block px-3 py-1 rounded-md !bg-wk-maroon text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-4">
                             Pilihan Terbaik
                         </span>
-                        <h2 className="text-2xl md:text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight">
+                        <h2 className="text-2xl md:text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight text-center md:text-left">
                             Menu Populer
                         </h2>
-                        <div className="w-16 h-1 !bg-wk-gold rounded-full mt-4 mx-auto md:mx-0" />
+                        <div className="w-16 h-1 !bg-wk-gold rounded-full mt-4" />
                     </div>
 
                     {/* Tab Filter — 2 Column Grid on Mobile, Flex on Desktop */}
@@ -70,9 +70,9 @@ export default function Product() {
                     </div>
                 </div>
 
-                {/* Pagination Controls */}
+                {/* Pagination Controls — Increased spacing as requested */}
                 {totalPages > 1 && (
-                    <div className="flex items-center justify-center gap-2 mt-16 md:mt-20">
+                    <div className="flex items-center justify-center gap-3 mt-20 md:mt-28">
                         <button
                             disabled={currentPage === 1}
                             onClick={() => setCurrentPage(prev => prev - 1)}
@@ -88,7 +88,7 @@ export default function Product() {
                                 className={`w-10 h-10 rounded-full border text-xs font-bold transition-all shadow-sm
                                     ${currentPage === i + 1
                                         ? '!bg-wk-maroon !text-white border-wk-maroon'
-                                        : 'bg-white border-gray-100 text-wk-dark-maroon hover:border-wk-maroon/30 hover:text-wk-maroon'
+                                        : 'bg-white border-gray-100 text-wk-dark-maroon hover:border-wk-maroon/30 hover:text-wk-maroon hover:shadow-md'
                                     }`}
                             >
                                 {i + 1}

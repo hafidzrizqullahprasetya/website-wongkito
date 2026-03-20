@@ -14,15 +14,15 @@ export default function Category() {
         <section className="py-10 md:py-16 bg-white border-b border-gray-100">
             <div className="container mx-auto px-4">
 
-                {/* Section Header — Center on Mobile, Left on Desktop */}
-                <div className="text-center md:text-left mb-8 md:mb-12">
-                    <span className="inline-block px-3 py-1 rounded-md !bg-wk-maroon text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-3">
+                {/* Section Header — Proper alignment with flexbox */}
+                <div className="flex flex-col items-center md:items-start mb-10 md:mb-12">
+                    <span className="inline-block px-3 py-1 rounded-md !bg-wk-maroon text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-4">
                         Menu Kami
                     </span>
-                    <h2 className="text-2xl md:text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight">
+                    <h2 className="text-2xl md:text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight text-center md:text-left">
                         Jelajahi Kategori
                     </h2>
-                    <div className="w-16 h-1 !bg-wk-gold rounded-full mt-4 mx-auto md:mx-0" />
+                    <div className="w-16 h-1 !bg-wk-gold rounded-full mt-4" />
                 </div>
 
                 {/* Category Grid */}
