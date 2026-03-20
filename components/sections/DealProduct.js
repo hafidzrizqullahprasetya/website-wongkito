@@ -45,10 +45,10 @@ export default function DealProduct() {
                                     </div>
                                 </div>
 
-                                {/* Countdown */}
-                                <div className="py-6 px-6 !bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md">
-                                    <p className="text-[9px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-6 text-center lg:text-left">Sisa Waktu Promo</p>
-                                    <Countdown endDateTime={endDateTime.getTime()} />
+                                {/* Countdown - Updated with Gold Background */}
+                                <div className="py-6 px-6 !bg-wk-gold rounded-2xl border border-wk-gold/20 shadow-inner">
+                                    <p className="text-[9px] font-black !text-wk-dark-maroon uppercase tracking-[0.3em] mb-6 text-center lg:text-left">Sisa Waktu Promo</p>
+                                    <Countdown endDateTime={endDateTime.getTime()} dark />
                                 </div>
                             </div>
                         </div>
@@ -85,9 +85,9 @@ export default function DealProduct() {
                                         <div className="h-full !bg-wk-gold rounded-full w-[75%]"></div>
                                     </div>
                                 </div>
-                                <div className="py-6 px-6 !bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md">
-                                    <p className="text-[9px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-6 text-center">Sisa Waktu Promo</p>
-                                    <Countdown endDateTime={endDateTime.getTime()} />
+                                <div className="py-6 px-6 !bg-wk-gold rounded-2xl border border-wk-gold/20 shadow-inner">
+                                    <p className="text-[9px] font-black !text-wk-dark-maroon uppercase tracking-[0.3em] mb-6 text-center">Sisa Waktu Promo</p>
+                                    <Countdown endDateTime={endDateTime.getTime()} dark />
                                 </div>
                             </div>
 
