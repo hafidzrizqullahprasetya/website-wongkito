@@ -140,7 +140,7 @@ export default function OrderHubDashboard() {
     fetchOrdersAndStats();
     fetchStoreStatus();
     fetchChat();
-  }, [fetchOrdersAndStats, fetchStoreStatus, fetchChat]);
+  }, []);
 
   // Tab switch loader
   useEffect(() => {
