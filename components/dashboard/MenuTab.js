@@ -1,6 +1,9 @@
 "use client";
 
 import { RefreshCw } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { fmtIDR } from "./config";
 
 export default function MenuTab({ menuItems = [], onToggleMenu, onRefresh }) {
@@ -8,34 +11,33 @@ export default function MenuTab({ menuItems = [], onToggleMenu, onRefresh }) {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <Card className="p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl font-black text-slate-900">
-            Sinkronisasi Stok Menu
-          </h2>
+          <CardTitle>Sinkronisasi Stok Menu</CardTitle>
           <p className="text-xs text-slate-500 mt-1">
-            Matikan menu di sini — otomatis habis di ShopeeFood dan GoFood
-            secara bersamaan.
+            Matikan menu di sini, otomatis habis di ShopeeFood dan GoFood secara bersamaan.
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl">
+          <Badge variant="secondary" className="px-3 py-1.5 rounded-xl font-bold">
             {activeCount} Menu Aktif / {menuItems.length} Total
-          </span>
-          <button
+          </Badge>
+          <Button
+            variant="outline"
+            size="icon"
             onClick={onRefresh}
-            className="p-2 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-600 transition"
+            className="rounded-xl border-slate-200"
           >
-            <RefreshCw className="w-4 h-4" />
-          </button>
+            <RefreshCw className="w-4 h-4 text-slate-600" />
+          </Button>
         </div>
-      </div>
+      </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {menuItems.map((item) => (
-          <div
+          <Card
             key={item.id}
-            className={`bg-white rounded-2xl p-5 border transition shadow-sm flex items-center justify-between gap-3 ${
+            className={`p-5 transition flex items-center justify-between gap-3 ${
               item.is_available
                 ? "border-slate-200/80"
                 : "border-rose-200 bg-rose-50/30 opacity-75"
@@ -56,18 +58,16 @@ export default function MenuTab({ menuItems = [], onToggleMenu, onRefresh }) {
               </div>
             </div>
 
-            {/* Toggle Button */}
-            <button
+            {/* Toggle Button shadcn */}
+            <Button
+              size="sm"
+              variant={item.is_available ? "default" : "destructive"}
               onClick={() => onToggleMenu(item)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold transition shadow-sm ${
-                item.is_available
-                  ? "bg-emerald-500 text-white hover:bg-emerald-600"
-                  : "bg-rose-500 text-white hover:bg-rose-600"
-              }`}
+              className="rounded-xl font-extrabold px-3 py-1.5 h-auto text-xs"
             >
               {item.is_available ? "Ready" : "Habis"}
-            </button>
-          </div>
+            </Button>
+          </Card>
         ))}
       </div>
     </div>

@@ -1,6 +1,9 @@
 "use client";
 
 import { Building2, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { fmtIDR } from "./config";
 
 export default function FinanceTab({
@@ -34,20 +37,22 @@ export default function FinanceTab({
             </p>
           </div>
 
-          <button
+          <Button
+            variant="gold"
+            size="lg"
             onClick={onTriggerPayout}
             disabled={payoutLoading}
-            className="mt-6 w-full py-3.5 bg-gradient-to-r from-wk-gold to-amber-400 hover:from-amber-400 hover:to-amber-500 text-wk-dark-maroon font-black rounded-2xl transition shadow-lg flex items-center justify-center gap-2 disabled:opacity-50"
+            className="mt-6 w-full gap-2 shadow-lg"
           >
             <ArrowUpRight className="w-5 h-5" />
             {payoutLoading
               ? "Memproses BI-FAST..."
               : "Tarik Saldo Instan ke Rekening"}
-          </button>
+          </Button>
         </div>
 
         {/* ShopeePay Merchant Balance */}
-        <div className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+        <Card className="p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
@@ -62,14 +67,16 @@ export default function FinanceTab({
               Penyelesaian harian otomatis
             </p>
           </div>
-          <div className="pt-4 border-t border-slate-100 flex justify-between text-xs text-slate-500">
+          <div className="pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500">
             <span>Status: Aktif & Sinkron</span>
-            <span className="font-bold text-emerald-600">Terverifikasi</span>
+            <Badge variant="outline" className="text-emerald-700 bg-emerald-50 border-emerald-200">
+              Terverifikasi
+            </Badge>
           </div>
-        </div>
+        </Card>
 
         {/* GoPay Merchant Balance */}
-        <div className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+        <Card className="p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
@@ -84,11 +91,13 @@ export default function FinanceTab({
               Penyelesaian transaksi GoFood
             </p>
           </div>
-          <div className="pt-4 border-t border-slate-100 flex justify-between text-xs text-slate-500">
+          <div className="pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500">
             <span>Status: Aktif & Sinkron</span>
-            <span className="font-bold text-emerald-600">Terverifikasi</span>
+            <Badge variant="outline" className="text-emerald-700 bg-emerald-50 border-emerald-200">
+              Terverifikasi
+            </Badge>
           </div>
-        </div>
+        </Card>
       </div>
 
       {/* Payout Success Notice */}
@@ -101,20 +110,21 @@ export default function FinanceTab({
               {payoutSuccess.processed_at}
             </p>
           </div>
-          <button
+          <Button
+            size="sm"
             onClick={() => setPayoutSuccess(null)}
-            className="px-3 py-1.5 bg-emerald-600 text-white rounded-xl text-xs font-bold"
+            className="bg-emerald-700 hover:bg-emerald-800 text-white"
           >
             Tutup
-          </button>
+          </Button>
         </div>
       )}
 
       {/* Payout History */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden p-6">
-        <h3 className="font-black text-slate-900 text-base mb-4">
+      <Card className="p-6">
+        <CardTitle className="text-base mb-4">
           Riwayat Penarikan Dana (Auto Payouts)
-        </h3>
+        </CardTitle>
         <div className="divide-y divide-slate-100">
           {financeData.recent_payouts?.map((p) => (
             <div
@@ -131,14 +141,14 @@ export default function FinanceTab({
                 <p className="font-black text-slate-900 font-mono">
                   {fmtIDR(p.amount)}
                 </p>
-                <span className="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                <Badge variant="outline" className="text-emerald-700 bg-emerald-50 border-emerald-200">
                   {p.status}
-                </span>
+                </Badge>
               </div>
             </div>
           ))}
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

@@ -1,6 +1,10 @@
 "use client";
 
 import { Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 import { PLATFORM_CONFIG } from "./config";
 
 export default function ChatTab({
@@ -12,16 +16,16 @@ export default function ChatTab({
   onSendMessage,
 }) {
   return (
-    <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden grid grid-cols-1 md:grid-cols-3 min-h-[600px]">
+    <Card className="overflow-hidden grid grid-cols-1 md:grid-cols-3 min-h-[600px] border-slate-200/80">
       {/* Channel List (Sidebar) */}
       <div className="border-r border-slate-100 p-4 space-y-3 bg-slate-50/50">
         <div className="flex items-center justify-between mb-2">
           <h3 className="font-black text-slate-900 text-base">
             Kotak Masuk Chat
           </h3>
-          <span className="text-[10px] font-bold bg-wk-maroon text-white px-2 py-0.5 rounded-full">
+          <Badge variant="default" className="text-[10px]">
             {channels.length} Percakapan
-          </span>
+          </Badge>
         </div>
 
         <div className="space-y-2">
@@ -40,11 +44,12 @@ export default function ChatTab({
                 }`}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span
-                    className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md ${platform.bg} ${platform.text}`}
+                  <Badge
+                    variant="outline"
+                    className={`text-[10px] px-2 py-0.5 ${platform.bg} ${platform.text} ${platform.border}`}
                   >
                     {platform.label}
-                  </span>
+                  </Badge>
                   <span className="text-[10px] text-slate-400 font-medium">
                     {c.updated_at}
                   </span>
@@ -76,9 +81,12 @@ export default function ChatTab({
                   {selectedChannel.customer_name}
                 </p>
               </div>
-              <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+              <Badge
+                variant="outline"
+                className="bg-emerald-50 text-emerald-700 border-emerald-200"
+              >
                 Live Chat Terhubung
-              </span>
+              </Badge>
             </div>
 
             {/* Message Bubble List */}
@@ -107,7 +115,7 @@ export default function ChatTab({
               })}
             </div>
 
-            {/* Chat Input */}
+            {/* Chat Input form */}
             <div className="p-4 border-t border-slate-100 bg-white">
               <form
                 onSubmit={(e) => {
@@ -116,20 +124,16 @@ export default function ChatTab({
                 }}
                 className="flex gap-2"
               >
-                <input
-                  type="text"
+                <Input
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
                   placeholder="Tulis balasan cepat ke driver/customer..."
-                  className="flex-1 px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-wk-maroon focus:ring-2 focus:ring-wk-maroon/20"
+                  className="flex-1"
                 />
-                <button
-                  type="submit"
-                  className="px-5 py-3 rounded-xl bg-wk-maroon hover:bg-wk-dark-maroon text-white font-bold transition flex items-center gap-2 shadow-sm"
-                >
+                <Button type="submit" className="gap-2">
                   <Send className="w-4 h-4" />
                   <span className="hidden sm:inline">Kirim</span>
-                </button>
+                </Button>
               </form>
             </div>
           </>
@@ -139,6 +143,6 @@ export default function ChatTab({
           </div>
         )}
       </div>
-    </div>
+    </Card>
   );
 }

@@ -11,7 +11,10 @@ import {
   VolumeX,
   Bell,
   Radio,
+  Sparkles,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function DashboardHeader({
   activeTab,
@@ -61,33 +64,45 @@ export default function DashboardHeader({
   ];
 
   return (
-    <header className="bg-gradient-to-r from-wk-dark-maroon via-wk-maroon to-[#6B1414] text-white sticky top-0 z-40 shadow-lg">
+    <header className="bg-gradient-to-r from-wk-dark-maroon via-wk-maroon to-[#5c1111] text-white sticky top-0 z-40 shadow-xl border-b border-wk-gold/20">
+      {/* Top Banner Accent */}
+      <div className="bg-wk-dark-maroon/90 py-1.5 px-4 border-b border-wk-gold/10 hidden sm:block">
+        <div className="max-w-7xl mx-auto flex items-center justify-between text-xs">
+          <div className="flex items-center gap-2 text-wk-beige/90 font-medium">
+            <span className="w-2 h-2 rounded-full bg-wk-gold animate-ping" />
+            <span>Pusat Kendali Terintegrasi ShopeeFood, GoFood & Dine-in Outlet Maguwoharjo</span>
+          </div>
+          <div className="flex items-center gap-4 text-wk-beige/80">
+            <Link href="/" className="hover:text-wk-gold transition font-bold flex items-center gap-1">
+              Buka Website Toko <Sparkles className="w-3 h-3 text-wk-gold" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Brand Logo & Tagline */}
+          {/* Brand Logo Identik dengan Landing Page */}
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-wk-gold to-amber-500 flex items-center justify-center text-wk-dark-maroon font-black text-2xl shadow-md border-2 border-white/30 group-hover:rotate-6 transition-transform">
-                WK
-              </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="text-xl font-black tracking-tight text-white">
-                    PEMPEK ASLI WONG KITO
-                  </span>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-wk-gold text-wk-dark-maroon tracking-wider uppercase">
-                    Order Hub OS
-                  </span>
-                </div>
-                <p className="text-xs text-wk-beige/80 font-medium">
-                  Satu Pusat Kontrol ShopeeFood, GoFood & Dapur
-                </p>
+              <img
+                src="/assets/img/logo/logo.png"
+                alt="Pempek Asli Wong Kito"
+                className="max-h-12 sm:max-h-14 w-auto drop-shadow-md transition-transform group-hover:scale-105"
+              />
+              <div className="flex flex-col justify-center">
+                <span className="text-white font-extrabold text-base sm:text-lg leading-[1.1] tracking-tighter whitespace-nowrap">
+                  Pempek <span className="font-dancing text-wk-gold italic text-xl mx-0.5">&quot;Asli&quot;</span> Wong Kito
+                </span>
+                <span className="text-[10px] font-extrabold text-wk-gold uppercase tracking-widest mt-0.5">
+                  Order Hub • Unified OS
+                </span>
               </div>
             </Link>
           </div>
 
-          {/* Quick Live Status & Actions */}
-          <div className="flex items-center gap-3">
+          {/* Quick Live Status & Action Buttons */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
             {/* WebSocket Status Indicator */}
             <div
               className={`hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border transition ${
@@ -99,7 +114,7 @@ export default function DashboardHeader({
               <Radio
                 className={`w-3.5 h-3.5 ${wsConnected ? "animate-pulse text-emerald-400" : "text-rose-400"}`}
               />
-              {wsConnected ? "Live Real-time" : "Reconnecting..."}
+              <span>{wsConnected ? "Live Realtime" : "Reconnecting..."}</span>
             </div>
 
             {/* Poller Badge */}
@@ -123,31 +138,32 @@ export default function DashboardHeader({
             )}
 
             {/* Sound Toggle */}
-            <button
+            <Button
+              variant="outline"
+              size="icon"
               onClick={() => setSoundOn(!soundOn)}
-              className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 transition"
-              title={
-                soundOn ? "Suara Notifikasi Aktif" : "Suara Notifikasi Senyap"
-              }
+              className="rounded-xl bg-white/10 hover:bg-white/20 text-white border-white/20"
+              title={soundOn ? "Suara Notifikasi Aktif" : "Suara Notifikasi Senyap"}
             >
               {soundOn ? (
                 <Volume2 className="w-5 h-5 text-wk-gold" />
               ) : (
                 <VolumeX className="w-5 h-5 text-slate-300" />
               )}
-            </button>
+            </Button>
 
-            {/* Demo Simulation Trigger */}
-            <button
+            {/* Demo Simulation Trigger (shadcn Button variant gold) */}
+            <Button
+              variant="gold"
               onClick={onTestOrder}
               disabled={isTestSending}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-wk-gold to-amber-400 hover:from-amber-400 hover:to-amber-500 text-wk-dark-maroon font-bold text-sm shadow-md transition transform active:scale-95 disabled:opacity-50"
+              className="gap-2 shadow-md"
             >
               <Bell className="w-4 h-4" />
               <span className="hidden sm:inline">
                 {isTestSending ? "Mengirim..." : "Simulasi Order Masuk"}
               </span>
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -165,7 +181,7 @@ export default function DashboardHeader({
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm whitespace-nowrap transition-all ${
                     isActive
-                      ? "bg-wk-gold text-wk-dark-maroon shadow-md"
+                      ? "bg-wk-gold text-wk-dark-maroon shadow-md font-black"
                       : "text-wk-beige/80 hover:text-white hover:bg-white/10"
                   }`}
                 >
@@ -180,9 +196,9 @@ export default function DashboardHeader({
                     <span className="w-2.5 h-2.5 rounded-full bg-wk-gold animate-ping" />
                   )}
                   {tab.alert && (
-                    <span className="px-2 py-0.5 rounded-md text-[10px] bg-rose-500 text-white uppercase font-black">
+                    <Badge variant="destructive" className="text-[10px] px-1.5 py-0">
                       Sibuk
-                    </span>
+                    </Badge>
                   )}
                 </button>
               );
