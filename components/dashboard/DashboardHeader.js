@@ -64,14 +64,14 @@ export default function DashboardHeader({
   ];
 
   return (
-    <header className="bg-gradient-to-r from-wk-dark-maroon via-wk-maroon to-[#5c1111] text-white sticky top-0 z-40 shadow-xl border-b border-wk-gold/20">
+    <header className="bg-wk-dark-maroon text-white sticky top-0 z-40 border-b border-wk-gold/20">
       {/* Top Banner Accent */}
-      <div className="bg-wk-dark-maroon/90 py-1.5 px-4 border-b border-wk-gold/10 hidden sm:block">
+      <div className="bg-black/30 py-1.5 px-4 border-b border-white/10 hidden sm:block">
         <div className="max-w-7xl mx-auto flex items-center justify-between text-xs">
           <div className="flex items-center gap-2 text-wk-beige/90 font-medium">
-            <span className="w-2 h-2 rounded-full bg-wk-gold animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-wk-gold" />
             <span>
-              Pusat Kendali Terintegrasi ShopeeFood, GoFood & Dine-in Outlet
+              Pusat Kendali Terintegrasi ShopeeFood, GoFood &amp; Dine-in Outlet
               Maguwoharjo
             </span>
           </div>
@@ -88,13 +88,13 @@ export default function DashboardHeader({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Brand Logo Identik dengan Landing Page */}
+          {/* Brand Logo */}
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-3 group">
               <img
                 src="/assets/img/logo/logo.png"
                 alt="Pempek Asli Wong Kito"
-                className="max-h-12 sm:max-h-14 w-auto drop-shadow-md transition-transform group-hover:scale-105"
+                className="max-h-12 sm:max-h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
               />
               <div className="flex flex-col justify-center">
                 <span className="text-white font-extrabold text-base sm:text-lg leading-[1.1] tracking-tighter whitespace-nowrap">
@@ -117,12 +117,12 @@ export default function DashboardHeader({
             <div
               className={`hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border transition ${
                 wsConnected
-                  ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
-                  : "bg-rose-500/20 text-rose-300 border-rose-500/40"
+                  ? "bg-emerald-500/15 text-emerald-300 border-emerald-500/30"
+                  : "bg-rose-500/15 text-rose-300 border-rose-500/30"
               }`}
             >
               <Radio
-                className={`w-3.5 h-3.5 ${wsConnected ? "animate-pulse text-emerald-400" : "text-rose-400"}`}
+                className={`w-3.5 h-3.5 ${wsConnected ? "text-emerald-400" : "text-rose-400"}`}
               />
               <span>{wsConnected ? "Live Realtime" : "Reconnecting..."}</span>
             </div>
@@ -132,8 +132,8 @@ export default function DashboardHeader({
               <div
                 className={`hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border ${
                   pollerStatus.pollers?.some((p) => p.needs_relogin)
-                    ? "bg-rose-500/30 text-rose-200 border-rose-500/50"
-                    : "bg-white/10 text-wk-beige border-white/20"
+                    ? "bg-rose-500/20 text-rose-200 border-rose-500/40"
+                    : "bg-white/10 text-wk-beige border-white/15"
                 }`}
               >
                 <span
@@ -158,18 +158,18 @@ export default function DashboardHeader({
               }
             >
               {soundOn ? (
-                <Volume2 className="w-5 h-5 text-wk-gold" />
+                <Volume2 className="w-4 h-4 text-wk-gold" />
               ) : (
-                <VolumeX className="w-5 h-5 text-slate-300" />
+                <VolumeX className="w-4 h-4 text-slate-300" />
               )}
             </Button>
 
-            {/* Demo Simulation Trigger (shadcn Button variant gold) */}
+            {/* Demo Simulation Trigger */}
             <Button
               variant="gold"
               onClick={onTestOrder}
               disabled={isTestSending}
-              className="gap-2 shadow-md"
+              className="gap-2 shadow-sm rounded-xl font-bold"
             >
               <Bell className="w-4 h-4" />
               <span className="hidden sm:inline">
@@ -181,9 +181,9 @@ export default function DashboardHeader({
       </div>
 
       {/* ================= NAVIGATION TABS ================= */}
-      <div className="border-t border-white/10 bg-black/20 backdrop-blur-sm">
+      <div className="border-t border-white/10 bg-black/25">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex space-x-2 overflow-x-auto py-2.5 scrollbar-none">
+          <nav className="flex space-x-2 overflow-x-auto py-2 scrollbar-none">
             {navItems.map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -191,21 +191,21 @@ export default function DashboardHeader({
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm whitespace-nowrap transition-all ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all ${
                     isActive
-                      ? "bg-wk-gold text-wk-dark-maroon shadow-md font-black"
+                      ? "bg-wk-gold text-wk-dark-maroon font-black shadow-sm"
                       : "text-wk-beige/80 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
                   <span>{tab.label}</span>
                   {tab.count > 0 && (
-                    <span className="px-2 py-0.5 rounded-full text-xs font-black bg-rose-600 text-white animate-pulse">
+                    <span className="px-2 py-0.5 rounded-full text-xs font-black bg-rose-600 text-white">
                       {tab.count}
                     </span>
                   )}
                   {tab.unread && (
-                    <span className="w-2.5 h-2.5 rounded-full bg-wk-gold animate-ping" />
+                    <span className="w-2 h-2 rounded-full bg-wk-gold" />
                   )}
                   {tab.alert && (
                     <Badge

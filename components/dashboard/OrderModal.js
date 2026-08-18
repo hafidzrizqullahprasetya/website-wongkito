@@ -1,6 +1,7 @@
 "use client";
 
 import { Flame, Printer } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { PLATFORM_CONFIG, fmtIDR } from "./config";
 
 export default function OrderModal({ order, onClose, onPrint }) {
@@ -9,53 +10,53 @@ export default function OrderModal({ order, onClose, onPrint }) {
 
   return (
     <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-      <div className="w-full max-w-lg bg-white rounded-3xl shadow-2xl border-4 border-wk-gold overflow-hidden animate-in zoom-in-95 duration-200">
+      <div className="w-full max-w-md bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-xl animate-in zoom-in-95 duration-150">
         {/* Modal Header */}
-        <div className="bg-gradient-to-r from-wk-dark-maroon to-wk-maroon p-6 text-white text-center relative">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-wk-gold text-wk-dark-maroon mb-3 shadow-lg ring-4 ring-white/20 animate-bounce">
-            <Flame className="w-9 h-9" />
+        <div className="bg-wk-dark-maroon p-5 text-white text-center border-b border-wk-gold/20">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-wk-gold text-wk-dark-maroon mb-2 shadow-sm">
+            <Flame className="w-6 h-6 fill-wk-dark-maroon" />
           </div>
-          <h2 className="text-2xl font-black tracking-tight text-white uppercase">
-            PESANAN BARU MASUK!
+          <h2 className="text-xl font-black tracking-tight text-white uppercase">
+            PESANAN BARU MASUK
           </h2>
-          <p className="text-wk-beige/90 text-sm font-medium mt-1">
+          <p className="text-wk-beige/90 text-xs font-medium mt-0.5">
             {platform.label} • #{order.external_id}
           </p>
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 space-y-4">
-          <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 flex justify-between items-center">
+        <div className="p-5 space-y-3.5">
+          <div className="bg-amber-50/70 rounded-xl p-3.5 border border-amber-200/60 flex justify-between items-center">
             <div>
-              <span className="text-xs font-bold text-amber-900 uppercase tracking-wider">
+              <span className="text-[10px] font-bold text-amber-900 uppercase tracking-wider">
                 Pemesan
               </span>
-              <p className="text-base font-bold text-slate-900">
+              <p className="text-sm font-bold text-slate-900">
                 {order.customer_name || "Pelanggan Online"}
               </p>
             </div>
             <div className="text-right">
-              <span className="text-xs font-bold text-amber-900 uppercase tracking-wider">
-                Total Pendapatan
+              <span className="text-[10px] font-bold text-amber-900 uppercase tracking-wider">
+                Total
               </span>
-              <p className="text-xl font-black text-wk-maroon font-mono">
+              <p className="text-lg font-black text-wk-maroon font-mono">
                 {fmtIDR(order.total)}
               </p>
             </div>
           </div>
 
           <div>
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-              Rincian Menu Yang Dipesan:
+            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
+              Rincian Menu:
             </p>
             <div className="divide-y divide-slate-100 max-h-48 overflow-y-auto pr-1">
               {order.items?.map((it, idx) => (
                 <div
                   key={idx}
-                  className="py-2 flex justify-between items-center text-sm"
+                  className="py-1.5 flex justify-between items-center text-xs sm:text-sm"
                 >
                   <span className="font-semibold text-slate-800">
-                    <span className="text-wk-maroon font-bold mr-2">
+                    <span className="text-wk-maroon font-bold mr-1.5">
                       {it.qty}×
                     </span>
                     {it.menu_name}
@@ -70,22 +71,24 @@ export default function OrderModal({ order, onClose, onPrint }) {
         </div>
 
         {/* Modal Footer */}
-        <div className="p-6 bg-slate-50 border-t border-slate-100 flex gap-3">
-          <button
+        <div className="p-4 bg-slate-50 border-t border-slate-100 flex gap-2.5">
+          <Button
+            variant="gold"
             onClick={() => {
               onPrint?.(order);
               onClose();
             }}
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-wk-gold text-wk-dark-maroon font-bold rounded-2xl hover:bg-amber-400 transition shadow-sm"
+            className="flex-1 rounded-xl font-bold text-xs gap-1.5"
           >
-            <Printer className="w-5 h-5" /> Cetak Struk
-          </button>
-          <button
+            <Printer className="w-4 h-4" /> Cetak Struk
+          </Button>
+          <Button
+            variant="default"
             onClick={onClose}
-            className="flex-1 py-3.5 bg-wk-maroon text-white font-bold rounded-2xl hover:bg-wk-dark-maroon transition shadow-md"
+            className="flex-1 rounded-xl font-bold text-xs bg-wk-maroon hover:bg-wk-dark-maroon"
           >
-            Terima Pesanan ✋
-          </button>
+            Terima Pesanan
+          </Button>
         </div>
       </div>
     </div>

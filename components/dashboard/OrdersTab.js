@@ -21,16 +21,16 @@ export default function OrdersTab({
   onPrint,
 }) {
   return (
-    <div className="space-y-8">
-      {/* Stat Cards Row */}
+    <div className="space-y-6">
+      {/* Stat Cards Row: Uniform, Clean, Precise */}
       {stats && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card className="hover:border-wk-gold/50 transition">
+          <Card className="border-slate-200/80 bg-white shadow-sm hover:border-wk-gold/50 transition">
             <CardHeader className="flex flex-row items-center justify-between pb-2 text-slate-400">
-              <span className="text-xs font-bold uppercase tracking-wider">
+              <span className="text-[11px] font-bold uppercase tracking-wider">
                 Omzet Hari Ini
               </span>
-              <TrendingUp className="w-5 h-5 text-emerald-600" />
+              <TrendingUp className="w-4 h-4 text-emerald-600" />
             </CardHeader>
             <CardContent>
               <p className="text-2xl font-black text-slate-900 font-mono">
@@ -42,12 +42,12 @@ export default function OrdersTab({
             </CardContent>
           </Card>
 
-          <Card className="hover:border-wk-gold/50 transition">
+          <Card className="border-slate-200/80 bg-white shadow-sm hover:border-wk-gold/50 transition">
             <CardHeader className="flex flex-row items-center justify-between pb-2 text-slate-400">
-              <span className="text-xs font-bold uppercase tracking-wider">
+              <span className="text-[11px] font-bold uppercase tracking-wider">
                 Total Omzet Bersih
               </span>
-              <Wallet className="w-5 h-5 text-wk-maroon" />
+              <Wallet className="w-4 h-4 text-wk-maroon" />
             </CardHeader>
             <CardContent>
               <p className="text-2xl font-black text-wk-maroon font-mono">
@@ -59,12 +59,12 @@ export default function OrdersTab({
             </CardContent>
           </Card>
 
-          <Card className="hover:border-wk-gold/50 transition">
+          <Card className="border-slate-200/80 bg-white shadow-sm hover:border-wk-gold/50 transition">
             <CardHeader className="flex flex-row items-center justify-between pb-2 text-slate-400">
-              <span className="text-xs font-bold uppercase tracking-wider">
+              <span className="text-[11px] font-bold uppercase tracking-wider">
                 Rata-Rata Tiket / Order
               </span>
-              <ShoppingBag className="w-5 h-5 text-blue-600" />
+              <ShoppingBag className="w-4 h-4 text-blue-600" />
             </CardHeader>
             <CardContent>
               <p className="text-2xl font-black text-slate-900 font-mono">
@@ -76,12 +76,12 @@ export default function OrdersTab({
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200/80">
-            <CardHeader className="flex flex-row items-center justify-between pb-2 text-amber-800">
-              <span className="text-xs font-bold uppercase tracking-wider">
+          <Card className="border-slate-200/80 bg-white shadow-sm hover:border-wk-gold/50 transition">
+            <CardHeader className="flex flex-row items-center justify-between pb-2 text-slate-400">
+              <span className="text-[11px] font-bold uppercase tracking-wider">
                 Menu Paling Laris
               </span>
-              <Flame className="w-5 h-5 text-amber-600" />
+              <Flame className="w-4 h-4 text-amber-600" />
             </CardHeader>
             <CardContent>
               <p className="text-xl font-black text-slate-900 truncate">
@@ -96,12 +96,13 @@ export default function OrdersTab({
       )}
 
       {/* Orders Feed */}
-      <Card className="overflow-hidden border-slate-200/80">
-        <div className="p-6 border-b border-slate-100 flex flex-wrap items-center justify-between gap-4">
+      <Card className="overflow-hidden border-slate-200/80 bg-white shadow-sm">
+        <div className="p-5 sm:p-6 border-b border-slate-100 flex flex-wrap items-center justify-between gap-4">
           <div>
-            <CardTitle>Antrean Pesanan Masuk</CardTitle>
-            <p className="text-xs text-slate-500 mt-1">
-              Realtime sync dari ShopeeFood, GoFood & Kasir Dine-in Wong Kito
+            <CardTitle className="text-lg">Antrean Pesanan Masuk</CardTitle>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Realtime sync dari ShopeeFood, GoFood &amp; Kasir Dine-in Wong
+              Kito
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -109,7 +110,7 @@ export default function OrdersTab({
               variant="outline"
               size="icon"
               onClick={onRefresh}
-              className="rounded-xl border-slate-200"
+              className="rounded-xl border-slate-200 h-9 w-9"
               title="Segarkan data"
             >
               <RefreshCw className="w-4 h-4 text-slate-600" />
@@ -119,12 +120,12 @@ export default function OrdersTab({
 
         <div className="divide-y divide-slate-100">
           {orders.length === 0 ? (
-            <div className="p-16 text-center">
-              <ShoppingBag className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-              <p className="text-slate-600 font-bold">
+            <div className="p-14 text-center">
+              <ShoppingBag className="w-10 h-10 text-slate-300 mx-auto mb-2.5" />
+              <p className="text-slate-700 font-bold text-sm">
                 Belum ada pesanan aktif
               </p>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-xs text-slate-400 mt-0.5">
                 Klik tombol &quot;Simulasi Order Masuk&quot; di kanan atas untuk
                 uji coba
               </p>
@@ -138,23 +139,23 @@ export default function OrdersTab({
               return (
                 <div
                   key={o.id}
-                  className={`p-5 sm:p-6 transition hover:bg-slate-50/80 ${
+                  className={`p-4 sm:p-5 transition hover:bg-slate-50/60 ${
                     o.status === "new"
-                      ? "bg-amber-50/40 border-l-4 border-l-wk-gold"
+                      ? "bg-amber-50/30 border-l-4 border-l-wk-gold"
                       : ""
                   }`}
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4">
                     {/* Order Meta & Items */}
-                    <div className="space-y-2 flex-1">
+                    <div className="space-y-1.5 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
                         {/* Platform Badge */}
                         <Badge
                           variant="outline"
-                          className={`${platform.bg} ${platform.text} ${platform.border}`}
+                          className={`${platform.bg} ${platform.text} ${platform.border} text-[10px] px-2.5 py-0.5`}
                         >
                           <span
-                            className={`w-2 h-2 rounded-full ${platform.dot}`}
+                            className={`w-1.5 h-1.5 rounded-full ${platform.dot}`}
                           />
                           {platform.label}
                         </Badge>
@@ -179,7 +180,7 @@ export default function OrdersTab({
                       </div>
 
                       {/* Menu Items List */}
-                      <div className="text-sm font-semibold text-slate-900">
+                      <div className="text-xs sm:text-sm font-semibold text-slate-800">
                         {o.items?.map((it, idx) => (
                           <span key={idx} className="mr-3">
                             <span className="text-wk-maroon font-bold">
@@ -192,12 +193,12 @@ export default function OrdersTab({
                     </div>
 
                     {/* Total Price & Status Actions */}
-                    <div className="flex flex-wrap items-center gap-4 self-end lg:self-center">
+                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 self-end lg:self-center">
                       <div className="text-right">
-                        <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
                           Total Bayar
                         </span>
-                        <span className="text-lg font-black text-wk-dark-maroon font-mono">
+                        <span className="text-base sm:text-lg font-black text-wk-dark-maroon font-mono">
                           {fmtIDR(o.total)}
                         </span>
                       </div>
@@ -207,9 +208,9 @@ export default function OrdersTab({
                         <select
                           value={o.status}
                           onChange={(e) => onUpdateStatus(o.id, e.target.value)}
-                          className={`px-3 py-2 rounded-xl text-xs font-bold border cursor-pointer transition shadow-sm outline-none ${
+                          className={`px-3 py-1.5 rounded-xl text-xs font-bold border cursor-pointer transition shadow-none outline-none ${
                             o.status === "new"
-                              ? "bg-blue-600 text-white border-blue-700 ring-2 ring-blue-300 animate-pulse"
+                              ? "bg-blue-600 text-white border-blue-700"
                               : o.status === "preparing"
                                 ? "bg-amber-500 text-white border-amber-600"
                                 : o.status === "ready"
@@ -233,10 +234,10 @@ export default function OrdersTab({
                           variant="outline"
                           size="icon"
                           onClick={() => onPrint(o)}
-                          className="rounded-xl border-slate-200 bg-white"
+                          className="rounded-xl border-slate-200 bg-white h-8 w-8"
                           title="Cetak Struk 58mm"
                         >
-                          <Printer className="w-4 h-4 text-slate-700" />
+                          <Printer className="w-3.5 h-3.5 text-slate-700" />
                         </Button>
                       </div>
                     </div>
