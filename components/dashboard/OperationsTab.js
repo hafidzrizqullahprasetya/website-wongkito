@@ -34,7 +34,10 @@ export default function OperationsTab({ storeStatus, onToggleBusy }) {
               otomatis selama 30 menit tanpa merusak rating performa resto.
             </p>
             {storeStatus.is_busy_mode && (
-              <Badge variant="destructive" className="mt-3 text-xs px-3 py-1 font-black">
+              <Badge
+                variant="destructive"
+                className="mt-3 text-xs px-3 py-1 font-black"
+              >
                 SEDANG AKTIF HINGGA: {storeStatus.busy_until}
               </Badge>
             )}
@@ -67,7 +70,10 @@ export default function OperationsTab({ storeStatus, onToggleBusy }) {
               </p>
             </div>
           </div>
-          <Badge variant="outline" className="text-emerald-700 bg-emerald-50 border-emerald-200">
+          <Badge
+            variant="outline"
+            className="text-emerald-700 bg-emerald-50 border-emerald-200"
+          >
             OPEN & SYNC
           </Badge>
         </Card>
@@ -79,12 +85,13 @@ export default function OperationsTab({ storeStatus, onToggleBusy }) {
               <h4 className="font-bold text-slate-900 text-sm">
                 GoFood Merchant
               </h4>
-              <p className="text-xs text-slate-400">
-                GoBiz Restaurant Service
-              </p>
+              <p className="text-xs text-slate-400">GoBiz Restaurant Service</p>
             </div>
           </div>
-          <Badge variant="outline" className="text-emerald-700 bg-emerald-50 border-emerald-200">
+          <Badge
+            variant="outline"
+            className="text-emerald-700 bg-emerald-50 border-emerald-200"
+          >
             OPEN & SYNC
           </Badge>
         </Card>
@@ -99,7 +106,10 @@ export default function OperationsTab({ storeStatus, onToggleBusy }) {
               <p className="text-xs text-slate-400">Kasir Utama Outlet</p>
             </div>
           </div>
-          <Badge variant="outline" className="text-emerald-700 bg-emerald-50 border-emerald-200">
+          <Badge
+            variant="outline"
+            className="text-emerald-700 bg-emerald-50 border-emerald-200"
+          >
             READY
           </Badge>
         </Card>

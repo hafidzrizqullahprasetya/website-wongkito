@@ -69,7 +69,10 @@ export default function FinanceTab({
           </div>
           <div className="pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500">
             <span>Status: Aktif & Sinkron</span>
-            <Badge variant="outline" className="text-emerald-700 bg-emerald-50 border-emerald-200">
+            <Badge
+              variant="outline"
+              className="text-emerald-700 bg-emerald-50 border-emerald-200"
+            >
               Terverifikasi
             </Badge>
           </div>
@@ -93,7 +96,10 @@ export default function FinanceTab({
           </div>
           <div className="pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500">
             <span>Status: Aktif & Sinkron</span>
-            <Badge variant="outline" className="text-emerald-700 bg-emerald-50 border-emerald-200">
+            <Badge
+              variant="outline"
+              className="text-emerald-700 bg-emerald-50 border-emerald-200"
+            >
               Terverifikasi
             </Badge>
           </div>
@@ -141,7 +147,10 @@ export default function FinanceTab({
                 <p className="font-black text-slate-900 font-mono">
                   {fmtIDR(p.amount)}
                 </p>
-                <Badge variant="outline" className="text-emerald-700 bg-emerald-50 border-emerald-200">
+                <Badge
+                  variant="outline"
+                  className="text-emerald-700 bg-emerald-50 border-emerald-200"
+                >
                   {p.status}
                 </Badge>
               </div>

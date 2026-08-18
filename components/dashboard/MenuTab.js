@@ -15,11 +15,15 @@ export default function MenuTab({ menuItems = [], onToggleMenu, onRefresh }) {
         <div>
           <CardTitle>Sinkronisasi Stok Menu</CardTitle>
           <p className="text-xs text-slate-500 mt-1">
-            Matikan menu di sini, otomatis habis di ShopeeFood dan GoFood secara bersamaan.
+            Matikan menu di sini, otomatis habis di ShopeeFood dan GoFood secara
+            bersamaan.
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <Badge variant="secondary" className="px-3 py-1.5 rounded-xl font-bold">
+          <Badge
+            variant="secondary"
+            className="px-3 py-1.5 rounded-xl font-bold"
+          >
             {activeCount} Menu Aktif / {menuItems.length} Total
           </Badge>
           <Button

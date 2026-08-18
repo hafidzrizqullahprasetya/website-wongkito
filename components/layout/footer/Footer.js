@@ -1,157 +1,136 @@
-import Link from "next/link"
+import Link from 'next/link';
+import { MapPin, Phone, Instagram, ArrowUpRight, Sparkles, Heart } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 const menuLinks = [
-    { label: 'Paket Seragam',  href: '/shop' },
-    { label: 'Paket Campur',   href: '/shop' },
-    { label: 'Beli Satuan',    href: '/shop' },
-    { label: 'Hampers Pempek', href: '/shop' },
-    { label: 'Promo & Diskon', href: '/shop' },
-]
+  { label: 'Paket Komplit', href: '/#menu' },
+  { label: 'Pempek Kapal Selam', href: '/#menu' },
+  { label: 'Tekwan & Model Tahu', href: '/#menu' },
+  { label: 'Paket Ampera & Musi', href: '/#menu' },
+  { label: 'Cuko Kental Botol', href: '/#menu' },
+];
 
 const infoLinks = [
-    { label: 'Tentang Kami',    href: '/about' },
-    { label: 'FAQ',             href: '/faq' },
-    { label: 'Lokasi Toko',     href: '/shop-location' },
-    { label: 'Hubungi Kami',    href: '/contact' },
-    { label: 'Kebijakan Privasi', href: '#' },
-]
-
-const socialLinks = [
-    { icon: 'fab fa-instagram',  label: 'Instagram', href: '#' },
-    { icon: 'fab fa-tiktok',     label: 'TikTok',    href: '#' },
-    { icon: 'fab fa-facebook-f', label: 'Facebook',  href: '#' },
-    { icon: 'fab fa-whatsapp',   label: 'WhatsApp',  href: 'https://wa.me/6281234567890', external: true },
-    { icon: 'fab fa-youtube',    label: 'YouTube',   href: '#' },
-]
+  { label: 'Tentang Wong Kito', href: '/about' },
+  { label: 'Lokasi Outlet Maguwoharjo', href: '/shop-location' },
+  { label: 'Order Hub Kasir & Dapur', href: '/dashboard' },
+  { label: 'Hubungi WhatsApp', href: 'https://wa.me/6285603718308' },
+  { label: 'FAQ & Pengiriman', href: '/faq' },
+];
 
 export default function Footer() {
-    return (
-        <footer className="!bg-wk-dark-maroon text-white font-sans overflow-hidden">
+  return (
+    <footer className="bg-gradient-to-b from-wk-dark-maroon to-[#2b0808] text-white font-jakarta overflow-hidden border-t-2 border-wk-gold/20">
+      {/* Top CTA Banner */}
+      <div className="border-b border-white/10 bg-black/20 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div>
+            <Badge variant="gold" className="px-3.5 py-1 text-xs uppercase tracking-widest font-black mb-2">
+              <Sparkles className="w-3.5 h-3.5 mr-1" /> Siap Melayani Pesanan Anda
+            </Badge>
+            <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+              Ingin Pesan Untuk Acara, Kantor, Atau Luar Kota?
+            </h3>
+            <p className="text-xs sm:text-sm text-wk-beige/80 mt-1">
+              Melayani pesanan paket besar, hampers hajatan, dan kirim frozen vakum seluruh pulau Jawa.
+            </p>
+          </div>
+          <Button asChild size="lg" variant="gold" className="rounded-2xl font-black text-sm px-7 py-3.5 shadow-xl whitespace-nowrap">
+            <a href="https://wa.me/6285603718308" target="_blank" rel="noopener noreferrer">
+              Hubungi WhatsApp Toko <ArrowUpRight className="w-4 h-4 ml-1" />
+            </a>
+          </Button>
+        </div>
+      </div>
 
-            {/* ── Main Footer Grid ── */}
-            <div className="container mx-auto px-6 py-12 lg:py-16 border-b border-white/5">
-                <div className="flex flex-col lg:grid lg:grid-cols-4 gap-y-12 lg:gap-x-12">
+      {/* Main Footer Links */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+          {/* Brand Info (Col 1-2) */}
+          <div className="lg:col-span-2 space-y-4">
+            <Link href="/" className="flex items-center gap-3 group">
+              <img
+                src="/assets/img/logo/logo.png"
+                alt="Pempek Asli Wong Kito"
+                className="max-h-14 w-auto object-contain"
+              />
+              <div className="flex flex-col">
+                <span className="text-white font-extrabold text-lg leading-tight uppercase tracking-tight">
+                  Pempek <span className="font-dancing text-wk-gold italic text-2xl mx-0.5">&quot;Asli&quot;</span> Wong Kito
+                </span>
+                <span className="text-[10px] font-extrabold text-wk-gold uppercase tracking-widest">
+                  Maguwoharjo, Sleman, D.I. Yogyakarta
+                </span>
+              </div>
+            </Link>
 
-                    {/* Col 1: Brand Info (Centered on Mobile) */}
-                    <div className="lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <Link href="/" className="inline-flex items-center gap-3 mb-5">
-                            <img src="/assets/img/logo/logo.png" alt="Logo" className="h-14 w-auto object-contain" />
-                            <div className="flex flex-col text-left">
-                                <span className="font-extrabold text-lg leading-none tracking-tight uppercase">
-                                    PEMPEK <span className="font-dancing text-wk-gold !italic text-xl mx-0.5 capitalize">Asli</span>
-                                </span>
-                                <span className="font-extrabold text-lg leading-none tracking-tight uppercase">WONG KITO</span>
-                            </div>
-                        </Link>
-                        <p className="text-sm !text-white/40 leading-relaxed max-w-xs">
-                            Cita rasa autentik Palembang, dibuat dengan bahan pilihan dan resep turun-temurun sejak dulu.
-                        </p>
-                    </div>
+            <p className="text-xs text-wk-beige/80 leading-relaxed max-w-sm">
+              Menghadirkan kelezatan asli pempek khas Palembang di Yogyakarta. Dibuat fresh setiap hari dari ikan tenggiri
+              murni dengan cuko kental asam manis pedas yang khas.
+            </p>
 
-                    {/* Group for Menu & Info (Centered 2-Column on Mobile) */}
-                    <div className="flex items-start justify-center lg:justify-start gap-12 lg:hidden pt-10 lg:pt-0">
-                        <div className="flex flex-col items-center flex-1">
-                            <h5 className="text-[10px] font-black !text-wk-gold uppercase tracking-[0.2em] mb-6">Menu</h5>
-                            <ul className="space-y-4 text-center">
-                                {menuLinks.map((link, i) => (
-                                    <li key={i}>
-                                        <Link href={link.href} className="text-sm !text-white/50 hover:!text-wk-gold transition-colors">
-                                            {link.label}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="flex flex-col items-center flex-1">
-                            <h5 className="text-[10px] font-black !text-wk-gold uppercase tracking-[0.2em] mb-6">Info</h5>
-                            <ul className="space-y-4 text-center">
-                                {infoLinks.map((link, i) => (
-                                    <li key={i}>
-                                        <Link href={link.href} className="text-sm !text-white/50 hover:!text-wk-gold transition-colors">
-                                            {link.label}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-
-                    {/* Desktop View Columns (Hidden on Mobile) */}
-                    <div className="hidden lg:block">
-                        <h5 className="text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-7">Menu Kami</h5>
-                        <ul className="space-y-4">
-                            {menuLinks.map((link, i) => (
-                                <li key={i}>
-                                    <Link href={link.href} className="text-sm !text-white/50 hover:!text-wk-gold transition-colors">
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="hidden lg:block">
-                        <h5 className="text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-7">Informasi</h5>
-                        <ul className="space-y-4">
-                            {infoLinks.map((link, i) => (
-                                <li key={i}>
-                                    <Link href={link.href} className="text-sm !text-white/50 hover:!text-wk-gold transition-colors">
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Col 4: Follow Us — Extra top padding on mobile */}
-                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left pt-10 lg:pt-0 border-t lg:border-none border-white/5">
-                        <h5 className="text-[10px] lg:text-xs font-black !text-wk-gold uppercase tracking-[0.2em] mb-6 lg:mb-7">Ikuti Kami</h5>
-                        <ul className="space-y-4">
-                            {socialLinks.map((link, i) => (
-                                <li key={i}>
-                                    <a
-                                        href={link.href}
-                                        target={link.external ? '_blank' : undefined}
-                                        rel={link.external ? 'noopener noreferrer' : undefined}
-                                        className="flex items-center gap-3 text-sm !text-white/50 hover:!text-wk-gold transition-colors"
-                                    >
-                                        <i className={`${link.icon} w-5 text-center text-wk-gold/80`} />
-                                        {link.label}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                </div>
+            <div className="space-y-2 pt-2 text-xs text-wk-beige/90 font-medium">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-wk-gold flex-shrink-0 mt-0.5" />
+                <span>Jalan Gondangan Blok C No. 5, Maguwoharjo, Depok, Sleman, DIY 55282</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-wk-gold flex-shrink-0" />
+                <span>WhatsApp: +62 856-0371-8308</span>
+              </div>
             </div>
+          </div>
 
-            {/* ── CTA Contact Bar ── */}
-            <div className="container mx-auto px-6 py-10 lg:py-12 border-b border-white/5">
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-6 text-center lg:text-left">
-                    <div className="flex flex-col sm:flex-row items-center gap-5">
-                        <div className="w-14 h-14 rounded-full !bg-wk-gold/10 border border-wk-gold/20 flex items-center justify-center">
-                            <i className="fab fa-whatsapp text-2xl !text-wk-gold" />
-                        </div>
-                        <div>
-                            <span className="block text-2xl font-black tracking-tight text-white">+62 812-3456-7890</span>
-                            <span className="block text-[10px] uppercase tracking-widest !text-white/30 font-bold mt-1">Layanan CS (Setiap Hari 08:00 - 21:00)</span>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-4 opacity-40 grayscale hover:grayscale-0 transition-all">
-                        <img src="https://placehold.co/120x35/3d0e0e/white?text=ShopeeFood" alt="Partner" className="h-7 w-auto" />
-                        <img src="https://placehold.co/120x35/3d0e0e/white?text=GrabFood" alt="Partner" className="h-7 w-auto" />
-                    </div>
-                </div>
+          {/* Menu Links */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-black text-wk-gold uppercase tracking-widest">Pilihan Menu</h4>
+            <ul className="space-y-2.5 text-xs text-wk-beige/80">
+              {menuLinks.map((m, idx) => (
+                <li key={idx}>
+                  <Link href={m.href} className="hover:text-wk-gold transition-colors font-medium">
+                    {m.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Information Links */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-black text-wk-gold uppercase tracking-widest">Informasi Outlet</h4>
+            <ul className="space-y-2.5 text-xs text-wk-beige/80">
+              {infoLinks.map((inf, idx) => (
+                <li key={idx}>
+                  <Link href={inf.href} className="hover:text-wk-gold transition-colors font-medium">
+                    {inf.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Opening Hours & Delivery */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-black text-wk-gold uppercase tracking-widest">Jam Buka &amp; Layanan</h4>
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2 text-xs">
+              <p className="text-wk-beige/90 font-bold">Setiap Hari:</p>
+              <p className="text-wk-gold font-mono font-black text-sm">09:00 - 21:00 WIB</p>
+              <p className="text-slate-400 text-[11px] pt-1 border-t border-white/10">
+                Tersedia Dine-in, Takeaway, ShopeeFood, dan GoFood.
+              </p>
             </div>
+          </div>
+        </div>
 
-            {/* ── Bottom Copyright ── */}
-            <div className="container mx-auto px-6 py-8 pb-28 lg:pb-8 text-center">
-                <p className="text-[11px] !text-white/20 uppercase tracking-[0.3em] font-bold">
-                    &copy; {new Date().getFullYear()} <span className="!text-wk-gold/40">Pempek Asli Wong Kito</span>
-                </p>
-            </div>
-
-        </footer>
-    )
+        {/* Bottom Copyright */}
+        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-wk-beige/60">
+          <p>© {new Date().getFullYear()} Pempek Asli Wong Kito. Seluruh hak cipta dilindungi.</p>
+          <p className="flex items-center gap-1 font-medium">
+            Dibuat dengan <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" /> untuk pecinta kuliner nusantara
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 }

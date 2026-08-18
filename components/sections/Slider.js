@@ -1,155 +1,118 @@
-'use client'
-import { Autoplay, Pagination } from "swiper/modules"
-import { Swiper, SwiperSlide } from "swiper/react"
-import Link from "next/link"
+"use client";
 
-const swiperOptions = {
-    modules: [Autoplay, Pagination],
-    slidesPerView: 1,
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: '.slider-pagination',
-        clickable: true,
-    },
-}
-
-const slides = [
-    {
-        label: 'Paket Unggulan',
-        title: 'Paket Ampera',
-        subtitle: 'Kenyang Beneran',
-        desc: 'Perpaduan pempek kapal selam, lenjer, dan adaan dengan cuko khas Palembang.',
-        img: 'https://placehold.co/1200x600/3d0e0e/FFB800?text=Slider+Hero+1',
-    },
-    {
-        label: 'Paling Favorit',
-        title: 'Paket Musi',
-        subtitle: 'Favorit Keluarga',
-        desc: 'Pilihan tepat untuk kumpul keluarga dengan porsi lengkap dan beragam.',
-        img: 'https://placehold.co/1200x600/3d0e0e/FFB800?text=Slider+Hero+2',
-    },
-    {
-        label: 'Untuk Pemula',
-        title: 'Paket Sikok',
-        subtitle: 'Coba Dulu',
-        desc: 'Pilihan terbaik untuk yang baru pertama kali merasakan cita rasa autentik Wong Kito.',
-        img: 'https://placehold.co/1200x600/3d0e0e/FFB800?text=Slider+Hero+3',
-    }
-]
-
-const sideBanners = [
-    {
-        img: 'https://placehold.co/400x300/3d0e0e/white?text=Side+Banner+1',
-        label: 'Paling Laris',
-        title: 'Pempek Kapal Selam',
-    },
-    {
-        img: 'https://placehold.co/400x300/3d0e0e/white?text=Side+Banner+2',
-        label: 'Menu Klasik',
-        title: 'Lenjer & Adaan',
-    }
-]
+import Link from "next/link";
+import {
+  ShoppingBag,
+  ArrowRight,
+  Award,
+  Flame,
+  Sparkles,
+  CheckCircle2,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function Slider() {
-    return (
-        <section className="py-8 bg-white">
-            <div className="container mx-auto px-4">
-                <div className="flex flex-col lg:flex-row gap-6">
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-b from-wk-dark-maroon via-wk-maroon to-[#4a0d0d] text-white py-24 sm:py-32 lg:py-40">
+      {/* Background Radial Glow & Ambient Texture */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,184,0,0.15)_0,transparent_70%)] pointer-events-none" />
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-wk-gold/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-black/50 rounded-full blur-3xl pointer-events-none" />
 
-                    {/* Main Slider */}
-                    <div className="lg:w-3/4">
-                        <div className="relative overflow-hidden rounded-2xl">
-                            <Swiper {...swiperOptions} className="h-[460px]">
-                                {slides.map((slide, i) => (
-                                    <SwiperSlide key={i}>
-                                        <div className="relative h-full w-full !bg-wk-maroon">
-                                            <img
-                                                src={slide.img}
-                                                alt={slide.title}
-                                                className="absolute inset-0 w-full h-full object-cover opacity-40"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-r from-wk-maroon/95 via-wk-maroon/70 md:via-wk-maroon/50 to-transparent" />
-                                            <div className="absolute inset-0 bg-wk-maroon/30 md:hidden" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        {/* Top Floating Badge */}
+        <div className="inline-flex items-center justify-center mb-6">
+          <Badge
+            variant="gold"
+            className="px-4 py-1.5 text-xs font-black uppercase tracking-widest shadow-xl border border-amber-300/40 animate-in fade-in slide-in-from-bottom-3 duration-700"
+          >
+            <Flame className="w-3.5 h-3.5 mr-1.5 text-wk-dark-maroon fill-wk-dark-maroon" />{" "}
+            100% Ikan Tenggiri Asli Palembang
+          </Badge>
+        </div>
 
-                                            <div className="relative h-full flex flex-col justify-center px-8 sm:px-12 md:px-20 max-w-xl">
-                                                <span className="inline-block w-fit px-3 py-1 rounded-md !bg-wk-gold !text-wk-maroon text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 md:mb-5">
-                                                    {slide.label}
-                                                </span>
-                                                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black !text-white uppercase leading-[1.1] tracking-tight mb-2">
-                                                    {slide.title}
-                                                </h2>
-                                                <h3 className="text-lg md:text-2xl font-semibold !text-wk-gold mb-5 md:mb-6">
-                                                    {slide.subtitle}
-                                                </h3>
-                                                <p className="text-xs md:text-sm !text-wk-beige font-medium leading-relaxed mb-8 md:mb-10 max-w-xs md:max-w-sm">
-                                                    {slide.desc}
-                                                </p>
-                                                <Link
-                                                    href="/shop"
-                                                    className="w-fit flex items-center gap-3 px-6 md:px-8 py-3.5 md:py-4 !bg-wk-gold !text-wk-dark-maroon font-black text-[10px] md:text-xs uppercase tracking-widest rounded-full hover:opacity-80 transition-opacity"
-                                                >
-                                                    Pesan Sekarang
-                                                    <i className="fal fa-long-arrow-right" />
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
+        {/* H1 Headline — 2-Line Iron Rule with Ultra-wide container */}
+        <div className="max-w-5xl mx-auto w-full mb-8">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white leading-[1.05] tracking-tight uppercase">
+            Pempek Autentik Gurih, <br className="hidden sm:inline" />
+            <span className="text-wk-gold italic font-dancing normal-case text-5xl sm:text-7xl md:text-8xl font-normal mx-2">
+              Cuko Kental
+            </span>
+            Warisan Asli
+          </h1>
+        </div>
 
-                            {/* Pagination */}
-                            <div className="absolute bottom-8 left-12 z-10">
-                                <div className="slider-pagination" />
-                            </div>
-                        </div>
-                    </div>
+        {/* Subtitle Paragraph */}
+        <p className="max-w-2xl mx-auto text-base sm:text-lg text-wk-beige/90 font-medium leading-relaxed mb-10">
+          Dibuat tanpa bahan pengawet dengan cuko kental gula batok asli
+          Linggau. Siap santap hangat di Maguwoharjo, vakum frozen antar kota,
+          atau pesan cepat di ShopeeFood &amp; GoFood.
+        </p>
 
-                    {/* Side Banners */}
-                    <div className="lg:w-1/4 flex flex-col gap-6">
-                        {sideBanners.map((banner, i) => (
-                            <Link
-                                key={i}
-                                href="/shop"
-                                className="group relative flex-1 min-h-[214px] rounded-2xl overflow-hidden"
-                            >
-                                <img
-                                    src={banner.img}
-                                    alt={banner.title}
-                                    className="absolute inset-0 w-full h-full object-cover group-hover:opacity-75 transition-opacity duration-500"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-wk-maroon/85 to-transparent" />
-                                <div className="absolute bottom-6 left-6 right-6">
-                                    <span className="block text-[10px] font-black !text-wk-gold uppercase tracking-widest mb-1">
-                                        {banner.label}
-                                    </span>
-                                    <h4 className="text-xl font-black !text-white uppercase leading-tight">
-                                        {banner.title}
-                                    </h4>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
+        {/* Dual High-Contrast Action CTAs */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
+          <Button
+            asChild
+            size="lg"
+            variant="gold"
+            className="rounded-2xl font-black text-sm px-8 py-4 shadow-2xl gap-2 hover:scale-105 transition-transform"
+          >
+            <Link href="#menu">
+              <ShoppingBag className="w-5 h-5" /> Pesan Menu Sekarang
+            </Link>
+          </Button>
 
-                </div>
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="rounded-2xl bg-white/10 hover:bg-white/20 text-white border-white/25 font-bold text-sm px-8 py-4 gap-2"
+          >
+            <Link href="/dashboard">
+              Order Hub Dashboard{" "}
+              <ArrowRight className="w-4 h-4 text-wk-gold" />
+            </Link>
+          </Button>
+        </div>
+
+        {/* Cinematic Visual Showcase Image Banner */}
+        <div className="max-w-4xl mx-auto relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-wk-gold to-amber-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-700" />
+          <div className="relative rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/60 aspect-[16/9] sm:aspect-[21/9]">
+            <img
+              src="https://placehold.co/1200x600/3d0e0e/FFB800?text=Pempek+Asli+Wong+Kito+Maguwoharjo"
+              alt="Pempek Asli Wong Kito"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-wk-dark-maroon/90 via-transparent to-transparent flex items-end p-6 sm:p-8">
+              <div className="text-left">
+                <span className="text-xs font-black text-wk-gold uppercase tracking-widest block mb-1">
+                  Outlet Resmi
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black text-white">
+                  Jalan Gondangan Blok C No. 5, Maguwoharjo, Sleman
+                </h3>
+              </div>
             </div>
+          </div>
+        </div>
 
-            {/* Override warna biru Swiper → Gold */}
-            <style jsx global>{`
-                .slider-pagination .swiper-pagination-bullet {
-                    background: #C19B44;
-                    opacity: 0.35;
-                    width: 8px;
-                    height: 8px;
-                }
-                .slider-pagination .swiper-pagination-bullet-active {
-                    opacity: 1;
-                    width: 28px;
-                    border-radius: 4px;
-                }
-            `}</style>
-        </section>
-    )
+        {/* Feature Highlights Row */}
+        <div className="max-w-4xl mx-auto mt-16 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-6 text-wk-beige/80 text-xs font-bold uppercase tracking-wider">
+          <div className="flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-wk-gold" /> 100% Halal &amp;
+            Alami
+          </div>
+          <div className="flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-wk-gold" /> Tanpa Pengawet
+          </div>
+          <div className="flex items-center justify-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-wk-gold" /> Kemasan Vakum
+            Higienis
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

@@ -121,9 +121,12 @@ export default function OrdersTab({
           {orders.length === 0 ? (
             <div className="p-16 text-center">
               <ShoppingBag className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-              <p className="text-slate-600 font-bold">Belum ada pesanan aktif</p>
+              <p className="text-slate-600 font-bold">
+                Belum ada pesanan aktif
+              </p>
               <p className="text-xs text-slate-400 mt-1">
-                Klik tombol &quot;Simulasi Order Masuk&quot; di kanan atas untuk uji coba
+                Klik tombol &quot;Simulasi Order Masuk&quot; di kanan atas untuk
+                uji coba
               </p>
             </div>
           ) : (

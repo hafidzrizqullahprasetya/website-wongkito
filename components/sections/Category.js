@@ -1,57 +1,136 @@
-import Link from "next/link"
+import Link from "next/link";
+import {
+  Package,
+  Utensils,
+  Soup,
+  Gift,
+  Fish,
+  Flame,
+  Sparkles,
+  ArrowUpRight,
+} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 
 const categories = [
-    { icon: 'fal fa-box-open',       label: 'Paket Seragam',   count: 6, href: '/shop' },
-    { icon: 'fal fa-utensils',       label: 'Paket Campur',    count: 5, href: '/shop' },
-    { icon: 'fal fa-fish',           label: 'Kapal Selam',     count: 4, href: '/shop' },
-    { icon: 'fal fa-drumstick-bite', label: 'Lenjer & Adaan',  count: 8, href: '/shop' },
-    { icon: 'fal fa-drumstick-bite', label: 'Tekwan & Model',  count: 3, href: '/shop' },
-    { icon: 'fal fa-gift',           label: 'Hampers & Kado',  count: 4, href: '/shop' },
-]
+  {
+    icon: Package,
+    label: "Paket Komplit",
+    count: "6 Pilihan",
+    href: "#menu",
+    desc: "Paket hemat campur untuk makan sendiri atau ramai-ramai.",
+    span: "col-span-1 md:col-span-2",
+    accent: "from-amber-500/10 to-transparent",
+  },
+  {
+    icon: Fish,
+    label: "Kapal Selam",
+    count: "Telur Bebek Utuh",
+    href: "#menu",
+    desc: "Ikon kuliner Palembang dengan telur bebek utuh gurih.",
+    span: "col-span-1 md:col-span-1",
+    accent: "from-wk-maroon/10 to-transparent",
+  },
+  {
+    icon: Utensils,
+    label: "Lenjer & Adaan",
+    count: "Menu Klasik",
+    href: "#menu",
+    desc: "Wangi daun bawang, kenyal sempurna dan gurih alami.",
+    span: "col-span-1 md:col-span-1",
+    accent: "from-amber-500/10 to-transparent",
+  },
+  {
+    icon: Soup,
+    label: "Tekwan & Model",
+    count: "Kuah Kaldu",
+    href: "#menu",
+    desc: "Olahan sup hangat kuah udang sedap bertabur sedap malam.",
+    span: "col-span-1 md:col-span-2",
+    accent: "from-wk-maroon/10 to-transparent",
+  },
+  {
+    icon: Gift,
+    label: "Hampers & Frozen",
+    count: "Tahan Kirim",
+    href: "#menu",
+    desc: "Kemasan vakum beku higienis siap kirim ke seluruh kota.",
+    span: "col-span-1 md:col-span-1",
+    accent: "from-amber-500/10 to-transparent",
+  },
+  {
+    icon: Flame,
+    label: "Cuko Kental Asli",
+    count: "Gula Batok",
+    href: "#menu",
+    desc: "Pedas, manis, asam segar tanpa asam cuka kimia.",
+    span: "col-span-1 md:col-span-2",
+    accent: "from-wk-maroon/10 to-transparent",
+  },
+];
 
 export default function Category() {
-    return (
-        <section className="py-10 md:py-16 bg-white border-b border-gray-100">
-            <div className="container mx-auto px-4">
+  return (
+    <section className="py-24 sm:py-32 bg-white border-b border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="space-y-3">
+            <Badge
+              variant="gold"
+              className="px-3.5 py-1 text-xs uppercase tracking-widest font-black"
+            >
+              <Sparkles className="w-3.5 h-3.5 mr-1.5" /> Variasi Menu Autentik
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-wk-dark-maroon tracking-tight uppercase">
+              Kategori Pempek Pilihan
+            </h2>
+          </div>
+          <p className="text-sm text-slate-500 font-medium max-w-md">
+            Setiap kategori dibuat dengan takaran bumbu pas dan ikan tenggiri
+            murni tanpa campuran berlebih.
+          </p>
+        </div>
 
-                {/* Section Header — Proper alignment with flexbox */}
-                <div className="flex flex-col items-center md:items-start mb-10 md:mb-12">
-                    <span className="inline-block px-3 py-1 rounded-md !bg-wk-maroon text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-4">
-                        Menu Kami
+        {/* Gapless Bento Grid with dense auto-flow */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 grid-flow-dense">
+          {categories.map((cat, i) => {
+            const Icon = cat.icon;
+            return (
+              <Link
+                key={i}
+                href={cat.href}
+                className={`group block ${cat.span}`}
+              >
+                <Card
+                  className={`p-6 sm:p-8 rounded-3xl border border-slate-200/80 bg-gradient-to-br ${cat.accent} hover:border-wk-gold hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between`}
+                >
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-wk-maroon group-hover:bg-wk-maroon group-hover:text-wk-gold transition-colors duration-300">
+                      <Icon className="w-7 h-7" />
+                    </div>
+                    <span className="text-xs font-black text-wk-dark-maroon bg-wk-gold/40 border border-wk-gold/60 px-3 py-1 rounded-full uppercase tracking-wider">
+                      {cat.count}
                     </span>
-                    <h2 className="text-2xl md:text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight text-center md:text-left">
-                        Jelajahi Kategori
-                    </h2>
-                    <div className="w-16 h-1 !bg-wk-gold rounded-full mt-4" />
-                </div>
+                  </div>
 
-                {/* Category Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-5 md:gap-8">
-                    {categories.map((cat, i) => (
-                        <Link
-                            key={i}
-                            href={cat.href}
-                            className="group flex flex-col items-center text-center py-6 md:py-8 px-3 md:px-4 rounded-2xl border border-gray-100 hover:border-wk-gold/40 hover:opacity-80 transition-all duration-300"
-                        >
-                            {/* Icon wrapper */}
-                            <div className="relative w-14 h-14 md:w-16 md:h-16 mb-4 md:mb-5 flex items-center justify-center">
-                                <div className="absolute inset-0 !bg-wk-maroon/5 rounded-full group-hover:bg-wk-gold/10 transition-colors duration-300" />
-                                <i className={`${cat.icon} relative text-xl md:text-2xl !text-wk-maroon`} />
-                                {/* Item count badge */}
-                                <span className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 !bg-wk-gold !text-wk-dark-maroon text-[9px] md:text-[10px] font-black rounded-full flex items-center justify-center leading-none">
-                                    {cat.count}
-                                </span>
-                            </div>
-
-                            {/* Label */}
-                            <h5 className="text-[13px] md:text-sm font-bold !text-wk-dark-maroon leading-snug group-hover:!text-wk-maroon transition-colors duration-300">
-                                {cat.label}
-                            </h5>
-                        </Link>
-                    ))}
-                </div>
-
-            </div>
-        </section>
-    )
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="text-lg font-black text-slate-900 group-hover:text-wk-maroon transition-colors uppercase">
+                        {cat.label}
+                      </h3>
+                      <ArrowUpRight className="w-5 h-5 text-slate-300 group-hover:text-wk-maroon group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                    </div>
+                    <p className="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+                      {cat.desc}
+                    </p>
+                  </div>
+                </Card>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 }

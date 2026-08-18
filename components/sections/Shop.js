@@ -1,88 +1,78 @@
-'use client'
-import { Autoplay } from "swiper/modules"
-import { Swiper, SwiperSlide } from "swiper/react"
+"use client";
+
+import { Instagram, ArrowUpRight, Sparkles } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const photos = [
-    'https://placehold.co/600x600/f3f4f6/8B1A1A?text=Insta+Feed+1',
-    'https://placehold.co/600x600/f3f4f6/8B1A1A?text=Insta+Feed+2',
-    'https://placehold.co/600x600/f3f4f6/8B1A1A?text=Insta+Feed+3',
-    'https://placehold.co/600x600/f3f4f6/8B1A1A?text=Insta+Feed+4',
-    'https://placehold.co/600x600/f3f4f6/8B1A1A?text=Insta+Feed+5',
-    'https://placehold.co/600x600/f3f4f6/8B1A1A?text=Insta+Feed+6',
-]
-
-const swiperOptions = {
-    modules: [Autoplay],
-    slidesPerView: 2.2,
-    spaceBetween: 10,
-    loop: true,
-    autoplay: { delay: 2500, disableOnInteraction: false },
-    breakpoints: {
-        480:  { slidesPerView: 3, spaceBetween: 12 },
-        768:  { slidesPerView: 4, spaceBetween: 14 },
-        1024: { slidesPerView: 5, spaceBetween: 16 },
-        1280: { slidesPerView: 6, spaceBetween: 16 },
-    },
-}
+  "https://placehold.co/600x600/3d0e0e/FFB800?text=Goreng+Hangat+1",
+  "https://placehold.co/600x600/3d0e0e/FFB800?text=Cuko+Kental+2",
+  "https://placehold.co/600x600/3d0e0e/FFB800?text=Tekwan+Segar+3",
+  "https://placehold.co/600x600/3d0e0e/FFB800?text=Vakum+Frozen+4",
+  "https://placehold.co/600x600/3d0e0e/FFB800?text=Dine+In+5",
+  "https://placehold.co/600x600/3d0e0e/FFB800?text=Keluarga+6",
+];
 
 export default function Shop() {
-    return (
-        <section className="pb-25 md:pb-20 bg-white overflow-hidden">
-            <div className="container mx-auto px-4">
+  return (
+    <section className="py-16 md:py-24 bg-white border-t border-slate-100 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <Badge
+            variant="gold"
+            className="px-3.5 py-1 text-xs uppercase tracking-widest font-black mb-3"
+          >
+            <Sparkles className="w-3.5 h-3.5 mr-1.5" /> Cerita &amp; Suasana
+          </Badge>
+          <h2 className="text-3xl sm:text-4xl font-black text-wk-dark-maroon tracking-tight uppercase flex items-center justify-center gap-2">
+            <Instagram className="w-7 h-7 text-wk-maroon" /> @pempek.wongkito
+          </h2>
+          <p className="text-sm text-slate-500 font-medium mt-2">
+            Ikuti Instagram kami untuk update promo harian, testimoni pelanggan,
+            dan menu spesial musiman.
+          </p>
+        </div>
 
-                {/* Section Header */}
-                <div className="text-center mb-8 md:mb-12">
-                    <span className="inline-block px-3 py-1 rounded-md !bg-wk-maroon text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-3">
-                        Galeri &amp; Update
-                    </span>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-black !text-wk-dark-maroon flex items-center justify-center gap-2 sm:gap-3 uppercase tracking-tight">
-                        <i className="fab fa-instagram !text-wk-maroon text-xl sm:text-2xl" />
-                        pempek.wongkito
-                    </h2>
-                    <div className="w-14 h-1 md:w-16 md:h-1.5 !bg-wk-gold rounded-full mt-3 md:mt-4 mx-auto" />
-                </div>
+        {/* Instagram Photos Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+          {photos.map((src, i) => (
+            <a
+              key={i}
+              href="https://instagram.com/pempek.wongkito"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block aspect-square rounded-2xl overflow-hidden border border-slate-100 shadow-sm"
+            >
+              <img
+                src={src}
+                alt={`Wong Kito Instagram ${i + 1}`}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-wk-dark-maroon/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
+                <Instagram className="w-8 h-8 text-wk-gold" />
+              </div>
+            </a>
+          ))}
+        </div>
 
-            </div>
-
-            {/* Full-width Swiper outside container for edge-to-edge look */}
-            <div className="px-4 md:px-0 md:container md:mx-auto">
-                <Swiper {...swiperOptions}>
-                    {photos.map((src, i) => (
-                        <SwiperSlide key={i}>
-                            <a
-                                href="https://instagram.com/pempek.wongkito"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group relative block aspect-square rounded-xl overflow-hidden"
-                            >
-                                <img
-                                    src={src}
-                                    alt={`Wong Kito Instagram ${i + 1}`}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
-                                {/* Hover overlay */}
-                                <div className="absolute inset-0 !bg-wk-maroon/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                    <i className="fab fa-instagram !text-white text-2xl" />
-                                </div>
-                            </a>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
-
-            {/* Bottom CTA link */}
-            <div className="text-center mt-12">
-                <a
-                    href="https://instagram.com/pempek.wongkito"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-black !text-wk-maroon uppercase tracking-widest hover:opacity-70 transition-opacity"
-                >
-                    <i className="fab fa-instagram text-base" />
-                    Lihat Lebih Banyak di Instagram
-                    <i className="fal fa-arrow-right" />
-                </a>
-            </div>
-        </section>
-    )
+        {/* Bottom CTA link */}
+        <div className="text-center mt-10">
+          <Button
+            asChild
+            variant="outline"
+            className="rounded-full px-6 py-2.5 font-bold gap-2 text-xs uppercase tracking-wider text-wk-maroon border-wk-maroon/30 hover:bg-wk-maroon hover:text-white transition"
+          >
+            <a
+              href="https://instagram.com/pempek.wongkito"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Follow Instagram Kami <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
 }

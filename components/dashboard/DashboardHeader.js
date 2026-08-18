@@ -70,10 +70,16 @@ export default function DashboardHeader({
         <div className="max-w-7xl mx-auto flex items-center justify-between text-xs">
           <div className="flex items-center gap-2 text-wk-beige/90 font-medium">
             <span className="w-2 h-2 rounded-full bg-wk-gold animate-ping" />
-            <span>Pusat Kendali Terintegrasi ShopeeFood, GoFood & Dine-in Outlet Maguwoharjo</span>
+            <span>
+              Pusat Kendali Terintegrasi ShopeeFood, GoFood & Dine-in Outlet
+              Maguwoharjo
+            </span>
           </div>
           <div className="flex items-center gap-4 text-wk-beige/80">
-            <Link href="/" className="hover:text-wk-gold transition font-bold flex items-center gap-1">
+            <Link
+              href="/"
+              className="hover:text-wk-gold transition font-bold flex items-center gap-1"
+            >
               Buka Website Toko <Sparkles className="w-3 h-3 text-wk-gold" />
             </Link>
           </div>
@@ -92,7 +98,11 @@ export default function DashboardHeader({
               />
               <div className="flex flex-col justify-center">
                 <span className="text-white font-extrabold text-base sm:text-lg leading-[1.1] tracking-tighter whitespace-nowrap">
-                  Pempek <span className="font-dancing text-wk-gold italic text-xl mx-0.5">&quot;Asli&quot;</span> Wong Kito
+                  Pempek{" "}
+                  <span className="font-dancing text-wk-gold italic text-xl mx-0.5">
+                    &quot;Asli&quot;
+                  </span>{" "}
+                  Wong Kito
                 </span>
                 <span className="text-[10px] font-extrabold text-wk-gold uppercase tracking-widest mt-0.5">
                   Order Hub • Unified OS
@@ -143,7 +153,9 @@ export default function DashboardHeader({
               size="icon"
               onClick={() => setSoundOn(!soundOn)}
               className="rounded-xl bg-white/10 hover:bg-white/20 text-white border-white/20"
-              title={soundOn ? "Suara Notifikasi Aktif" : "Suara Notifikasi Senyap"}
+              title={
+                soundOn ? "Suara Notifikasi Aktif" : "Suara Notifikasi Senyap"
+              }
             >
               {soundOn ? (
                 <Volume2 className="w-5 h-5 text-wk-gold" />
@@ -196,7 +208,10 @@ export default function DashboardHeader({
                     <span className="w-2.5 h-2.5 rounded-full bg-wk-gold animate-ping" />
                   )}
                   {tab.alert && (
-                    <Badge variant="destructive" className="text-[10px] px-1.5 py-0">
+                    <Badge
+                      variant="destructive"
+                      className="text-[10px] px-1.5 py-0"
+                    >
                       Sibuk
                     </Badge>
                   )}

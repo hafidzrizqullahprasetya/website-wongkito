@@ -1,111 +1,250 @@
-'use client'
-import { useState } from "react"
-import FilterShopBox from "../shop/FilterShopBox"
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { useDispatch } from "react-redux";
+import {
+  ShoppingBasket,
+  Heart,
+  Star,
+  Sparkles,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import products from "@/data/products";
+import { addCart } from "@/features/shopSlice";
+import { addWishlist } from "@/features/wishlistSlice";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+
+const formatRupiah = (num) =>
+  new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(num || 0);
 
 const tabs = [
-    { id: 1, label: 'Semua',        start: 0,  end: 10 },
-    { id: 2, label: 'Paket Seragam', start: 10, end: 20 },
-    { id: 3, label: 'Paket Campur',  start: 20, end: 30 },
-    { id: 4, label: 'Beli Satuan',   start: 15, end: 25 },
-]
+  { id: "all", label: "Semua Menu" },
+  { id: "paket", label: "Paket Komplit" },
+  { id: "satuan", label: "Beli Satuan" },
+  { id: "kuah", label: "Tekwan & Model" },
+];
 
 export default function Product() {
-    const [activeIndex, setActiveIndex] = useState(1)
-    const [currentPage, setCurrentPage] = useState(1)
-    const pageSize = 8 // items per page
+  const [activeTab, setActiveTab] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 8;
+  const dispatch = useDispatch();
 
-    const handleTabChange = (id) => {
-        setActiveIndex(id)
-        setCurrentPage(1) // Reset to first page when changing categories
-    }
+  const addToCart = (item) => {
+    dispatch(addCart({ product: item }));
+  };
 
-    const currentTab = tabs.find(t => t.id === activeIndex)
-    const totalItems = currentTab.end - currentTab.start
-    const totalPages = Math.ceil(totalItems / pageSize)
+  const addToWishlist = (item) => {
+    dispatch(addWishlist({ product: item }));
+  };
 
-    const paginatedStart = currentTab.start + (currentPage - 1) * pageSize
-    const paginatedEnd = Math.min(currentTab.start + currentPage * pageSize, currentTab.end)
+  // Filter produk berdasarkan tab kategori
+  const filteredProducts = products.filter((item) => {
+    if (activeTab === "all") return true;
+    const titleLower = (item.title || "").toLowerCase();
+    if (activeTab === "paket") return titleLower.includes("paket");
+    if (activeTab === "satuan")
+      return (
+        !titleLower.includes("paket") &&
+        !titleLower.includes("tekwan") &&
+        !titleLower.includes("model")
+      );
+    if (activeTab === "kuah")
+      return titleLower.includes("tekwan") || titleLower.includes("model");
+    return true;
+  });
 
-    return (
-        <section className="py-10 md:py-16 bg-white overflow-hidden">
-            <div className="container mx-auto px-4">
+  const totalPages = Math.ceil(filteredProducts.length / pageSize);
+  const currentItems = filteredProducts.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize,
+  );
 
-                {/* Header row */}
-                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10 md:mb-14">
-                    {/* Section Title — Proper alignment with flexbox */}
-                    <div className="flex flex-col items-center md:items-start">
-                        <span className="inline-block px-3 py-1 rounded-md !bg-wk-maroon text-[10px] font-black !text-wk-gold uppercase tracking-[0.3em] mb-4">
-                            Pilihan Terbaik
-                        </span>
-                        <h2 className="text-2xl md:text-3xl font-black !text-wk-dark-maroon uppercase tracking-tight text-center md:text-left">
-                            Menu Populer
-                        </h2>
-                        <div className="w-16 h-1 !bg-wk-gold rounded-full mt-4" />
-                    </div>
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    setCurrentPage(1);
+  };
 
-                    {/* Tab Filter — 2 Column Grid on Mobile, Flex on Desktop */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex items-center gap-2 lg:gap-3 w-full lg:w-auto">
-                        {tabs.map((tab) => (
-                            <button
-                                key={tab.id}
-                                onClick={() => handleTabChange(tab.id)}
-                                className={`px-4 py-2.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider transition-all border text-center
-                                    ${activeIndex === tab.id
-                                        ? '!bg-wk-maroon !text-white border-wk-maroon'
-                                        : '!bg-transparent !text-wk-dark-maroon border-gray-200 hover:border-wk-gold/50'
-                                    }`}
-                            >
-                                {tab.label}
-                            </button>
-                        ))}
-                    </div>
+  return (
+    <section className="py-16 md:py-24 bg-[#FDFBF7] overflow-hidden" id="menu">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Row: Title & Tabs */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+          <div className="space-y-3 text-center lg:text-left">
+            <Badge
+              variant="gold"
+              className="px-3.5 py-1 text-xs uppercase tracking-widest font-black"
+            >
+              <Sparkles className="w-3.5 h-3.5 mr-1.5" /> Pilihan Autentik
+              Palembang
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-wk-dark-maroon tracking-tight uppercase">
+              Menu Terpopuler
+            </h2>
+            <p className="text-sm text-slate-500 font-medium max-w-xl">
+              Dibuat dari 100% ikan tenggiri segar pilihan dengan resep warisan
+              asli Palembang dan cuko kental khas Wong Kito.
+            </p>
+          </div>
+
+          {/* Tab Filter Category */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-end gap-2">
+            {tabs.map((tab) => {
+              const isActive = activeTab === tab.id;
+              return (
+                <Button
+                  key={tab.id}
+                  variant={isActive ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => handleTabChange(tab.id)}
+                  className={`rounded-full px-5 py-2 text-xs uppercase tracking-wider font-extrabold transition-all ${
+                    isActive
+                      ? "bg-wk-maroon text-white shadow-md"
+                      : "bg-white text-wk-dark-maroon border-slate-200 hover:border-wk-gold/60"
+                  }`}
+                >
+                  {tab.label}
+                </Button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Product Grid — Proper Balanced Responsive CSS Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+          {currentItems.map((item) => (
+            <Card
+              key={item.id}
+              className="group overflow-hidden rounded-3xl border-slate-200/80 hover:border-wk-gold/50 hover:shadow-xl transition-all duration-300 flex flex-col bg-white"
+            >
+              {/* Product Thumbnail Container */}
+              <div className="relative aspect-square overflow-hidden bg-slate-50 border-b border-slate-100 flex-shrink-0">
+                <img
+                  src={`https://placehold.co/600x600/3d0e0e/FFB800?text=${item.title ? item.title.replace(/ /g, "+") : "Pempek"}`}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+
+                {/* Floating Quick Action Buttons */}
+                <div className="absolute top-3 right-3 flex flex-col gap-2 z-20">
+                  <Button
+                    size="icon"
+                    variant="default"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      addToCart(item);
+                    }}
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full shadow-lg bg-wk-maroon hover:bg-wk-dark-maroon text-white"
+                    title="Tambah ke Keranjang"
+                  >
+                    <ShoppingBasket className="w-4 h-4" />
+                  </Button>
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      addToWishlist(item);
+                    }}
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full shadow-md bg-white hover:bg-slate-50 text-wk-maroon border-slate-200"
+                    title="Favoritkan"
+                  >
+                    <Heart className="w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
+
+              {/* Product Info */}
+              <CardContent className="p-4 sm:p-5 flex flex-col flex-1 justify-between gap-3">
+                <div>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
+                    {item.category?.[0]?.type || "Pempek Asli"}
+                  </span>
+                  <h3 className="font-bold text-slate-900 text-sm sm:text-base leading-snug line-clamp-2 group-hover:text-wk-maroon transition-colors">
+                    <Link href={`/shop/${item.id}`}>{item.title}</Link>
+                  </h3>
                 </div>
 
-                {/* Tab Content — Paginated Grid */}
-                <div className="relative min-h-[400px]">
-                    <div key={activeIndex + '-' + currentPage} className="animate-fadeIn">
-                        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">
-                            <FilterShopBox itemStart={paginatedStart} itemEnd={paginatedEnd} />
-                        </div>
-                    </div>
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-base sm:text-lg font-black text-wk-maroon font-mono">
+                    {formatRupiah(item.price?.max || item.price?.min || 15000)}
+                  </span>
+                  <div className="flex items-center gap-1 text-wk-gold text-xs font-bold">
+                    <Star className="w-3.5 h-3.5 fill-wk-gold text-wk-gold" />
+                    <span className="text-slate-700 text-xs">4.9</span>
+                  </div>
                 </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
-                {/* Pagination Controls — Balanced responsive spacing */}
-                {totalPages > 1 && (
-                    <div className="flex items-center justify-center gap-3 mt-20 md:mt-16">
-                        <button
-                            disabled={currentPage === 1}
-                            onClick={() => setCurrentPage(prev => prev - 1)}
-                            className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-wk-dark-maroon hover:bg-wk-maroon hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-wk-dark-maroon transition-all shadow-sm"
-                        >
-                            <i className="fal fa-arrow-left" />
-                        </button>
+        {/* Empty State */}
+        {currentItems.length === 0 && (
+          <div className="text-center py-20 bg-white rounded-3xl border-2 border-dashed border-slate-200">
+            <p className="font-bold text-slate-700 text-base">
+              Menu tidak ditemukan untuk kategori ini
+            </p>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setActiveTab("all")}
+              className="mt-3"
+            >
+              Lihat Semua Menu
+            </Button>
+          </div>
+        )}
 
-                        {[...Array(totalPages)].map((_, i) => (
-                            <button
-                                key={i}
-                                onClick={() => setCurrentPage(i + 1)}
-                                className={`w-10 h-10 rounded-full border text-xs font-bold transition-all shadow-sm
-                                    ${currentPage === i + 1
-                                        ? '!bg-wk-maroon !text-white border-wk-maroon'
-                                        : 'bg-white border-gray-100 text-wk-dark-maroon hover:border-wk-maroon/30 hover:text-wk-maroon'
-                                    }`}
-                            >
-                                {i + 1}
-                            </button>
-                        ))}
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-2 mt-12">
+            <Button
+              variant="outline"
+              size="icon"
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+              className="rounded-full w-10 h-10 border-slate-200"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </Button>
 
-                        <button
-                            disabled={currentPage === totalPages}
-                            onClick={() => setCurrentPage(prev => prev + 1)}
-                            className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-wk-dark-maroon hover:bg-wk-maroon hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-wk-dark-maroon transition-all shadow-sm"
-                        >
-                            <i className="fal fa-arrow-right" />
-                        </button>
-                    </div>
-                )}
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <Button
+                key={page}
+                variant={currentPage === page ? "default" : "outline"}
+                size="icon"
+                onClick={() => setCurrentPage(page)}
+                className={`rounded-full w-10 h-10 text-xs font-bold ${
+                  currentPage === page
+                    ? "bg-wk-maroon text-white shadow-sm"
+                    : "border-slate-200"
+                }`}
+              >
+                {page}
+              </Button>
+            ))}
 
-            </div>
-        </section>
-    )
+            <Button
+              variant="outline"
+              size="icon"
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+              className="rounded-full w-10 h-10 border-slate-200"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </Button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
 }
