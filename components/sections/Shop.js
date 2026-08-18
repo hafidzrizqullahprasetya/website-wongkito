@@ -1,6 +1,6 @@
 "use client";
 
-import { Instagram, ArrowUpRight, Sparkles } from "lucide-react";
+import { Camera, ArrowUpRight, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -15,20 +15,20 @@ const photos = [
 
 export default function Shop() {
   return (
-    <section className="py-16 md:py-24 bg-white border-t border-slate-100 overflow-hidden">
+    <section className="py-16 sm:py-20 bg-[#FDFBF7] border-t border-slate-200/70 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-10">
           <Badge
             variant="gold"
-            className="px-3.5 py-1 text-xs uppercase tracking-widest font-black mb-3"
+            className="px-3.5 py-1 text-xs uppercase tracking-widest font-black mb-2.5"
           >
             <Sparkles className="w-3.5 h-3.5 mr-1.5" /> Cerita &amp; Suasana
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-black text-wk-dark-maroon tracking-tight uppercase flex items-center justify-center gap-2">
-            <Instagram className="w-7 h-7 text-wk-maroon" /> @pempek.wongkito
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-wk-dark-maroon tracking-tight uppercase flex items-center justify-center gap-2">
+            <Camera className="w-6 h-6 text-wk-maroon" /> @pempek.wongkito
           </h2>
-          <p className="text-sm text-slate-500 font-medium mt-2">
+          <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1.5">
             Ikuti Instagram kami untuk update promo harian, testimoni pelanggan,
             dan menu spesial musiman.
           </p>
@@ -42,33 +42,33 @@ export default function Shop() {
               href="https://instagram.com/pempek.wongkito"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block aspect-square rounded-2xl overflow-hidden border border-slate-100 shadow-sm"
+              className="group relative block aspect-square rounded-2xl overflow-hidden border border-slate-200/80 bg-white shadow-sm"
             >
               <img
                 src={src}
                 alt={`Wong Kito Instagram ${i + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-wk-dark-maroon/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
-                <Instagram className="w-8 h-8 text-wk-gold" />
+              <div className="absolute inset-0 bg-wk-dark-maroon/70 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center text-white">
+                <Camera className="w-7 h-7 text-wk-gold" />
               </div>
             </a>
           ))}
         </div>
 
         {/* Bottom CTA link */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-8">
           <Button
             asChild
             variant="outline"
-            className="rounded-full px-6 py-2.5 font-bold gap-2 text-xs uppercase tracking-wider text-wk-maroon border-wk-maroon/30 hover:bg-wk-maroon hover:text-white transition"
+            className="rounded-xl px-5 py-2 font-bold gap-2 text-xs uppercase tracking-wider text-wk-maroon border-slate-200 bg-white hover:bg-wk-maroon hover:text-white transition shadow-sm"
           >
             <a
               href="https://instagram.com/pempek.wongkito"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Follow Instagram Kami <ArrowUpRight className="w-4 h-4" />
+              Follow Instagram Kami <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </Button>
         </div>

@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "title": "Paket Sikok — 5 Biji Mix",
+        "title": "Paket Sikok - 5 Biji Mix",
         "imgf": "product-1.jpg",
         "imgb": "product-2.jpg",
         "category": [
@@ -26,7 +26,7 @@
     },
     {
         "id": 2,
-        "title": "Paket Duo — 10 Biji Mix",
+        "title": "Paket Duo - 10 Biji Mix",
         "imgf": "product-3.jpg",
         "imgb": "product-4.jpg",
         "category": [
@@ -51,7 +51,7 @@
     },
     {
         "id": 3,
-        "title": "Paket Tigo — 15 Biji Mix",
+        "title": "Paket Tigo - 15 Biji Mix",
         "imgf": "product-5.jpg",
         "imgb": "product-6.jpg",
         "category": [
@@ -76,7 +76,7 @@
     },
     {
         "id": 4,
-        "title": "Paket Ampera — 20 Biji Mix",
+        "title": "Paket Ampera - 20 Biji Mix",
         "imgf": "product-7.jpg",
         "imgb": "product-8.jpg",
         "category": [
@@ -101,7 +101,7 @@
     },
     {
         "id": 5,
-        "title": "Paket Musi — 30 Biji Mix",
+        "title": "Paket Musi - 30 Biji Mix",
         "imgf": "product-9.jpg",
         "imgb": "product-10.jpg",
         "category": [
@@ -126,7 +126,7 @@
     },
     {
         "id": 6,
-        "title": "Paket Garuda — 50 Biji Mix",
+        "title": "Paket Garuda - 50 Biji Mix",
         "imgf": "product-11.jpg",
         "imgb": "product-12.jpg",
         "category": [
@@ -251,7 +251,7 @@
     },
     {
         "id": 11,
-        "title": "Paket Seragam Kapal Selam — 5 biji",
+        "title": "Paket Seragam Kapal Selam - 5 biji",
         "imgf": "product-21.jpg",
         "imgb": "product-22.jpg",
         "category": [
@@ -276,7 +276,7 @@
     },
     {
         "id": 12,
-        "title": "Paket Seragam Lenjer — 10 biji",
+        "title": "Paket Seragam Lenjer - 10 biji",
         "imgf": "product-23.jpg",
         "imgb": "product-24.jpg",
         "category": [
@@ -301,7 +301,7 @@
     },
     {
         "id": 13,
-        "title": "Paket Seragam Adaan — 10 biji",
+        "title": "Paket Seragam Adaan - 10 biji",
         "imgf": "product-25.jpg",
         "imgb": "product-26.jpg",
         "category": [
@@ -426,7 +426,7 @@
     },
     {
         "id": 18,
-        "title": "Paket Campur Duo — Keluarga 2 Orang",
+        "title": "Paket Campur Duo - Keluarga 2 Orang",
         "imgf": "product-35.jpg",
         "imgb": "product-36.jpg",
         "category": [
@@ -451,7 +451,7 @@
     },
     {
         "id": 19,
-        "title": "Paket Campur Tigo — Keluarga 3-4 Orang",
+        "title": "Paket Campur Tigo - Keluarga 3-4 Orang",
         "imgf": "product-37.jpg",
         "imgb": "product-38.jpg",
         "category": [
@@ -526,7 +526,7 @@
     },
     {
         "id": 22,
-        "title": "Paket Campur Ampera — Kantor & Arisan",
+        "title": "Paket Campur Ampera - Kantor & Arisan",
         "imgf": "product-43.jpg",
         "imgb": "product-44.jpg",
         "category": [
@@ -601,7 +601,7 @@
     },
     {
         "id": 25,
-        "title": "Paket Sikok Kapal Selam — 5 biji",
+        "title": "Paket Sikok Kapal Selam - 5 biji",
         "imgf": "product-49.jpg",
         "imgb": "product-50.jpg",
         "category": [
@@ -626,7 +626,7 @@
     },
     {
         "id": 26,
-        "title": "Paket Musi Premium — 30 Biji + Tekwan",
+        "title": "Paket Musi Premium - 30 Biji + Tekwan",
         "imgf": "product-51.jpg",
         "imgb": "product-52.jpg",
         "category": [
@@ -651,7 +651,7 @@
     },
     {
         "id": 27,
-        "title": "Paket Garuda Party — 100 Biji Mix",
+        "title": "Paket Garuda Party - 100 Biji Mix",
         "imgf": "product-53.jpg",
         "imgb": "product-54.jpg",
         "category": [
@@ -726,7 +726,7 @@
     },
     {
         "id": 30,
-        "title": "Paket Campur Musi — 5-6 Orang",
+        "title": "Paket Campur Musi - 5-6 Orang",
         "imgf": "product-59.jpg",
         "imgb": "product-60.jpg",
         "category": [
